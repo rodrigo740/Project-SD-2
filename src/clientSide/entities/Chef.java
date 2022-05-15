@@ -1,7 +1,8 @@
 package clientSide.entities;
 
-import clientSide.stubs.*;
- 
+import clientSide.stubs.BarStub;
+import clientSide.stubs.KitchenStub;
+
 /**
  * Chef thread.
  *
@@ -19,11 +20,11 @@ public class Chef extends Thread {
 	/**
 	 * Reference to the Bar
 	 */
-	private final Bar bar;
+	private final BarStub barStub;
 	/**
 	 * Reference to the Kitchen
 	 */
-	private final Kitchen kit;
+	private final KitchenStub kitStub;
 
 	/**
 	 * Instantiation of a Chef Thread
@@ -34,12 +35,12 @@ public class Chef extends Thread {
 	 * @param bar       reference of the Bar
 	 * @param kit       reference of the Kitchen
 	 */
-	public Chef(String name, int chefID, int chefState, Bar bar, Kitchen kit) {
+	public Chef(String name, int chefID, int chefState, BarStub barStub, KitchenStub kitStub) {
 		super(name);
 		this.chefID = chefID;
 		this.chefState = ChefStates.WAFOR;
-		this.bar = bar;
-		this.kit = kit;
+		this.barStub = barStub;
+		this.kitStub = kitStub;
 	}
 
 	/**
@@ -86,31 +87,31 @@ public class Chef extends Thread {
 	public void run() {
 		boolean firstCourse = true;
 		// Transition to 'WAFOR'
-		kit.watchTheNews();
+		kitStub.watchTheNews();
 		// Transition to 'PRPCS'
-		kit.startPreparations();
+		kitStub.startPreparations();
 		do {
 			if (!firstCourse) {
 				// Transition to 'PRPCS'
-				kit.continuePreparation();
+				kitStub.continuePreparation();
 			} else {
 				firstCourse = false;
 			}
 			// Transition to 'DSHPT'
-			kit.proceedToPresentation();
-			bar.alertWaiter();
+			kitStub.proceedToPresentation();
+			barStub.alertWaiter();
 			// Transition to 'DLVPT'
-			kit.deliverPortion();
-			while (!kit.allPortionsDelived()) {
+			kitStub.deliverPortion();
+			while (!kitStub.allPortionsDelived()) {
 				// Transition to 'DSHPT'
-				kit.haveNextPortionReady();
-				kit.alertWaiter();
+				kitStub.haveNextPortionReady();
+				kitStub.alertWaiter();
 				// Transition to 'DLVPT'
-				kit.deliverPortion();
+				kitStub.deliverPortion();
 			}
-		} while (!kit.orderBeenCompleted());
+		} while (!kitStub.orderBeenCompleted());
 		// Transition to 'CLSSV'
-		kit.cleanUp();
+		kitStub.cleanUp();
 	}
 
 }
