@@ -1,5 +1,8 @@
 package serverSide.sharedRegions;
 
+import clientSide.entities.ChefStates;
+import clientSide.entities.StudentStates;
+import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
@@ -52,34 +55,21 @@ public class GeneralReposInterface {
 		case MessageType.SETNFIC:
 			if (inMessage.getLogFName() == null)
 				throw new MessageException("Name of the logging file is not present!", inMessage);
-			else if (inMessage.getNIter() <= 0)
-				throw new MessageException("Wrong number of iterations!", inMessage);
 			break;
-		case MessageType.STBST:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() != BarberStates.SLEEPING)
-					&& (inMessage.getBarbState() != BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
+		case MessageType.STSST: // estudante
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.M))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() != StudentStates.GGTRT)
+					&& (inMessage.getStudentState() != StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
 			break;
-		case MessageType.STCST:
-			if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
-			else if ((inMessage.getCustState() < CustomerStates.DAYBYDAYLIFE)
-					|| (inMessage.getCustState() > CustomerStates.CUTTHEHAIR))
-				throw new MessageException("Invalid customer state!", inMessage);
+		case MessageType.STWST: // waiter
+			if ((inMessage.getWaiterState() != WaiterStates.APPST))
+				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
-		case MessageType.STBCST:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() != BarberStates.SLEEPING)
-					&& (inMessage.getBarbState() != BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
-			if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
-			else if ((inMessage.getCustState() < CustomerStates.DAYBYDAYLIFE)
-					|| (inMessage.getCustState() > CustomerStates.CUTTHEHAIR))
-				throw new MessageException("Invalid customer state!", inMessage);
+		case MessageType.STCST: // chef
+			if ((inMessage.getChefState() < ChefStates.WAFOR) && (inMessage.getChefState() > ChefStates.CLSSV))
+				throw new MessageException("Invalid chef state!", inMessage);
 			break;
 		case MessageType.SHUT: // check nothing
 			break;
@@ -93,20 +83,19 @@ public class GeneralReposInterface {
 
 		{
 		case MessageType.SETNFIC:
-			repos.initSimul(inMessage.getLogFName(), inMessage.getNIter());
+			repos.initSimul(inMessage.getLogFName());
 			outMessage = new Message(MessageType.NFICDONE);
 			break;
-		case MessageType.STBST:
-			repos.setBarberState(inMessage.getBarbId(), inMessage.getBarbState());
+		case MessageType.STSST:
+			repos.setStudentState(inMessage.getStudentId(), inMessage.getStudentState());
+			outMessage = new Message(MessageType.SACK);
+			break;
+		case MessageType.STWST:
+			repos.setWaiterState(inMessage.getWaiterState());
 			outMessage = new Message(MessageType.SACK);
 			break;
 		case MessageType.STCST:
-			repos.setCustomerState(inMessage.getCustId(), inMessage.getCustState());
-			outMessage = new Message(MessageType.SACK);
-			break;
-		case MessageType.STBCST:
-			repos.setBarberCustomerState(inMessage.getBarbId(), inMessage.getBarbState(), inMessage.getCustId(),
-					inMessage.getCustState());
+			repos.setChefState(inMessage.getChefState());
 			outMessage = new Message(MessageType.SACK);
 			break;
 		case MessageType.SHUT:

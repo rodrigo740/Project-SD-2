@@ -1,5 +1,5 @@
 package serverSide.sharedRegions;
 
-public interface BarInterface {
+public class BarInterface {
 
 }

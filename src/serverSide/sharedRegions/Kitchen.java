@@ -5,6 +5,7 @@ import clientSide.entities.ChefStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
+import serverSide.main.ServerKitchen;
 import serverSide.main.SimulPar;
 
 public class Kitchen {
@@ -46,6 +47,11 @@ public class Kitchen {
 	 * number of the delivered portions
 	 */
 	private int deliveredPortions;
+	/**
+	 * Number of entity groups requesting the shutdown.
+	 */
+
+	private int nEntities;
 
 	/**
 	 * Kitchen instantiation
@@ -54,6 +60,7 @@ public class Kitchen {
 	 */
 	public Kitchen(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
+		nEntities = 0;
 	}
 
 	/**
@@ -283,6 +290,37 @@ public class Kitchen {
 		// set portionReady flag and waking up the waiter
 		setPortionReady(true);
 		notifyAll();
+	}
+
+	/**
+	 * Operation end of work.
+	 *
+	 * New operation.
+	 *
+	 * @param barbId barber id
+	 */
+
+	public synchronized void endOperation() {
+		while (nEntities == 0) { /* the barber waits for the termination of the customers */
+			try {
+				wait();
+			} catch (InterruptedException e) {
+			}
+		}
+
+	}
+
+	/**
+	 * Operation server shutdown.
+	 *
+	 * New operation.
+	 */
+
+	public synchronized void shutdown() {
+		nEntities += 1;
+		if (nEntities >= SimulPar.E)
+			ServerKitchen.waitConnection = false;
+		notifyAll(); // the barber may now terminate
 	}
 
 }

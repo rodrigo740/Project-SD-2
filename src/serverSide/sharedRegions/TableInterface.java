@@ -1,5 +1,5 @@
 package serverSide.sharedRegions;
 
-public interface TableInterface {
+public class TableInterface {
 
 }
