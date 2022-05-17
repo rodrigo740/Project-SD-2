@@ -1,6 +1,8 @@
 package clientSide.entities;
 
-import clientSide.stubs.*;
+import clientSide.stubs.BarStub;
+import clientSide.stubs.KitchenStub;
+import clientSide.stubs.TableStub;
 
 /**
  * Waiter thread.
@@ -26,19 +28,19 @@ public class Waiter extends Thread {
 	 * Reference to the Bar.
 	 */
 
-	private final Bar bar;
+	private final BarStub barStub;
 
 	/**
 	 * Reference to the Kitchen.
 	 */
 
-	private final Kitchen kit;
+	private final KitchenStub kitStub;
 
 	/**
 	 * Reference to the Table.
 	 */
 
-	private final Table tbl;
+	private final TableStub tblStub;
 
 	/**
 	 * Instantiation of a Waiter thread.
@@ -50,13 +52,13 @@ public class Waiter extends Thread {
 	 * @param kit         reference to the kitchen
 	 * @param tbl         reference to the table
 	 */
-	public Waiter(String name, int waiterID, int waiterState, Bar bar, Kitchen kit, Table tbl) {
+	public Waiter(String name, int waiterID, int waiterState, BarStub barStub, KitchenStub kitStub, TableStub tblStub) {
 		super(name);
 		this.waiterID = waiterID;
 		this.waiterState = WaiterStates.APPST;
-		this.bar = bar;
-		this.kit = kit;
-		this.tbl = tbl;
+		this.barStub = barStub;
+		this.kitStub = kitStub;
+		this.tblStub = tblStub;
 	}
 
 	/**
@@ -106,44 +108,44 @@ public class Waiter extends Thread {
 		boolean end = false;
 		while (!end) {
 			// Transition to 'APPST'
-			oper = bar.lookAround();
+			oper = barStub.lookAround();
 			switch (oper) {
 			case 'c':
 				// Transition to 'PRSMN'
-				tbl.saluteTheClient();
+				tblStub.saluteTheClient();
 				// Transition to 'APPST'
-				bar.returnToTheBarAfterSalute();
+				barStub.returnToTheBarAfterSalute();
 				break;
 			case 'o':
 				// Transition to 'TKODR'
-				tbl.getThePad();
+				tblStub.getThePad();
 				// Transition to 'PCODR'
-				kit.handTheNoteToTheChef();
+				kitStub.handTheNoteToTheChef();
 				// Transition to 'APPST'
-				bar.returnToTheBarAfterTakingTheOrder();
+				barStub.returnToTheBarAfterTakingTheOrder();
 				break;
 			case 'p':
-				while (!tbl.haveAllPortionsBeenServed()) {
+				while (!tblStub.haveAllPortionsBeenServed()) {
 					// Transition to 'WTFPT'
-					kit.collectPortion();
-					tbl.deliverPortion();
+					kitStub.collectPortion();
+					tblStub.deliverPortion();
 				}
 				// Transition to 'APPST'
-				bar.returnToTheBarAfterPortionsDelivered();
+				barStub.returnToTheBarAfterPortionsDelivered();
 				break;
 			case 'b':
 				// Transition to 'PRCBL'
-				bar.prepareBill();
+				barStub.prepareBill();
 				// Transition to 'RECPM'
-				tbl.presentBill();
-				bar.receivedPayment();
+				tblStub.presentBill();
+				barStub.receivedPayment();
 				// Transition to 'APPST'
-				bar.returnToTheBar();
+				barStub.returnToTheBar();
 				break;
 			case 'g':
-				bar.sayGoodbye();
+				barStub.sayGoodbye();
 				// Transition to 'APPST'
-				bar.returnToTheBar();
+				barStub.returnToTheBar();
 				break;
 			case 'e':
 				end = true;

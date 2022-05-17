@@ -178,4 +178,84 @@ public class MessageType {
 	 */
 
 	public static final int APORTDELIVEDDONE = 32;
+
+	/**
+	 * Request alert waiter (service request).
+	 */
+	public static final int REQALWAITER = 33;
+
+	/**
+	 * Alert waiter done (reply).
+	 */
+	public static final int ALWAITERDONE = 34;
+
+	/**
+	 * Request hand the note to the chef (service request).
+	 */
+	public static final int REQNOTECHEF = 35;
+
+	/**
+	 * Hand the note to the chef done (reply).
+	 */
+	public static final int NOTECHEFDONE = 36;
+
+	/**
+	 * Request collect portion (service request).
+	 */
+	public static final int REQCOLLECTPORTION = 37;
+
+	/**
+	 * Collect portion done (reply).
+	 */
+	public static final int COLLECTPORTIONDONE = 38;
+
+	/**
+	 * Request return to the bar after salute (service request).
+	 */
+	public static final int REQRETURNBARSALUTE = 39;
+
+	/**
+	 * Return to the bar after salute done (reply).
+	 */
+	public static final int RETURNBARSALUTEDONE = 40;
+
+	/**
+	 * Request return to the bar after taking the order (service request).
+	 */
+	public static final int REQRETURNBARTAKINGORDER = 41;
+
+	/**
+	 * Return to the bar after taking the order done (reply).
+	 */
+	public static final int RETURNBARTAKINGORDERDONE = 42;
+
+	/**
+	 * Request return to the bar after portions delivered (service request).
+	 */
+	public static final int REQRETURNBARPORTIONSDELIVERED = 43;
+
+	/**
+	 * Return to the bar after portions delivered done (reply).
+	 */
+	public static final int RETURNBARPORTIONSDELIVEREDDONE = 44;
+
+	/**
+	 * Request prepare bill (service request).
+	 */
+	public static final int REQPREPAREBILL = 45;
+
+	/**
+	 * Prepare bill done (reply).
+	 */
+	public static final int PREPAREBILLDONE = 46;
+
+	/**
+	 * Request received payment (service request).
+	 */
+	public static final int REQRECEIVEDPAYMENT = 47;
+
+	/**
+	 * Received payment done (reply).
+	 */
+	public static final int RECEIVEDPAYMENTDONE = 48;
 }

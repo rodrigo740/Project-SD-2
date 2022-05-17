@@ -2,6 +2,8 @@ package clientSide.stubs;
 
 import clientSide.entities.Chef;
 import clientSide.entities.ChefStates;
+import clientSide.entities.Waiter;
+import clientSide.entities.WaiterStates;
 import commInfra.ClientCom;
 import commInfra.Message;
 import commInfra.MessageType;
@@ -56,11 +58,6 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.WAFOR)) {
-			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
-			GenericIO.writelnString(inMessage.toString());
-			System.exit(1);
-		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -86,7 +83,8 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.DLVPT) || (inMessage.getChefState() < ChefStates.PRPCS)) {
+		if ((inMessage.getChefState() < ChefStates.CLSSV) || (inMessage.getChefState() < ChefStates.DSHPT)
+				|| (inMessage.getChefState() < ChefStates.DLVPT)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -116,7 +114,8 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.PRPCS) || (inMessage.getChefState() < ChefStates.DLVPT)) {
+		if ((inMessage.getChefState() < ChefStates.DSHPT) || (inMessage.getChefState() < ChefStates.CLSSV)
+				|| (inMessage.getChefState() < ChefStates.WAFOR)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -146,7 +145,7 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.PRPCS) || (inMessage.getChefState() < ChefStates.DLVPT)) {
+		if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() < ChefStates.CLSSV)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -176,7 +175,8 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.DSHPT)) {
+		if ((inMessage.getChefState() < ChefStates.PRPCS) || (inMessage.getChefState() < ChefStates.WAFOR)
+				|| (inMessage.getChefState() < ChefStates.CLSSV)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -231,7 +231,8 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.PRPCS) || (inMessage.getChefState() < ChefStates.DLVPT)) {
+		if ((inMessage.getChefState() < ChefStates.PRPCS) || (inMessage.getChefState() < ChefStates.WAFOR)
+				|| (inMessage.getChefState() < ChefStates.CLSSV)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -286,7 +287,7 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.DSHPT)) {
+		if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() < ChefStates.CLSSV)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -316,13 +317,78 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < ChefStates.DLVPT)) {
+		if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() < ChefStates.DSHPT)
+				|| (inMessage.getChefState() < ChefStates.PRPCS)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
+	}
+
+	public void handTheNoteToTheChef() {
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQNOTECHEF, ((Chef) Thread.currentThread()).getChefState());
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if ((inMessage.getMsgType() != MessageType.NOTECHEFDONE)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if ((inMessage.getChefState() < WaiterStates.APPST) || (inMessage.getChefState() < WaiterStates.PRSMN)
+				|| (inMessage.getChefState() < WaiterStates.WTFPT) || (inMessage.getChefState() < WaiterStates.PRCBL)
+				|| (inMessage.getChefState() < WaiterStates.RECPM)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+	}
+
+	public void collectPortion() {
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQCOLLECTPORTION, ((Chef) Thread.currentThread()).getChefState());
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if ((inMessage.getMsgType() != MessageType.COLLECTPORTIONDONE)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if ((inMessage.getChefState() < WaiterStates.RECPM) || (inMessage.getChefState() < WaiterStates.PRSMN)
+				|| (inMessage.getChefState() < WaiterStates.TKODR) || (inMessage.getChefState() < WaiterStates.PCODR)
+				|| (inMessage.getChefState() < WaiterStates.PRCBL)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
 	/**
