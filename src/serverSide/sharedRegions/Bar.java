@@ -5,6 +5,8 @@ import clientSide.entities.StudentStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
+import serverSide.entities.BarClientProxy;
+import serverSide.main.ServerBar;
 import serverSide.main.SimulPar;
 
 /**
@@ -23,7 +25,17 @@ public class Bar {
 	 * Reference to the General Information Repository.
 	 */
 	private final GeneralReposStub reposStub;
+	/**
+	 * Number of entity groups requesting the shutdown.
+	 */
 
+	private int nEntities;
+
+	/**
+	 * Reference to student threads.
+	 */
+
+	private final BarClientProxy[] student;
 	/**
 	 * Char that represents the next operation of the waiter
 	 */
@@ -100,6 +112,10 @@ public class Bar {
 	 */
 	public Bar(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
+		student = new BarClientProxy[SimulPar.S];
+		for (int i = 0; i < SimulPar.S; i++)
+			student[i] = null;
+
 	}
 
 	/**
@@ -498,6 +514,38 @@ public class Bar {
 		// set paymentReceived flag and reseting readyToPay flag
 		paymentReceived = true;
 		readyToPay = false;
+	}
+
+	/**
+	 * Operation end of work.
+	 *
+	 * New operation.
+	 *
+	 * @param barbId student id
+	 */
+
+	public synchronized void endOperation(int studentId) {
+		while (nEntities == 0) { /* the waiter waits for the termination of the students */
+			try {
+				wait();
+			} catch (InterruptedException e) {
+			}
+		}
+		if (student[studentId] != null)
+			student[studentId].interrupt();
+	}
+
+	/**
+	 * Operation server shutdown.
+	 *
+	 * New operation.
+	 */
+
+	public synchronized void shutdown() {
+		nEntities += 1;
+		if (nEntities >= SimulPar.E)
+			ServerBar.waitConnection = false;
+		notifyAll(); // the barber may now terminate
 	}
 
 }

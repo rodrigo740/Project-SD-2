@@ -1,6 +1,7 @@
 package clientSide.stubs;
 
 import clientSide.entities.Chef;
+import clientSide.entities.ChefStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import commInfra.ClientCom;
@@ -32,8 +33,30 @@ public class BarStub {
 		this.serverPortNumb = serverPortNumb;
 	}
 
-	public char lookAround() {
+	public char lookAround() { //// ver esta funcao----------------------------
 		return 'a';
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQAPORTDELIVED);
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if (inMessage.getMsgType() != MessageType.APORTDELIVEDDONE) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		return inMessage.getEndOp();
 	}
 
 	public void returnToTheBarAfterSalute() {
@@ -49,7 +72,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRETURNBARSALUTE, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQRETURNBARSALUTE, ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARSALUTEDONE)) {
@@ -57,9 +80,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < WaiterStates.TKODR) || (inMessage.getChefState() < WaiterStates.PCODR)
-				|| (inMessage.getChefState() < WaiterStates.WTFPT) || (inMessage.getChefState() < WaiterStates.PRCBL)
-				|| (inMessage.getChefState() < WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.TKODR) || (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.WTFPT)
+				|| (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.RECPM)
+				|| (inMessage.getWaiterState() < WaiterStates.APPST)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -81,7 +106,8 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRETURNBARTAKINGORDER, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQRETURNBARTAKINGORDER,
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARTAKINGORDERDONE)) {
@@ -89,7 +115,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < WaiterStates.PRCBL) || (inMessage.getChefState() < WaiterStates.TKODR)) {
+		if ((inMessage.getWaiterState() < WaiterStates.RECPM) || (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.WTFPT)
+				|| (inMessage.getWaiterState() < WaiterStates.TKODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PRSMN)
+				|| (inMessage.getWaiterState() < WaiterStates.APPST)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -112,7 +142,7 @@ public class BarStub {
 			}
 		}
 		outMessage = new Message(MessageType.REQRETURNBARPORTIONSDELIVERED,
-				((Chef) Thread.currentThread()).getChefState());
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARPORTIONSDELIVEREDDONE)) {
@@ -120,9 +150,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < WaiterStates.APPST) || (inMessage.getChefState() < WaiterStates.PRSMN)
-				|| (inMessage.getChefState() < WaiterStates.TKODR) || (inMessage.getChefState() < WaiterStates.PCODR)
-				|| (inMessage.getChefState() < WaiterStates.PRCBL) || (inMessage.getChefState() < WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() < WaiterStates.PRSMN)
+				|| (inMessage.getWaiterState() < WaiterStates.TKODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -144,7 +176,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQPREPAREBILL, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQPREPAREBILL, ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.PREPAREBILLDONE)) {
@@ -152,9 +184,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < WaiterStates.RECPM) || (inMessage.getChefState() < WaiterStates.WTFPT)
-				|| (inMessage.getChefState() < WaiterStates.PCODR) || (inMessage.getChefState() < WaiterStates.PRSMN)
-				|| (inMessage.getChefState() < WaiterStates.PRCBL)) {
+		if ((inMessage.getWaiterState() < WaiterStates.RECPM) || (inMessage.getWaiterState() < WaiterStates.WTFPT)
+				|| (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PRSMN)
+				|| (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.TKODR)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -176,7 +210,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RECEIVEDPAYMENTDONE)) {
@@ -184,9 +218,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefState() < WaiterStates.WTFPT) || (inMessage.getChefState() < WaiterStates.PCODR)
-				|| (inMessage.getChefState() < WaiterStates.TKODR) || (inMessage.getChefState() < WaiterStates.PRSMN)
-				|| (inMessage.getChefState() < WaiterStates.APPST)) {
+		if ((inMessage.getWaiterState() < WaiterStates.WTFPT) || (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.TKODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PRSMN)
+				|| (inMessage.getWaiterState() < WaiterStates.APPST)
+				|| (inMessage.getWaiterState() < WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -196,10 +232,121 @@ public class BarStub {
 	}
 
 	public void returnToTheBar() {
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
 
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQRETURNBAR, ((Waiter) Thread.currentThread()).getWaiterState());
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if ((inMessage.getMsgType() != MessageType.RETURNBARDONE)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if ((inMessage.getWaiterState() < WaiterStates.PRSMN) || (inMessage.getWaiterState() < WaiterStates.TKODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.WTFPT)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
 	public void sayGoodbye() {
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQSAYGOODBYE, ((Waiter) Thread.currentThread()).getWaiterState());
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if ((inMessage.getMsgType() != MessageType.SAYGOODBYEDONE)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if ((inMessage.getWaiterState() < WaiterStates.PRSMN) || (inMessage.getWaiterState() < WaiterStates.TKODR)
+				|| (inMessage.getWaiterState() < WaiterStates.PCODR)
+				|| (inMessage.getWaiterState() < WaiterStates.WTFPT)
+				|| (inMessage.getWaiterState() < WaiterStates.PRCBL)
+				|| (inMessage.getWaiterState() < WaiterStates.RECPM)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+	}
+
+	public void alertWaiter() {
+		ClientCom com; // communication channel
+		Message outMessage, // outgoing message
+				inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) // waits for a connection to be established
+		{
+			try {
+				Thread.currentThread().sleep((long) (10));
+			} catch (InterruptedException e) {
+			}
+		}
+		outMessage = new Message(MessageType.REQALWAITER, ((Chef) Thread.currentThread()).getChefState());
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if ((inMessage.getMsgType() != MessageType.ALWAITERDONE)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() < ChefStates.PRPCS)
+				|| (inMessage.getChefState() < ChefStates.DLVPT) || (inMessage.getChefState() < ChefStates.CLSSV)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef state!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
+		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
+	}
+
+	// estudantes
+	public void enter() {
+
+	}
+
+	public void callTheWaiter() {
+
+	}
+
+	public void signalWaiter() {
+
+	}
+
+	public void shouldHaveArrivedEarlier() {
+
+	}
+
+	public void goHome() {
 
 	}
 
@@ -210,7 +357,7 @@ public class BarStub {
 	 * 
 	 */
 
-	public void endOperation() {
+	public void endOperation(int waiterId) {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
 				inMessage; // incoming message
@@ -222,11 +369,16 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.ENDOP);
+		outMessage = new Message(MessageType.ENDOP, waiterId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ENDOPDONE) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		if (inMessage.getChefId() != waiterId) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
@@ -261,4 +413,5 @@ public class BarStub {
 		}
 		com.close();
 	}
+
 }

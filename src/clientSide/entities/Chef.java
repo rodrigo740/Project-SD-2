@@ -3,6 +3,8 @@ package clientSide.entities;
 import clientSide.stubs.BarStub;
 import clientSide.stubs.KitchenStub;
 
+//DONE
+
 /**
  * Chef thread.
  *
@@ -32,8 +34,8 @@ public class Chef extends Thread {
 	 * @param name      thread name
 	 * @param chefID    ID of the chef
 	 * @param chefState state of the chef
-	 * @param bar       reference of the Bar
-	 * @param kit       reference of the Kitchen
+	 * @param bar       reference of the BarStub
+	 * @param kit       reference of the KitchenStub
 	 */
 	public Chef(String name, int chefID, int chefState, BarStub barStub, KitchenStub kitStub) {
 		super(name);

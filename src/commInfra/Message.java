@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import genclass.GenericIO;
 
+//FAZER
+// ver construtores daqui ------------------- por cauasa dos ids 
 public class Message implements Serializable {
 	/**
 	 * Student state.
@@ -20,10 +22,17 @@ public class Message implements Serializable {
 	private int chefState = -1;
 
 	/**
+	 * chef identification.
+	 */
+	private int chefId = -1;
+	/**
 	 * Waiter state.
 	 */
 	private int waiterState = -1;
-
+	/**
+	 * chef identification.
+	 */
+	private int waiterId = -1;
 	/**
 	 * ids of the students in each seat
 	 */
@@ -156,6 +165,16 @@ public class Message implements Serializable {
 	}
 
 	/**
+	 * Getting chef identification.
+	 *
+	 * @return chef identification
+	 */
+
+	public int getChefId() {
+		return (chefId);
+	}
+
+	/**
 	 * Getting chef state.
 	 *
 	 * @return chef state
@@ -163,6 +182,16 @@ public class Message implements Serializable {
 
 	public int getChefState() {
 		return (chefState);
+	}
+
+	/**
+	 * Getting waiter identification.
+	 *
+	 * @return waiter identification
+	 */
+
+	public int getWaiterId() {
+		return (waiterId);
 	}
 
 	/**

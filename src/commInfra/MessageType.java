@@ -1,5 +1,7 @@
 package commInfra;
 
+//Fazer - acho que existe mensagens repetidas pelos metodos
+//no shutdown nao se faz distincao se é chamada pelo bar, kitchen ou table
 public class MessageType {
 
 	/**
@@ -171,7 +173,7 @@ public class MessageType {
 	 * All portions delived (service request).
 	 */
 
-	public static final int APORTDELIVED = 31;
+	public static final int REQAPORTDELIVED = 31;
 
 	/**
 	 * All portions delived (reply).
@@ -258,4 +260,54 @@ public class MessageType {
 	 * Received payment done (reply).
 	 */
 	public static final int RECEIVEDPAYMENTDONE = 48;
+
+	/**
+	 * Request return to the bar (service request).
+	 */
+	public static final int REQRETURNBAR = 49;
+
+	/**
+	 * Return to the bar done (reply).
+	 */
+	public static final int RETURNBARDONE = 50;
+
+	/**
+	 * Request say goodbye (service request).
+	 */
+	public static final int REQSAYGOODBYE = 49;
+
+	/**
+	 * Say goodbye done (reply).
+	 */
+	public static final int SAYGOODBYEDONE = 50;
+
+	/**
+	 * Request salute the client (service request).
+	 */
+	public static final int REQSALUTECLIENT = 51;
+
+	/**
+	 * Salute the client done (reply).
+	 */
+	public static final int SALUTECLIENTDONE = 52;
+
+	/**
+	 * Request get the pad (service request).
+	 */
+	public static final int REQGETPAD = 53;
+
+	/**
+	 * Get the pad done (reply).
+	 */
+	public static final int GETPADDONE = 54;
+
+	/**
+	 * Request have all portions been served (service request).
+	 */
+	public static final int REQAPORTSERVED = 55;
+
+	/**
+	 * Have all portions been served done (reply).
+	 */
+	public static final int APORTSERVEDDONE = 56;
 }

@@ -4,6 +4,8 @@ import clientSide.stubs.BarStub;
 import clientSide.stubs.KitchenStub;
 import clientSide.stubs.TableStub;
 
+//DONE
+
 /**
  * Waiter thread.
  *

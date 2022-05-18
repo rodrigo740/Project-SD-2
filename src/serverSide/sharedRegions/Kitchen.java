@@ -296,8 +296,6 @@ public class Kitchen {
 	 * Operation end of work.
 	 *
 	 * New operation.
-	 *
-	 * @param barbId barber id
 	 */
 
 	public synchronized void endOperation() {

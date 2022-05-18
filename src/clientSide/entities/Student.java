@@ -1,7 +1,10 @@
 package clientSide.entities;
 
-import clientSide.stubs.*;
+import clientSide.stubs.BarStub;
+import clientSide.stubs.TableStub;
+import serverSide.main.SimulPar;
 
+//DONE
 /**
  * Student thread.
  *
@@ -26,27 +29,27 @@ public class Student extends Thread {
 	/**
 	 * Reference to the Bar
 	 */
-	private final Bar bar;
+	private final BarStub barStub;
 
 	/**
 	 * Reference to the Table
 	 */
-	private final Table tbl;
+	private final TableStub tblStub;
 
 	/**
 	 * Instantiation of a Student Thread
 	 * 
 	 * @param name      thread main
 	 * @param studentID ID of the student
-	 * @param bar       reference to the Bar
-	 * @param tbl       reference to the Table
+	 * @param bar       reference to the BarStub
+	 * @param tbl       reference to the TableStub
 	 */
-	public Student(String name, int studentID, Bar bar, Table tbl) {
+	public Student(String name, int studentID, BarStub barStub, TableStub tblStub) {
 		super(name);
 		this.studentID = studentID;
 		this.studentState = StudentStates.GGTRT;
-		this.bar = bar;
-		this.tbl = tbl;
+		this.barStub = barStub;
+		this.tblStub = tblStub;
 		this.seat = -1;
 	}
 
@@ -111,41 +114,41 @@ public class Student extends Thread {
 	public void run() {
 		// Transition to 'GGTRT'
 		walk();
-		bar.enter();
+		barStub.enter();
 		// Transition to 'TKSTT'
-		tbl.takeASeat();
+		tblStub.takeASeat();
 		// Transition to 'SELCS'
-		tbl.selectingCourse();
-		if (!tbl.firstToEnter()) {
-			tbl.informCompanions();
+		tblStub.selectingCourse();
+		if (!tblStub.firstToEnter()) {
+			tblStub.informCompanions();
 		} else {
 			// Transition to 'OGODR'
-			tbl.organizeOrder();
-			bar.callTheWaiter();
-			tbl.describeOrder();
+			tblStub.organizeOrder();
+			barStub.callTheWaiter();
+			tblStub.describeOrder();
 		}
 		for (int i = 0; i < SimulPar.M; i++) {
 			// Transition to 'CHTWC'
-			tbl.chat();
+			tblStub.chat();
 			// Transition to 'EJYML'
-			tbl.enjoyMeal();
-			if (tbl.lastToEat()) {
+			tblStub.enjoyMeal();
+			if (tblStub.lastToEat()) {
 				if (i != 2) {
-					bar.signalWaiter();
+					barStub.signalWaiter();
 				}
-				tbl.chatAgain();
+				tblStub.chatAgain();
 			} else {
 				// Transition to 'CHTWC'
-				tbl.waitForEveryoneToFinish();
+				tblStub.waitForEveryoneToFinish();
 			}
 		}
-		if (tbl.lastToEnterRestaurant()) {
-			bar.shouldHaveArrivedEarlier();
+		if (tblStub.lastToEnterRestaurant()) {
+			barStub.shouldHaveArrivedEarlier();
 			// Transition to 'PYTBL'
-			tbl.honorTheBill();
+			tblStub.honorTheBill();
 		}
 		// Transition to 'GGHOM'
-		bar.goHome();
+		barStub.goHome();
 	}
 
 	/**

@@ -6,6 +6,7 @@ import commInfra.MessageType;
 import serverSide.entities.KitchenClientProxy;
 import serverSide.main.SimulPar;
 
+//FAZER
 public class KitchenInterface {
 	/**
 	 * Reference to the kitchen.
