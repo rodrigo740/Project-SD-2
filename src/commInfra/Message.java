@@ -83,10 +83,6 @@ public class Message implements Serializable {
 	public Message(int type, int id, int state) { /// falta mais condicoes no if-.......
 		msgType = type;
 		if ((msgType == MessageType.STSST)) {
-			/*
-			 * || (msgType == MessageType.REQCUTH) || (msgType == MessageType.CUTHDONE) ||
-			 * (msgType == MessageType.BSHOPF))
-			 */
 			studentState = state;
 			studentId = id;
 		} else {

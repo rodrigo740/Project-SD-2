@@ -441,4 +441,53 @@ public class MessageType {
 	 */
 	public static final int HONORBILLDONE = 82;
 
+	/**
+	 * Request enter (service request).
+	 */
+	public static final int REQENTER = 83;
+
+	/**
+	 * Enter done (reply).
+	 */
+	public static final int ENTERDONE = 84;
+
+	/**
+	 * Request call the waiter (service request).
+	 */
+	public static final int REQCALLWAITER = 85;
+
+	/**
+	 * Call the waiter done (reply).
+	 */
+	public static final int CALLWAITERDONE = 86;
+
+	/**
+	 * Request signal waiter (service request).
+	 */
+	public static final int REQSIGNALWAITER = 87;
+
+	/**
+	 * Signal waiter done (reply).
+	 */
+	public static final int SIGNALWAITERDONE = 88;
+	/**
+	 * Request should have arrived earlier (service request).
+	 */
+	public static final int REQARREARLIER = 89;
+
+	/**
+	 * Should have arrived earlier done (reply).
+	 */
+	public static final int ARREARLIERDONE = 90;
+
+	/**
+	 * Request go home (service request).
+	 */
+	public static final int REQGOHOME = 91;
+
+	/**
+	 * Go home done (reply).
+	 */
+	public static final int GOHOMEDONE = 92;
+
 }
