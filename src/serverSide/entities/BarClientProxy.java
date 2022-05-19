@@ -32,6 +32,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	 * Student identification
 	 */
 	private int studentID;
+
 	/**
 	 * Student state
 	 */

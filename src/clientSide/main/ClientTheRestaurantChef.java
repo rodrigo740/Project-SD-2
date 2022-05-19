@@ -5,6 +5,7 @@ import clientSide.stubs.BarStub;
 import clientSide.stubs.GeneralReposStub;
 import clientSide.stubs.KitchenStub;
 import genclass.GenericIO;
+import serverSide.main.SimulPar;
 
 //DONE
 
@@ -87,18 +88,18 @@ public class ClientTheRestaurantChef {
 		kitchenStub = new KitchenStub(kitchenServerHostName, genReposServerPortNumb);
 		barStub = new BarStub(barServerHostName, genReposServerPortNumb);
 		genReposStub = new GeneralReposStub(genReposServerHostName, genReposServerPortNumb);
-		for (int i = 0; i < chef.length; i++)
+		for (int i = 0; i < SimulPar.C; i++)
 			chef[i] = new Chef("chef_" + (i + 1), i, chef[i].getChefState(), barStub, kitchenStub);
 
 		/* start of the simulation */
 
-		for (int i = 0; i < chef.length; i++)
+		for (int i = 0; i < SimulPar.C; i++)
 			chef[i].start();
 
 		/* waiting for the end of the simulation */
 
 		GenericIO.writelnString();
-		for (int i = 0; i < chef.length; i++) {
+		for (int i = 0; i < SimulPar.C; i++) {
 			while (chef[i].isAlive()) {
 				kitchenStub.endOperation(i);
 				Thread.yield();
