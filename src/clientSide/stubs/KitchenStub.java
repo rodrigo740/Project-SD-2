@@ -65,11 +65,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -100,11 +100,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -125,7 +125,7 @@ public class KitchenStub {
 		outMessage = new Message(MessageType.REQCONTPRE, ((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if ((inMessage.getMsgType() != MessageType.CPDONE)) {
+		if ((inMessage.getMsgType() != MessageType.CONTPREDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -135,11 +135,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -170,11 +170,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -205,11 +205,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -265,11 +265,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -355,11 +355,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -390,11 +390,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -425,11 +425,11 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}

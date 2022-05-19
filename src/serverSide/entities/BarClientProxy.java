@@ -1,5 +1,6 @@
 package serverSide.entities;
 
+import clientSide.entities.ChefCloning;
 import clientSide.entities.StudentCloning;
 import clientSide.entities.WaiterCloning;
 import commInfra.Message;
@@ -15,7 +16,19 @@ import serverSide.sharedRegions.BarInterface;
  * Implementation of a client-server model of type 2 (server replication).
  * Communication is based on a communication channel under the TCP protocol.
  */
-public class BarClientProxy extends Thread implements WaiterCloning, StudentCloning {
+public class BarClientProxy extends Thread implements WaiterCloning, StudentCloning, ChefCloning {
+	/**
+	 * Waiter identification.
+	 */
+
+	private int chefID;
+
+	/**
+	 * Waiter state.
+	 */
+
+	private int chefState;
+
 	/**
 	 * Waiter identification.
 	 */
@@ -94,6 +107,43 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 			nProxy += 1;
 		}
 		return proxyId;
+	}
+
+	/**
+	 * Get Chef ID
+	 * 
+	 * @return chefID
+	 */
+	public int getChefID() {
+		return chefID;
+	}
+
+	/**
+	 * Set Chef ID
+	 * 
+	 * @param chefID
+	 */
+
+	public void setChefID(int chefID) {
+		this.chefID = chefID;
+	}
+
+	/**
+	 * Get Chef state
+	 * 
+	 * @return chefState
+	 */
+	public int getChefState() {
+		return chefState;
+	}
+
+	/**
+	 * Set Chef state
+	 * 
+	 * @param chefState
+	 */
+	public void setChefState(int chefState) {
+		this.chefState = chefState;
 	}
 
 	/**

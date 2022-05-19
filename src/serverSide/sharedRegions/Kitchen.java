@@ -5,6 +5,7 @@ import clientSide.entities.ChefStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
+import serverSide.entities.KitchenClientProxy;
 import serverSide.main.ServerKitchen;
 import serverSide.main.SimulPar;
 
@@ -26,7 +27,11 @@ public class Kitchen {
 	 * Reference to the General Information Repository.
 	 */
 	private final GeneralReposStub reposStub;
+	/**
+	 * Reference to student threads.
+	 */
 
+	private final KitchenClientProxy[] chef;
 	/**
 	 * Boolean flag that indicates if the order has arrived
 	 */
@@ -61,6 +66,10 @@ public class Kitchen {
 	public Kitchen(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
 		nEntities = 0;
+		chef = new KitchenClientProxy[SimulPar.C];
+		for (int i = 0; i < SimulPar.C; i++)
+			chef[i] = null;
+
 	}
 
 	/**
@@ -298,14 +307,15 @@ public class Kitchen {
 	 * New operation.
 	 */
 
-	public synchronized void endOperation() {
+	public synchronized void endOperation(int chefID) {
 		while (nEntities == 0) { /* the barber waits for the termination of the customers */
 			try {
 				wait();
 			} catch (InterruptedException e) {
 			}
 		}
-
+		if (chef[chefID] != null)
+			chef[chefID].interrupt();
 	}
 
 	/**

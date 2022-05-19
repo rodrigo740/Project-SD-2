@@ -88,11 +88,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -124,11 +124,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -160,11 +160,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -195,11 +195,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -230,11 +230,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -265,11 +265,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -300,11 +300,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid waiter id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
@@ -335,11 +335,11 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid chef id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid chef id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
@@ -366,16 +366,17 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentState() < StudentStates.GGTRT) || (inMessage.getStudentState() > StudentStates.GGHOM)) {
+		if ((inMessage.getStudentState() < StudentStates.GGTRT)
+				|| (inMessage.getStudentState() > StudentStates.GGHOM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid student id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
@@ -401,16 +402,17 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentState() < StudentStates.GGTRT) || (inMessage.getStudentState() > StudentStates.GGHOM)) {
+		if ((inMessage.getStudentState() < StudentStates.GGTRT)
+				|| (inMessage.getStudentState() > StudentStates.GGHOM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid student id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
@@ -428,7 +430,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQSIGNALWAITER, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQSIGNALWAITER, ((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.SIGNALWAITERDONE)) {
@@ -436,16 +438,17 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentState() < StudentStates.GGTRT) || (inMessage.getStudentState() > StudentStates.GGHOM)) {
+		if ((inMessage.getStudentState() < StudentStates.GGTRT)
+				|| (inMessage.getStudentState() > StudentStates.GGHOM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid student id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
@@ -463,7 +466,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQARREARLIER, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQARREARLIER, ((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.ARREARLIERDONE)) {
@@ -471,16 +474,17 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentState() < StudentStates.GGTRT) || (inMessage.getStudentState() > StudentStates.GGHOM)) {
+		if ((inMessage.getStudentState() < StudentStates.GGTRT)
+				|| (inMessage.getStudentState() > StudentStates.GGHOM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid student id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
@@ -498,7 +502,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQGOHOME, ((Chef) Thread.currentThread()).getChefState());
+		outMessage = new Message(MessageType.REQGOHOME, ((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.GOHOMEDONE)) {
@@ -506,16 +510,17 @@ public class BarStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentState() < StudentStates.GGTRT) || (inMessage.getStudentState() > StudentStates.GGHOM)) {
+		if ((inMessage.getStudentState() < StudentStates.GGTRT)
+				|| (inMessage.getStudentState() > StudentStates.GGHOM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
-        { GenericIO.writelnString ("Thread " + Thread.currentThread ().getName () + ": Invalid student id!");
-          GenericIO.writelnString (inMessage.toString ());
-          System.exit (1);
-        }
+		if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S)) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid student id!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}

@@ -46,89 +46,70 @@ public class KitchenInterface {
 		case MessageType.REQWAFOR:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQPRPCS:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQCONTPRE:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQPROPRE:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQDEPORT:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQAPORTDELIVED:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQHNPORTREADY:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQALERTWAITER:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQCLEANUP:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.REQNOTECHEF:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.C)) {
 				throw new MessageException("Invalid waiter id!", inMessage);
-			}
-			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+			} else if ((inMessage.getWaiterState() < WaiterStates.APPST)
 					|| (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 				throw new MessageException("Invalid waiter state!", inMessage);
 			}
@@ -136,8 +117,7 @@ public class KitchenInterface {
 		case MessageType.REQCOLLECTPORTION:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.C)) {
 				throw new MessageException("Invalid waiter id!", inMessage);
-			}
-			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+			} else if ((inMessage.getWaiterState() < WaiterStates.APPST)
 					|| (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 				throw new MessageException("Invalid waiter state!", inMessage);
 			}
@@ -145,9 +125,7 @@ public class KitchenInterface {
 		case MessageType.ENDOP:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			}
-			else if ((inMessage.getChefState() < ChefStates.WAFOR)
-					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
 				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
@@ -165,41 +143,90 @@ public class KitchenInterface {
 		case MessageType.REQWAFOR:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
-			if (kitchen.watchTheNews())
-				outMessage = new Message(MessageType.CUTHDONE,setChefId
-						((KitchenClientProxy) Thread.currentThread()).getCustomerId(),
-						((KitchenClientProxy) Thread.currentThread()).getCustomerState());
-			else
-				outMessage = new Message(MessageType.kitchenF,
-						((KitchenClientProxy) Thread.currentThread()).getCustomerId(),
-						((KitchenClientProxy) Thread.currentThread()).getCustomerState());
+			kitchen.watchTheNews();
+			outMessage = new Message(MessageType.WAFORDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
-		case MessageType.SLEEP:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			if (kitchen.goToSleep())
-				outMessage = new Message(MessageType.SLEEPDONE,
-						((KitchenClientProxy) Thread.currentThread()).getBarberId(), true);
-			else
-				outMessage = new Message(MessageType.SLEEPDONE,
-						((KitchenClientProxy) Thread.currentThread()).getBarberId(), false);
+		case MessageType.REQPRPCS:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.startPreparations();
+			outMessage = new Message(MessageType.PRPCSDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
-		case MessageType.CALLCUST:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			((KitchenClientProxy) Thread.currentThread()).setBarberState(inMessage.getBarbState());
-			int custId = kitchen.callACustomer();
-			outMessage = new Message(MessageType.CCUSTDONE, ((KitchenClientProxy) Thread.currentThread()).getBarberId(),
-					((KitchenClientProxy) Thread.currentThread()).getBarberState(), custId);
+		case MessageType.REQCONTPRE:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.continuePreparation();
+			outMessage = new Message(MessageType.CONTPREDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
-		case MessageType.RECPAY:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			((KitchenClientProxy) Thread.currentThread()).setBarberState(inMessage.getBarbState());
-			kitchen.receivePayment(inMessage.getCustId());
-			outMessage = new Message(MessageType.RPAYDONE, ((KitchenClientProxy) Thread.currentThread()).getBarberId(),
-					((KitchenClientProxy) Thread.currentThread()).getBarberState());
+		case MessageType.REQPROPRE:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.proceedToPresentation();
+			outMessage = new Message(MessageType.PROPREDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+
+		case MessageType.REQDEPORT:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.deliverPortion();
+			outMessage = new Message(MessageType.DEPORTDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+		case MessageType.REQAPORTDELIVED:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.allPortionsDelived();
+			outMessage = new Message(MessageType.APORTDELIVEDDONE,
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+
+		case MessageType.REQHNPORTREADY:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.haveNextPortionReady();
+			outMessage = new Message(MessageType.HNPORTREADYDONE,
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+		case MessageType.REQALERTWAITER:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.alertWaiter();
+			outMessage = new Message(MessageType.ALERTWAITERDONE,
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+		case MessageType.REQCLEANUP:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			kitchen.cleanUp();
+			outMessage = new Message(MessageType.CLEANUPDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			break;
+		case MessageType.REQNOTECHEF:
+			((KitchenClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((KitchenClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			kitchen.handTheNoteToTheChef();
+			outMessage = new Message(MessageType.NOTECHEFDONE,
+					((KitchenClientProxy) Thread.currentThread()).getWaiterID(),
+					((KitchenClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQCOLLECTPORTION:
+			((KitchenClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((KitchenClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			kitchen.collectPortion();
+			outMessage = new Message(MessageType.COLLECTPORTIONDONE,
+					((KitchenClientProxy) Thread.currentThread()).getWaiterID(),
+					((KitchenClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.ENDOP:
-			kitchen.endOperation(inMessage.getBarbId());
-			outMessage = new Message(MessageType.EOPDONE, inMessage.getBarbId());
+			kitchen.endOperation(inMessage.getChefId());
+			outMessage = new Message(MessageType.ENDOPDONE, inMessage.getChefId());
 			break;
 		case MessageType.SHUT:
 			kitchen.shutdown();

@@ -93,7 +93,7 @@ public class MessageType {
 	/**
 	 * Continue preparation done (reply).
 	 */
-	public static final int CPDONE = 16;
+	public static final int CONTPREDONE = 16;
 
 	/**
 	 * Request proceed presentation (service request).
@@ -369,7 +369,7 @@ public class MessageType {
 	/**
 	 * Describe order done (reply).
 	 */
-	public static final int ESCORDERDONE = 68;
+	public static final int DESCORDERDONE = 68;
 
 	/**
 	 * Request chat (service request).
@@ -490,4 +490,21 @@ public class MessageType {
 	 */
 	public static final int GOHOMEDONE = 92;
 
+	/**
+	 * Request deliver portion (service request).
+	 */
+	public static final int REQDELIVERPORTION = 93;
+	/**
+	 * Deliver portion done (reply).
+	 */
+	public static final int DELIVERPORTIONDONE = 94;
+	/**
+	 * Request present bill (service request).
+	 */
+	public static final int REQPRESENTBILL = 95;
+
+	/**
+	 * Present bill done (reply).
+	 */
+	public static final int PRESENTBILLDONE = 96;
 }

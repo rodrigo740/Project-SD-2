@@ -37,6 +37,11 @@ public class Bar {
 
 	private final BarClientProxy[] student;
 	/**
+	 * Reference to waiter threads.
+	 */
+
+	private final BarClientProxy[] waiter;
+	/**
 	 * Char that represents the next operation of the waiter
 	 */
 	private char oper;
@@ -113,8 +118,11 @@ public class Bar {
 	public Bar(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
 		student = new BarClientProxy[SimulPar.S];
+		waiter = new BarClientProxy[SimulPar.W];
 		for (int i = 0; i < SimulPar.S; i++)
 			student[i] = null;
+		for (int i = 0; i < SimulPar.W; i++)
+			waiter[i] = null;
 
 	}
 
@@ -524,15 +532,15 @@ public class Bar {
 	 * @param barbId student id
 	 */
 
-	public synchronized void endOperation(int studentId) {
+	public synchronized void endOperation(int waiterID) {
 		while (nEntities == 0) { /* the waiter waits for the termination of the students */
 			try {
 				wait();
 			} catch (InterruptedException e) {
 			}
 		}
-		if (student[studentId] != null)
-			student[studentId].interrupt();
+		if (waiter[waiterID] != null)
+			waiter[waiterID].interrupt();
 	}
 
 	/**

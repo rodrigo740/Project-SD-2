@@ -40,7 +40,7 @@ public class Table {
 	 * Reference to student threads.
 	 */
 
-	private final TableClientProxy[] student; // É ASSIM???
+	private final TableClientProxy[] student;
 	/**
 	 * id of the last student to eat in a course
 	 */

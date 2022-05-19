@@ -1,9 +1,12 @@
 package serverSide.sharedRegions;
 
+import clientSide.entities.ChefStates;
+import clientSide.entities.StudentStates;
+import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
-import serverSide.entities.KitchenClientProxy;
+import serverSide.entities.BarClientProxy;
 import serverSide.main.SimulPar;
 
 public class BarInterface {
@@ -41,36 +44,94 @@ public class BarInterface {
 		/* validation of the incoming message */
 
 		switch (inMessage.getMsgType()) {
-		case MessageType.REQCUTH:
-			if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
-			else if ((inMessage.getCustState() < CustomerStates.DAYBYDAYLIFE)
-					|| (inMessage.getCustState() > CustomerStates.CUTTHEHAIR))
-				throw new MessageException("Invalid customer state!", inMessage);
+		case MessageType.REQRETURNBARSALUTE:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
-		case MessageType.SLEEP:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
+
+		case MessageType.REQRETURNBARTAKINGORDER:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
-		case MessageType.CALLCUST:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() < BarberStates.SLEEPING)
-					|| (inMessage.getBarbState() > BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
+		case MessageType.REQRETURNBARPORTIONSDELIVERED:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
-		case MessageType.RECPAY:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() < BarberStates.SLEEPING)
-					|| (inMessage.getBarbState() > BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
-			else if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
+		case MessageType.REQPREPAREBILL:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
+			break;
+		case MessageType.REQRECEIVEDPAYMENT:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
+			break;
+
+		case MessageType.REQSAYGOODBYE:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
+			break;
+		case MessageType.REQALWAITER:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C))
+				throw new MessageException("Invalid chef id!", inMessage);
+			else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV))
+				throw new MessageException("Invalid chef state!", inMessage);
+			break;
+		case MessageType.REQENTER:
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
+			break;
+		case MessageType.REQCALLWAITER:
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
+			break;
+		case MessageType.REQSIGNALWAITER:
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
+			break;
+		case MessageType.REQARREARLIER:
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
+			break;
+		case MessageType.REQGOHOME:
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
+				throw new MessageException("Invalid student state!", inMessage);
 			break;
 		case MessageType.ENDOP:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.S))
+				throw new MessageException("Invalid waiter id!", inMessage);
 			break;
 		case MessageType.SHUT: // check nothing
 			break;
@@ -80,54 +141,112 @@ public class BarInterface {
 
 		/* processing */
 
-		switch (inMessage.getMsgType())
+		switch (inMessage.getMsgType()) {
+		case MessageType.REQRETURNBARSALUTE:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.returnToTheBarAfterSalute();
+			outMessage = new Message(MessageType.RETURNBARSALUTEDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQRETURNBARTAKINGORDER:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.returnToTheBarAfterTakingTheOrder();
+			outMessage = new Message(MessageType.RETURNBARSALUTEDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQRETURNBARPORTIONSDELIVERED:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.returnToTheBarAfterPortionsDelivered();
+			outMessage = new Message(MessageType.RETURNBARPORTIONSDELIVEREDDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQPREPAREBILL:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.prepareBill();
+			outMessage = new Message(MessageType.PREPAREBILLDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQRETURNBAR:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.returnToTheBar();
+			outMessage = new Message(MessageType.RETURNBARDONE, ((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
 
-		{
-		case MessageType.REQCUTH:
-			((KitchenClientProxy) Thread.currentThread()).setCustomerId(inMessage.getCustId());
-			((KitchenClientProxy) Thread.currentThread()).setCustomerState(inMessage.getCustState());
-			if (kitchen.goCutHair())
-				outMessage = new Message(MessageType.CUTHDONE,
-						((KitchenClientProxy) Thread.currentThread()).getCustomerId(),
-						((KitchenClientProxy) Thread.currentThread()).getCustomerState());
-			else
-				outMessage = new Message(MessageType.kitchenF,
-						((KitchenClientProxy) Thread.currentThread()).getCustomerId(),
-						((KitchenClientProxy) Thread.currentThread()).getCustomerState());
+		case MessageType.REQSAYGOODBYE:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.sayGoodbye();
+			outMessage = new Message(MessageType.SAYGOODBYEDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
-		case MessageType.SLEEP:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			if (kitchen.goToSleep())
-				outMessage = new Message(MessageType.SLEEPDONE,
-						((KitchenClientProxy) Thread.currentThread()).getBarberId(), true);
-			else
-				outMessage = new Message(MessageType.SLEEPDONE,
-						((KitchenClientProxy) Thread.currentThread()).getBarberId(), false);
+		case MessageType.REQALWAITER:
+			((BarClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((BarClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			bar.alertWaiter();
+			outMessage = new Message(MessageType.ALWAITERDONE, ((BarClientProxy) Thread.currentThread()).getChefID(),
+					((BarClientProxy) Thread.currentThread()).getChefState());
 			break;
-		case MessageType.CALLCUST:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			((KitchenClientProxy) Thread.currentThread()).setBarberState(inMessage.getBarbState());
-			int custId = kitchen.callACustomer();
-			outMessage = new Message(MessageType.CCUSTDONE, ((KitchenClientProxy) Thread.currentThread()).getBarberId(),
-					((KitchenClientProxy) Thread.currentThread()).getBarberState(), custId);
+
+		case MessageType.REQENTER:
+			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
+			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
+			bar.enter();
+			outMessage = new Message(MessageType.ENTERDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
+					((BarClientProxy) Thread.currentThread()).getStudentState());
 			break;
-		case MessageType.RECPAY:
-			((KitchenClientProxy) Thread.currentThread()).setBarberId(inMessage.getBarbId());
-			((KitchenClientProxy) Thread.currentThread()).setBarberState(inMessage.getBarbState());
-			kitchen.receivePayment(inMessage.getCustId());
-			outMessage = new Message(MessageType.RPAYDONE, ((KitchenClientProxy) Thread.currentThread()).getBarberId(),
-					((KitchenClientProxy) Thread.currentThread()).getBarberState());
+		case MessageType.REQCALLWAITER:
+			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
+			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
+			bar.callTheWaiter();
+			outMessage = new Message(MessageType.CALLWAITERDONE,
+					((BarClientProxy) Thread.currentThread()).getStudentID(),
+					((BarClientProxy) Thread.currentThread()).getStudentState());
+			break;
+		case MessageType.REQSIGNALWAITER:
+			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
+			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
+			bar.signalWaiter();
+			outMessage = new Message(MessageType.SIGNALWAITERDONE,
+					((BarClientProxy) Thread.currentThread()).getStudentID(),
+					((BarClientProxy) Thread.currentThread()).getStudentState());
+			break;
+		case MessageType.REQARREARLIER:
+			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
+			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
+			bar.shouldHaveArrivedEarlier();
+			outMessage = new Message(MessageType.ARREARLIERDONE,
+					((BarClientProxy) Thread.currentThread()).getStudentID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+		case MessageType.REQGOHOME:
+			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
+			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
+			bar.shouldHaveArrivedEarlier();
+			outMessage = new Message(MessageType.GOHOMEDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.ENDOP:
-			kitchen.endOperation(inMessage.getBarbId());
-			outMessage = new Message(MessageType.EOPDONE, inMessage.getBarbId());
+			bar.endOperation(inMessage.getWaiterId());
+			outMessage = new Message(MessageType.ENDOPDONE, inMessage.getWaiterId());
 			break;
 		case MessageType.SHUT:
-			kitchen.shutdown();
+			bar.shutdown();
 			outMessage = new Message(MessageType.SHUTDONE);
 			break;
 		}
 
 		return (outMessage);
 	}
+
 }

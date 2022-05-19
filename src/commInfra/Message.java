@@ -209,4 +209,5 @@ public class Message implements Serializable {
 	public boolean getEndOp() {
 		return (endOp);
 	}
+
 }

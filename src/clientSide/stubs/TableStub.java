@@ -145,10 +145,10 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQGETPAD, ((Waiter) Thread.currentThread()).getWaiterState());
+		outMessage = new Message(MessageType.REQDELIVERPORTION, ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if ((inMessage.getMsgType() != MessageType.GETPADDONE)) {
+		if ((inMessage.getMsgType() != MessageType.DELIVERPORTIONDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -180,10 +180,10 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQGETPAD, ((Waiter) Thread.currentThread()).getWaiterState());
+		outMessage = new Message(MessageType.REQPRESENTBILL, ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if ((inMessage.getMsgType() != MessageType.GETPADDONE)) {
+		if ((inMessage.getMsgType() != MessageType.PRESENTBILLDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -392,7 +392,7 @@ public class TableStub {
 		outMessage = new Message(MessageType.REQDESCORDER, ((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if ((inMessage.getMsgType() != MessageType.ESCORDERDONE)) {
+		if ((inMessage.getMsgType() != MessageType.DESCORDERDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
