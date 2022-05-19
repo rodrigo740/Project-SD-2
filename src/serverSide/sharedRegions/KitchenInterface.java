@@ -1,5 +1,7 @@
 package serverSide.sharedRegions;
 
+import clientSide.entities.ChefStates;
+import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
@@ -41,36 +43,113 @@ public class KitchenInterface {
 		/* validation of the incoming message */
 
 		switch (inMessage.getMsgType()) {
-		case MessageType.REQCUTH:
-			if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
-			else if ((inMessage.getCustState() < CustomerStates.DAYBYDAYLIFE)
-					|| (inMessage.getCustState() > CustomerStates.CUTTHEHAIR))
-				throw new MessageException("Invalid customer state!", inMessage);
+		case MessageType.REQWAFOR:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
 			break;
-		case MessageType.SLEEP:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
+		case MessageType.REQPRPCS:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
 			break;
-		case MessageType.CALLCUST:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() < BarberStates.SLEEPING)
-					|| (inMessage.getBarbState() > BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
+		case MessageType.REQCONTPRE:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
 			break;
-		case MessageType.RECPAY:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
-			else if ((inMessage.getBarbState() < BarberStates.SLEEPING)
-					|| (inMessage.getBarbState() > BarberStates.INACTIVITY))
-				throw new MessageException("Invalid barber state!", inMessage);
-			else if ((inMessage.getCustId() < 0) || (inMessage.getCustId() >= SimulPar.N))
-				throw new MessageException("Invalid customer id!", inMessage);
+		case MessageType.REQPROPRE:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQDEPORT:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQAPORTDELIVED:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQHNPORTREADY:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQALERTWAITER:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQCLEANUP:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
+		case MessageType.REQNOTECHEF:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.C)) {
+				throw new MessageException("Invalid waiter id!", inMessage);
+			}
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+				throw new MessageException("Invalid waiter state!", inMessage);
+			}
+			break;
+		case MessageType.REQCOLLECTPORTION:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.C)) {
+				throw new MessageException("Invalid waiter id!", inMessage);
+			}
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+				throw new MessageException("Invalid waiter state!", inMessage);
+			}
 			break;
 		case MessageType.ENDOP:
-			if ((inMessage.getBarbId() < 0) || (inMessage.getBarbId() >= SimulPar.M))
-				throw new MessageException("Invalid barber id!", inMessage);
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			}
+			else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
 			break;
 		case MessageType.SHUT: // check nothing
 			break;
@@ -83,11 +162,11 @@ public class KitchenInterface {
 		switch (inMessage.getMsgType())
 
 		{
-		case MessageType.REQCUTH:
-			((KitchenClientProxy) Thread.currentThread()).setCustomerId(inMessage.getCustId());
-			((KitchenClientProxy) Thread.currentThread()).setCustomerState(inMessage.getCustState());
-			if (kitchen.goCutHair())
-				outMessage = new Message(MessageType.CUTHDONE,
+		case MessageType.REQWAFOR:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			if (kitchen.watchTheNews())
+				outMessage = new Message(MessageType.CUTHDONE,setChefId
 						((KitchenClientProxy) Thread.currentThread()).getCustomerId(),
 						((KitchenClientProxy) Thread.currentThread()).getCustomerState());
 			else
