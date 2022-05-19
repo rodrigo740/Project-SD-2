@@ -5,6 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Genclass"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/home/raquel/Desktop/SD/Pratica/genclass.jar"/>
 	<classpathentry kind="output" path="bin"/>
