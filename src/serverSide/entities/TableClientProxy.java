@@ -2,12 +2,46 @@ package serverSide.entities;
 
 import clientSide.entities.StudentCloning;
 import clientSide.entities.WaiterCloning;
+import commInfra.Message;
+import commInfra.MessageException;
 import commInfra.ServerCom;
 import genclass.GenericIO;
 import serverSide.sharedRegions.TableInterface;
 
+//DONE
+/**
+ * Service provider agent for access to the Table.
+ *
+ * Implementation of a client-server model of type 2 (server replication).
+ * Communication is based on a communication channel under the TCP protocol.
+ */
 public class TableClientProxy extends Thread implements StudentCloning, WaiterCloning {
+	/**
+	 * Waiter identification.
+	 */
 
+	private int waiterID;
+
+	/**
+	 * Waiter state.
+	 */
+
+	private int waiterState;
+
+	/**
+	 * Student identification
+	 */
+	private int studentID;
+
+	/**
+	 * Student state
+	 */
+	private int studentState;
+
+	/*
+	 * Number of the seat at the table
+	 */
+	private int seat;
 	/**
 	 * Number of instantiayed threads.
 	 */
@@ -62,4 +96,117 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 		return proxyId;
 	}
 
+	/**
+	 * Get Student ID
+	 * 
+	 * @return studentID
+	 */
+	public int getStudentID() {
+		return studentID;
+	}
+
+	/**
+	 * Set Student ID
+	 * 
+	 * @return studentID
+	 */
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
+	}
+
+	/**
+	 * Get number of the seat at the table
+	 * 
+	 * @return seat
+	 */
+	public int getSeat() {
+		return seat;
+	}
+
+	/**
+	 * Set number of the seat at the table
+	 * 
+	 * @param seat
+	 */
+	public void setSeat(int seat) {
+		this.seat = seat;
+	}
+
+	/**
+	 * Get Student state
+	 * 
+	 * @return studentState
+	 */
+	public int getStudentState() {
+		return studentState;
+	}
+
+	/**
+	 * Set Student state
+	 * 
+	 * @param studentState
+	 */
+	public void setStudentState(int studentState) {
+		this.studentState = studentState;
+	}
+
+	/**
+	 * Get waiter id
+	 * 
+	 * @return waiterID
+	 */
+	public int getWaiterID() {
+		return waiterID;
+	}
+
+	/**
+	 * Set waiter id
+	 * 
+	 */
+
+	public void setWaiterID(int waiterID) {
+		this.waiterID = waiterID;
+	}
+
+	/**
+	 * Get waiter state
+	 * 
+	 * @return waiterState
+	 */
+
+	public int getWaiterState() {
+		return waiterState;
+	}
+
+	/**
+	 * Set waiter state
+	 * 
+	 */
+
+	public void setWaiterState(int waiterState) {
+		this.waiterState = waiterState;
+	}
+
+	/**
+	 * Life cycle of the service provider agent.
+	 */
+
+	@Override
+	public void run() {
+		Message inMessage = null, // service request
+				outMessage = null; // service reply
+
+		/* service providing */
+
+		inMessage = (Message) sconi.readObject(); // get service request
+		try {
+			outMessage = TableInter.processAndReply(inMessage); // process it
+		} catch (MessageException e) {
+			GenericIO.writelnString("Thread " + getName() + ": " + e.getMessage() + "!");
+			GenericIO.writelnString(e.getMessageVal().toString());
+			System.exit(1);
+		}
+		sconi.writeObject(outMessage); // send service reply
+		sconi.close(); // close the communication channel
+	}
 }
