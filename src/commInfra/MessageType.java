@@ -310,4 +310,135 @@ public class MessageType {
 	 * Have all portions been served done (reply).
 	 */
 	public static final int APORTSERVEDDONE = 56;
+
+	/**
+	 * Request take a seat (service request).
+	 */
+	public static final int REQTAKESEAT = 57;
+
+	/**
+	 * Take a seat done (reply).
+	 */
+	public static final int TAKESEATDONE = 58;
+
+	/**
+	 * Request selecting course (service request).
+	 */
+	public static final int REQSELCOURSE = 59;
+
+	/**
+	 * Selecting course done (reply).
+	 */
+	public static final int SELCOURSEDONE = 60;
+
+	/**
+	 * Request first to enter served (service request).
+	 */
+	public static final int REQFIRSTENTER = 61;
+
+	/**
+	 * First to enter done (reply).
+	 */
+	public static final int FIRSTENTERDONE = 62;
+
+	/**
+	 * Request inform companions (service request).
+	 */
+	public static final int REQINFORMCOMPANIONS = 63;
+
+	/**
+	 * Inform Companions done (reply).
+	 */
+	public static final int INFORMCOMPANIONSDONE = 64;
+
+	/**
+	 * Request organize order (service request).
+	 */
+	public static final int REQORGORDER = 65;
+
+	/**
+	 * Organize order done (reply).
+	 */
+	public static final int ORGORDERDONE = 66;
+
+	/**
+	 * Request describe order (service request).
+	 */
+	public static final int REQDESCORDER = 67;
+
+	/**
+	 * Describe order done (reply).
+	 */
+	public static final int ESCORDERDONE = 68;
+
+	/**
+	 * Request chat (service request).
+	 */
+	public static final int REQCHAT = 69;
+
+	/**
+	 * Chat done (reply).
+	 */
+	public static final int CHATDONE = 70;
+
+	/**
+	 * Request enjoy meal (service request).
+	 */
+	public static final int REQENJOYMEAL = 71;
+
+	/**
+	 * Enjoy meal done (reply).
+	 */
+	public static final int ENJOYMEALDONE = 72;
+
+	/**
+	 * Request last to eat (service request).
+	 */
+	public static final int REQLASTEAT = 73;
+
+	/**
+	 * Last to eat done (reply).
+	 */
+	public static final int LASTEATDONE = 74;
+
+	/**
+	 * Request chat again (service request).
+	 */
+	public static final int REQCHATAGAIN = 75;
+
+	/**
+	 * Chat again done (reply).
+	 */
+	public static final int CHATAGAINDONE = 76;
+
+	/**
+	 * Request wait for everyone to finish (service request).
+	 */
+	public static final int REQEVERYONEFINISH = 77;
+
+	/**
+	 * Wait for everyone to finish done (reply).
+	 */
+	public static final int EVERYONEFINISHDONE = 78;
+
+	/**
+	 * Request last to enter restaurant (service request).
+	 */
+	public static final int REQLASTENTERRESTAURANT = 79;
+
+	/**
+	 * Last to enter restaurant done (reply).
+	 */
+	public static final int LASTENTERRESTAURANTDONE = 80;
+
+	/**
+	 * Request honor the bill (service request).
+	 */
+	public static final int REQHONORBILL = 81;
+
+	/**
+	 * Honor the bill done (reply).
+	 */
+	public static final int HONORBILLDONE = 82;
+
 }
