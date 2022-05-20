@@ -78,6 +78,7 @@ public class GeneralReposStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 1 (type)
 		outMessage = new Message(MessageType.SHUT);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -106,7 +107,8 @@ public class GeneralReposStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.STCST, state);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.STCST, 0 , state);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.SACK) {
@@ -134,8 +136,9 @@ public class GeneralReposStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.STWST, state);
+		outMessage = new Message(MessageType.STWST, 0 , state);
 		com.writeObject(outMessage);
+		// form 3 (type, id, state)
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.SACK) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
@@ -164,6 +167,7 @@ public class GeneralReposStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.STSST, id, state);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();

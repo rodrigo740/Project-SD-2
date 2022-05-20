@@ -49,6 +49,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 1 (type)
 		outMessage = new Message(MessageType.REQLOOKAROUND);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -74,7 +75,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRETURNBARSALUTE, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQRETURNBARSALUTE, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARSALUTEDONE)) {
@@ -109,7 +113,9 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQRETURNBARTAKINGORDER,
+				((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -145,7 +151,9 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQRETURNBARPORTIONSDELIVERED,
+				((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -181,7 +189,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQPREPAREBILL, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQPREPAREBILL, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.PREPAREBILLDONE)) {
@@ -216,7 +227,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RECEIVEDPAYMENTDONE)) {
@@ -251,7 +265,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQRETURNBAR, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQRETURNBAR, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARDONE)) {
@@ -286,7 +303,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQSAYGOODBYE, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQSAYGOODBYE, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.SAYGOODBYEDONE)) {
@@ -321,7 +341,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQALWAITER, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQALWAITER, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.ALWAITERDONE)) {
@@ -357,7 +380,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQENTER, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQENTER, 
+				((Student) Thread.currentThread()).getStudentID(), 
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.ENTERDONE)) {
@@ -393,7 +419,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQCALLWAITER, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQCALLWAITER, 
+				((Student) Thread.currentThread()).getStudentID(), 
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.CALLWAITERDONE)) {
@@ -429,7 +458,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQSIGNALWAITER, ((Student) Thread.currentThread()).getStudentState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQSIGNALWAITER,
+				((Student) Thread.currentThread()).getStudentID(), 
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.SIGNALWAITERDONE)) {
@@ -465,7 +497,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQARREARLIER, ((Student) Thread.currentThread()).getStudentState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQARREARLIER, 
+				((Student) Thread.currentThread()).getStudentID(), 
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.ARREARLIERDONE)) {
@@ -501,7 +536,10 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQGOHOME, ((Student) Thread.currentThread()).getStudentState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQGOHOME, 
+				((Student) Thread.currentThread()).getStudentID(), 
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.GOHOMEDONE)) {
@@ -543,6 +581,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 4 (type, id)
 		outMessage = new Message(MessageType.ENDOP, waiterId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();

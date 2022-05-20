@@ -51,7 +51,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQWAFOR, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQWAFOR,
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.WAFORDONE)) {
@@ -87,7 +90,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQPRPCS, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQPRPCS, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.PRPCSDONE)) {
@@ -122,7 +128,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQCONTPRE, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQCONTPRE, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.CONTPREDONE)) {
@@ -157,7 +166,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQPROPRE, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQPROPRE, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.PROPREDONE)) {
@@ -192,7 +204,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQDEPORT, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQDEPORT, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.DEPORTDONE)) {
@@ -227,6 +242,7 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 1 (type)
 		outMessage = new Message(MessageType.REQAPORTDELIVED);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -252,7 +268,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQHNPORTREADY, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQHNPORTREADY, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.HNPORTREADYDONE)) {
@@ -287,6 +306,7 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 1 (type)
 		outMessage = new Message(MessageType.ORDERCOMPLET);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -312,7 +332,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQALERTWAITER, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQALERTWAITER, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.ALERTWAITERDONE)) {
@@ -342,7 +365,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQCLEANUP, ((Chef) Thread.currentThread()).getChefState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQCLEANUP, 
+				((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.CLEANUPDONE)) {
@@ -377,7 +403,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQNOTECHEF, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQNOTECHEF, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.NOTECHEFDONE)) {
@@ -412,7 +441,10 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQCOLLECTPORTION, ((Waiter) Thread.currentThread()).getWaiterState());
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQCOLLECTPORTION, 
+				((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.COLLECTPORTIONDONE)) {
@@ -453,6 +485,7 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		// form 4 (type, id)
 		outMessage = new Message(MessageType.ENDOP, chefId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();

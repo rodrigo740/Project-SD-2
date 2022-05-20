@@ -97,6 +97,20 @@ public class Message implements Serializable {
 				(msgType == MessageType.GETPADDONE) 					|| 
 				(msgType == MessageType.APORTSERVEDDONE) 				|| 
 				(msgType == MessageType.DELIVERPORTIONDONE) 			|| 
+				(msgType == MessageType.STSST) 							|| 
+				(msgType == MessageType.REQRETURNBARSALUTE) 			|| 
+				(msgType == MessageType.REQRETURNBARTAKINGORDER) 		|| 
+				(msgType == MessageType.REQRETURNBARPORTIONSDELIVERED) 	|| 
+				(msgType == MessageType.REQPREPAREBILL) 				|| 
+				(msgType == MessageType.REQRECEIVEDPAYMENT) 			|| 
+				(msgType == MessageType.REQRETURNBAR) 					|| 
+				(msgType == MessageType.REQSAYGOODBYE) 					|| 
+				(msgType == MessageType.REQNOTECHEF) 					|| 
+				(msgType == MessageType.REQCOLLECTPORTION) 				|| 
+				(msgType == MessageType.REQSALUTECLIENT) 				|| 
+				(msgType == MessageType.REQGETPAD) 						|| 
+				(msgType == MessageType.REQDELIVERPORTION) 				|| 
+				(msgType == MessageType.REQPRESENTBILL) 				|| 
 				(msgType == MessageType.PRESENTBILLDONE)) {
 			waiterState = state;
 			waiterId = id;
@@ -120,6 +134,22 @@ public class Message implements Serializable {
 				(msgType == MessageType.CHATAGAINDONE) 				||
 				(msgType == MessageType.EVERYONEFINISHDONE) 		||
 				(msgType == MessageType.LASTENTERRESTAURANTDONE) 	||
+				(msgType == MessageType.STWST) 						||
+				(msgType == MessageType.REQENTER) 					||
+				(msgType == MessageType.REQCALLWAITER) 				||
+				(msgType == MessageType.REQSIGNALWAITER) 			||
+				(msgType == MessageType.ARREARLIERDONE) 			||
+				(msgType == MessageType.REQGOHOME) 					||
+				(msgType == MessageType.REQTAKESEAT) 				||
+				(msgType == MessageType.REQSELCOURSE) 				||
+				(msgType == MessageType.REQINFORMCOMPANIONS) 		||
+				(msgType == MessageType.REQORGORDER) 				||
+				(msgType == MessageType.REQDESCORDER) 				||
+				(msgType == MessageType.REQCHAT) 					||
+				(msgType == MessageType.REQENJOYMEAL) 				||
+				(msgType == MessageType.REQCHATAGAIN) 				||
+				(msgType == MessageType.REQEVERYONEFINISH) 			||
+				(msgType == MessageType.REQHONORBILL) 				||
 				(msgType == MessageType.HONORBILLDONE)) {
 			studentState = state;
 			studentId = id;
@@ -133,6 +163,16 @@ public class Message implements Serializable {
 				(msgType == MessageType.APORTDELIVEDDONE) 	||
 				(msgType == MessageType.HNPORTREADYDONE) 	||
 				(msgType == MessageType.ALERTWAITERDONE) 	||
+				(msgType == MessageType.STCST) 				||
+				(msgType == MessageType.REQALWAITER) 		||
+				(msgType == MessageType.REQWAFOR) 			||
+				(msgType == MessageType.REQPRPCS) 			||
+				(msgType == MessageType.REQCONTPRE) 		||
+				(msgType == MessageType.REQPROPRE) 			||
+				(msgType == MessageType.REQDEPORT) 			||
+				(msgType == MessageType.REQHNPORTREADY) 	||
+				(msgType == MessageType.REQALERTWAITER) 	||
+				(msgType == MessageType.REQCLEANUP) 		||
 				(msgType == MessageType.CLEANUPDONE)) {
 			chefState = state;
 			chefId = id;
@@ -200,7 +240,18 @@ public class Message implements Serializable {
 			System.exit(1);
 		}
 	}
-	
+	/*
+	public Message(int type, int state) {
+		msgType = type;
+		if ((msgType == MessageType.STWST) || (msgType == MessageType.CALLCHEF) || (msgType == MessageType.RPAYDONE)) {
+			waiterState = state;
+		} else if ((msgType == MessageType.STCST)) {
+			chefState = state;
+		} else {
+			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
+			System.exit(1);
+		}
+	}*/
 	/**
 	 * Getting message type.
 	 *
