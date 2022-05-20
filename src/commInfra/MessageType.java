@@ -274,47 +274,37 @@ public class MessageType {
 	/**
 	 * Request say goodbye (service request).
 	 */
-	public static final int REQSAYGOODBYE = 49;
+	public static final int REQSAYGOODBYE = 51;
 
 	/**
 	 * Say goodbye done (reply).
 	 */
-	public static final int SAYGOODBYEDONE = 50;
+	public static final int SAYGOODBYEDONE = 52;
 
 	/**
 	 * Request salute the client (service request).
 	 */
-	public static final int REQSALUTECLIENT = 51;
+	public static final int REQSALUTECLIENT = 53;
 
 	/**
 	 * Salute the client done (reply).
 	 */
-	public static final int SALUTECLIENTDONE = 52;
+	public static final int SALUTECLIENTDONE = 54;
 
 	/**
 	 * Request get the pad (service request).
 	 */
-	public static final int REQGETPAD = 53;
+	public static final int REQGETPAD = 55;
 
 	/**
 	 * Get the pad done (reply).
 	 */
-	public static final int GETPADDONE = 54;
+	public static final int GETPADDONE = 56;
 
 	/**
 	 * Request have all portions been served (service request).
 	 */
-	public static final int REQAPORTSERVED = 55;
-
-	/**
-	 * Have all portions been served done (reply).
-	 */
-	public static final int APORTSERVEDDONE = 56;
-
-	/**
-	 * Request take a seat (service request).
-	 */
-	public static final int REQTAKESEAT = 57;
+	public static final int REQAPORTSERVED = 57;
 
 	/**
 	 * Take a seat done (reply).
@@ -507,4 +497,14 @@ public class MessageType {
 	 * Present bill done (reply).
 	 */
 	public static final int PRESENTBILLDONE = 96;
+
+	/**
+	 * Have all portions been served done (reply).
+	 */
+	public static final int APORTSERVEDDONE = 97;
+
+	/**
+	 * Request take a seat (service request).
+	 */
+	public static final int REQTAKESEAT = 98;
 }
