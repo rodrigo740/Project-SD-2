@@ -507,4 +507,14 @@ public class MessageType {
 	 * Request take a seat (service request).
 	 */
 	public static final int REQTAKESEAT = 98;
+	
+	/**
+	 * Request look around (service request).
+	 */
+	public static final int REQLOOKAROUND = 99;
+	
+	/**
+	 * Look around done (reply).
+	 */
+	public static final int LOOKAROUNDDONE = 100;
 }

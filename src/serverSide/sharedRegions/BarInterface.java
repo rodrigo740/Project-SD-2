@@ -44,6 +44,13 @@ public class BarInterface {
 		/* validation of the incoming message */
 
 		switch (inMessage.getMsgType()) {
+		case MessageType.REQLOOKAROUND:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
+			break;
 		case MessageType.REQRETURNBARSALUTE:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
 				throw new MessageException("Invalid waiter id!", inMessage);
@@ -138,10 +145,18 @@ public class BarInterface {
 		default:
 			throw new MessageException("Invalid message type!", inMessage);
 		}
-
+		
 		/* processing */
 
 		switch (inMessage.getMsgType()) {
+		case MessageType.REQLOOKAROUND:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			char op = bar.lookAround();
+			outMessage = new Message(MessageType.LOOKAROUNDDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState(), op);
+			break;
 		case MessageType.REQRETURNBARSALUTE:
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());

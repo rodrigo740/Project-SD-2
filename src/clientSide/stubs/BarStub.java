@@ -37,7 +37,6 @@ public class BarStub {
 	}
 
 	public char lookAround() { //// ver esta funcao----------------------------
-		return 'a';
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
 				inMessage; // incoming message
@@ -50,16 +49,16 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.REQAPORTDELIVED);
+		outMessage = new Message(MessageType.REQLOOKAROUND);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if (inMessage.getMsgType() != MessageType.APORTDELIVEDDONE) {
+		if (inMessage.getMsgType() != MessageType.LOOKAROUNDDONE) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getOp();
 	}
 
 	public void returnToTheBarAfterSalute() {

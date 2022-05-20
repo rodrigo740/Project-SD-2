@@ -30,9 +30,13 @@ public class Message implements Serializable {
 	 */
 	private int waiterState = -1;
 	/**
-	 * chef identification.
+	 * waiter identification.
 	 */
 	private int waiterId = -1;
+	/**
+	 * waiter operation.
+	 */
+	private char op = ' ';
 	/**
 	 * ids of the students in each seat
 	 */
@@ -119,6 +123,25 @@ public class Message implements Serializable {
 	public Message(int type, boolean endOp) {
 		msgType = type;
 		this.endOp = endOp;
+	}
+	
+	/**
+	 * Message instantiation (form 6).
+	 *
+	 * @param type  message type
+	 * @param op operation char
+	 */
+
+	public Message(int type, int id, int state, char op) {
+		msgType = type;
+		if ((msgType == MessageType.LOOKAROUNDDONE)) {
+			waiterState = state;
+			waiterId = id;
+		} else {
+			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
+			System.exit(1);
+		}
+		this.op = op;
 	}
 
 	/**
@@ -208,6 +231,16 @@ public class Message implements Serializable {
 
 	public boolean getEndOp() {
 		return (endOp);
+	}
+	
+	/**
+	 * Getting next operation of waiter (waiter).
+	 *
+	 * @return op char
+	 */
+
+	public char getOp() {
+		return (op);
 	}
 
 }
