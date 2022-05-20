@@ -207,7 +207,7 @@ public class Table {
 	public synchronized void saluteTheClient() {
 		// set state of waiter
 		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.PRSMN);
-		reposStub.setWaiterState(WaiterStates.PRSMN);
+		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.PRSMN);
 		// setting clientSaluted flag and waking up the student
 		setClientSaluted(true);
 		notifyAll();
@@ -252,7 +252,7 @@ public class Table {
 	public synchronized void presentBill() {
 		// set state of waiter
 		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.RECPM);
-		reposStub.setWaiterState(WaiterStates.RECPM);
+		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.RECPM);
 		billPresented = true;
 		notifyAll();
 		// Sleep while waiting for the student to honor the bill
@@ -287,7 +287,7 @@ public class Table {
 	public synchronized void getThePad() {
 		// set state of waiter
 		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.TKODR);
-		reposStub.setWaiterState(WaiterStates.TKODR);
+		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.TKODR);
 		// setting gotThePad flag and wake up the student
 		setGotThePad(true);
 		notifyAll();

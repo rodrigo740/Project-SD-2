@@ -95,7 +95,7 @@ public class GeneralReposStub {
 	 *
 	 * @param state chef state
 	 */
-	public void setChefState(int state) {
+	public void setChefState(int id, int state) {
 		ClientCom com; // communication channel
 		Message outMessage; // outgoing message
 		Message inMessage; // incoming message
@@ -108,7 +108,7 @@ public class GeneralReposStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.STCST, 0 , state);
+		outMessage = new Message(MessageType.STCST, id , state);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.SACK) {
@@ -124,7 +124,7 @@ public class GeneralReposStub {
 	 *
 	 * @param state waiter state
 	 */
-	public void setWaiterState(int state) {
+	public void setWaiterState(int id, int state) {
 		ClientCom com; // communication channel
 		Message outMessage; // outgoing message
 		Message inMessage; // incoming message
@@ -136,7 +136,7 @@ public class GeneralReposStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		outMessage = new Message(MessageType.STWST, 0 , state);
+		outMessage = new Message(MessageType.STWST, id , state);
 		com.writeObject(outMessage);
 		// form 3 (type, id, state)
 		inMessage = (Message) com.readObject();
