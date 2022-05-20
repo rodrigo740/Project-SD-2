@@ -76,8 +76,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQRETURNBARSALUTE, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQRETURNBARSALUTE, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -114,8 +113,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQRETURNBARTAKINGORDER,
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQRETURNBARTAKINGORDER, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -153,8 +151,7 @@ public class BarStub {
 		}
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQRETURNBARPORTIONSDELIVERED,
-				((Waiter) Thread.currentThread()).getWaiterID(),
-				((Waiter) Thread.currentThread()).getWaiterState());
+				((Waiter) Thread.currentThread()).getWaiterID(), ((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if ((inMessage.getMsgType() != MessageType.RETURNBARPORTIONSDELIVEREDDONE)) {
@@ -190,8 +187,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQPREPAREBILL, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQPREPAREBILL, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -228,8 +224,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQRECEIVEDPAYMENT, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -266,8 +261,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQRETURNBAR, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQRETURNBAR, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -304,8 +298,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQSAYGOODBYE, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQSAYGOODBYE, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -342,8 +335,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQALWAITER, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQALWAITER, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -381,8 +373,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQENTER, 
-				((Student) Thread.currentThread()).getStudentID(), 
+		outMessage = new Message(MessageType.REQENTER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -420,8 +411,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCALLWAITER, 
-				((Student) Thread.currentThread()).getStudentID(), 
+		outMessage = new Message(MessageType.REQCALLWAITER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -459,8 +449,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQSIGNALWAITER,
-				((Student) Thread.currentThread()).getStudentID(), 
+		outMessage = new Message(MessageType.REQSIGNALWAITER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -498,8 +487,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQARREARLIER, 
-				((Student) Thread.currentThread()).getStudentID(), 
+		outMessage = new Message(MessageType.REQARREARLIER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -537,8 +525,7 @@ public class BarStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQGOHOME, 
-				((Student) Thread.currentThread()).getStudentID(), 
+		outMessage = new Message(MessageType.REQGOHOME, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -585,7 +572,7 @@ public class BarStub {
 		outMessage = new Message(MessageType.ENDOP, waiterId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if (inMessage.getMsgType() != MessageType.ENDOPDONE) {
+		if (inMessage.getMsgType() != MessageType.ENDOPDONEWAITER) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);

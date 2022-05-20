@@ -145,7 +145,7 @@ public class BarInterface {
 		default:
 			throw new MessageException("Invalid message type!", inMessage);
 		}
-		
+
 		/* processing */
 
 		switch (inMessage.getMsgType()) {
@@ -199,8 +199,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBar();
 			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.RETURNBARDONE, 
-					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+			outMessage = new Message(MessageType.RETURNBARDONE, ((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 
@@ -218,8 +217,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			bar.alertWaiter();
 			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.ALWAITERDONE, 
-					((BarClientProxy) Thread.currentThread()).getChefID(),
+			outMessage = new Message(MessageType.ALWAITERDONE, ((BarClientProxy) Thread.currentThread()).getChefID(),
 					((BarClientProxy) Thread.currentThread()).getChefState());
 			break;
 
@@ -228,8 +226,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.enter();
 			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.ENTERDONE, 
-					((BarClientProxy) Thread.currentThread()).getStudentID(),
+			outMessage = new Message(MessageType.ENTERDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getStudentState());
 			break;
 		case MessageType.REQCALLWAITER:
@@ -264,8 +261,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.shouldHaveArrivedEarlier();
 			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.GOHOMEDONE, 
-					((BarClientProxy) Thread.currentThread()).getStudentID(),
+			outMessage = new Message(MessageType.GOHOMEDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.ENDOP:

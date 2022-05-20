@@ -52,8 +52,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQWAFOR,
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQWAFOR, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -91,8 +90,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQPRPCS, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQPRPCS, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -129,8 +127,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCONTPRE, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQCONTPRE, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -167,8 +164,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQPROPRE, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQPROPRE, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -205,8 +201,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQDEPORT, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQDEPORT, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -269,8 +264,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQHNPORTREADY, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQHNPORTREADY, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -333,8 +327,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQALERTWAITER, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQALERTWAITER, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -366,8 +359,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCLEANUP, 
-				((Chef) Thread.currentThread()).getChefID(),
+		outMessage = new Message(MessageType.REQCLEANUP, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -404,8 +396,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQNOTECHEF, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQNOTECHEF, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -442,8 +433,7 @@ public class KitchenStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCOLLECTPORTION, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQCOLLECTPORTION, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -489,7 +479,7 @@ public class KitchenStub {
 		outMessage = new Message(MessageType.ENDOP, chefId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if (inMessage.getMsgType() != MessageType.ENDOPDONE) {
+		if (inMessage.getMsgType() != MessageType.ENDOPDONECHEF) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);

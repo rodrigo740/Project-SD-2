@@ -553,7 +553,7 @@ public class Bar {
 		nEntities += 1;
 		if (nEntities >= SimulPar.E)
 			ServerBar.waitConnection = false;
-		notifyAll(); // the barber may now terminate
+		notifyAll(); // the waiter may now terminate
 	}
 
 }

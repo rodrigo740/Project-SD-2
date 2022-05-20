@@ -51,8 +51,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQSALUTECLIENT, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQSALUTECLIENT, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -89,8 +88,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQGETPAD, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQGETPAD, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -153,8 +151,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQDELIVERPORTION, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQDELIVERPORTION, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -191,8 +188,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQPRESENTBILL, 
-				((Waiter) Thread.currentThread()).getWaiterID(),
+		outMessage = new Message(MessageType.REQPRESENTBILL, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -231,8 +227,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQTAKESEAT, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQTAKESEAT, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -270,8 +265,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQSELCOURSE, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQSELCOURSE, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -336,8 +330,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQINFORMCOMPANIONS, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQINFORMCOMPANIONS, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -376,8 +369,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQORGORDER, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQORGORDER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -416,8 +408,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQDESCORDER, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQDESCORDER, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -456,8 +447,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCHAT, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQCHAT, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -496,8 +486,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQENJOYMEAL, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQENJOYMEAL, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -562,8 +551,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQCHATAGAIN, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQCHATAGAIN, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -601,8 +589,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQEVERYONEFINISH, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQEVERYONEFINISH, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -666,8 +653,7 @@ public class TableStub {
 			}
 		}
 		// form 3 (type, id, state)
-		outMessage = new Message(MessageType.REQHONORBILL, 
-				((Student) Thread.currentThread()).getStudentID(),
+		outMessage = new Message(MessageType.REQHONORBILL, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
@@ -714,7 +700,7 @@ public class TableStub {
 		outMessage = new Message(MessageType.ENDOP, studentId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-		if (inMessage.getMsgType() != MessageType.ENDOPDONE) {
+		if (inMessage.getMsgType() != MessageType.ENDOPDONESTUDENT) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);

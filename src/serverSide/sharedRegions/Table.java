@@ -716,6 +716,6 @@ public class Table {
 		nEntities += 1;
 		if (nEntities >= SimulPar.E)
 			ServerBar.waitConnection = false;
-		notifyAll(); // the barber may now terminate
+		notifyAll(); // the student may now terminate
 	}
 }

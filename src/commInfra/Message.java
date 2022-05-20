@@ -5,8 +5,14 @@ import java.io.Serializable;
 import genclass.GenericIO;
 
 //FAZER
-// ver construtores daqui ------------------- por cauasa dos ids 
+// ver construtores daqui ------------------- por causa dos ids 
 public class Message implements Serializable {
+	/**
+	 * Serialization key.
+	 */
+
+	private static final long serialVersionUID = 2021L;
+
 	/**
 	 * Student state.
 	 */
@@ -86,97 +92,57 @@ public class Message implements Serializable {
 	public Message(int type, int id, int state) {
 		msgType = type;
 		// Waiter
-		if ((msgType == MessageType.RETURNBARSALUTEDONE) 				|| 
-				(msgType == MessageType.RETURNBARPORTIONSDELIVEREDDONE) || 
-				(msgType == MessageType.PREPAREBILLDONE) 				|| 
-				(msgType == MessageType.RETURNBARDONE) 					|| 
-				(msgType == MessageType.SAYGOODBYEDONE) 				||
-				(msgType == MessageType.NOTECHEFDONE) 					|| 
-				(msgType == MessageType.COLLECTPORTIONDONE) 			|| 
-				(msgType == MessageType.SALUTECLIENTDONE)				||
-				(msgType == MessageType.GETPADDONE) 					|| 
-				(msgType == MessageType.APORTSERVEDDONE) 				|| 
-				(msgType == MessageType.DELIVERPORTIONDONE) 			|| 
-				(msgType == MessageType.STSST) 							|| 
-				(msgType == MessageType.REQRETURNBARSALUTE) 			|| 
-				(msgType == MessageType.REQRETURNBARTAKINGORDER) 		|| 
-				(msgType == MessageType.REQRETURNBARPORTIONSDELIVERED) 	|| 
-				(msgType == MessageType.REQPREPAREBILL) 				|| 
-				(msgType == MessageType.REQRECEIVEDPAYMENT) 			|| 
-				(msgType == MessageType.REQRETURNBAR) 					|| 
-				(msgType == MessageType.REQSAYGOODBYE) 					|| 
-				(msgType == MessageType.REQNOTECHEF) 					|| 
-				(msgType == MessageType.REQCOLLECTPORTION) 				|| 
-				(msgType == MessageType.REQSALUTECLIENT) 				|| 
-				(msgType == MessageType.REQGETPAD) 						|| 
-				(msgType == MessageType.REQDELIVERPORTION) 				|| 
-				(msgType == MessageType.REQPRESENTBILL) 				|| 
-				(msgType == MessageType.PRESENTBILLDONE)) {
+		if ((msgType == MessageType.RETURNBARSALUTEDONE) || (msgType == MessageType.RETURNBARPORTIONSDELIVEREDDONE)
+				|| (msgType == MessageType.PREPAREBILLDONE) || (msgType == MessageType.RETURNBARDONE)
+				|| (msgType == MessageType.SAYGOODBYEDONE) || (msgType == MessageType.NOTECHEFDONE)
+				|| (msgType == MessageType.COLLECTPORTIONDONE) || (msgType == MessageType.SALUTECLIENTDONE)
+				|| (msgType == MessageType.GETPADDONE) || (msgType == MessageType.APORTSERVEDDONE)
+				|| (msgType == MessageType.DELIVERPORTIONDONE) || (msgType == MessageType.STSST)
+				|| (msgType == MessageType.REQRETURNBARSALUTE) || (msgType == MessageType.REQRETURNBARTAKINGORDER)
+				|| (msgType == MessageType.REQRETURNBARPORTIONSDELIVERED) || (msgType == MessageType.REQPREPAREBILL)
+				|| (msgType == MessageType.REQRECEIVEDPAYMENT) || (msgType == MessageType.REQRETURNBAR)
+				|| (msgType == MessageType.REQSAYGOODBYE) || (msgType == MessageType.REQNOTECHEF)
+				|| (msgType == MessageType.REQCOLLECTPORTION) || (msgType == MessageType.REQSALUTECLIENT)
+				|| (msgType == MessageType.REQGETPAD) || (msgType == MessageType.REQDELIVERPORTION)
+				|| (msgType == MessageType.REQPRESENTBILL) || (msgType == MessageType.PRESENTBILLDONE)) {
 			waiterState = state;
 			waiterId = id;
 		}
 		// student
-		else if ((msgType == MessageType.STSST) 					|| 
-				(msgType == MessageType.ENTERDONE) 					|| 
-				(msgType == MessageType.CALLWAITERDONE) 			||
-				(msgType == MessageType.ARREARLIERDONE) 			|| 
-				(msgType == MessageType.SIGNALWAITERDONE) 			||
-				(msgType == MessageType.GOHOMEDONE)					||
-				(msgType == MessageType.TAKESEATDONE) 				||
-				(msgType == MessageType.SELCOURSEDONE) 				||
-				(msgType == MessageType.FIRSTENTERDONE) 			||
-				(msgType == MessageType.INFORMCOMPANIONSDONE) 		||
-				(msgType == MessageType.ORGORDERDONE) 				||
-				(msgType == MessageType.DESCORDERDONE) 				||
-				(msgType == MessageType.CHATDONE) 					||
-				(msgType == MessageType.ENJOYMEALDONE) 				||
-				(msgType == MessageType.LASTEATDONE) 				||
-				(msgType == MessageType.CHATAGAINDONE) 				||
-				(msgType == MessageType.EVERYONEFINISHDONE) 		||
-				(msgType == MessageType.LASTENTERRESTAURANTDONE) 	||
-				(msgType == MessageType.STWST) 						||
-				(msgType == MessageType.REQENTER) 					||
-				(msgType == MessageType.REQCALLWAITER) 				||
-				(msgType == MessageType.REQSIGNALWAITER) 			||
-				(msgType == MessageType.ARREARLIERDONE) 			||
-				(msgType == MessageType.REQGOHOME) 					||
-				(msgType == MessageType.REQTAKESEAT) 				||
-				(msgType == MessageType.REQSELCOURSE) 				||
-				(msgType == MessageType.REQINFORMCOMPANIONS) 		||
-				(msgType == MessageType.REQORGORDER) 				||
-				(msgType == MessageType.REQDESCORDER) 				||
-				(msgType == MessageType.REQCHAT) 					||
-				(msgType == MessageType.REQENJOYMEAL) 				||
-				(msgType == MessageType.REQCHATAGAIN) 				||
-				(msgType == MessageType.REQEVERYONEFINISH) 			||
-				(msgType == MessageType.REQHONORBILL) 				||
-				(msgType == MessageType.HONORBILLDONE)) {
+		else if ((msgType == MessageType.STSST) || (msgType == MessageType.ENTERDONE)
+				|| (msgType == MessageType.CALLWAITERDONE) || (msgType == MessageType.ARREARLIERDONE)
+				|| (msgType == MessageType.SIGNALWAITERDONE) || (msgType == MessageType.GOHOMEDONE)
+				|| (msgType == MessageType.TAKESEATDONE) || (msgType == MessageType.SELCOURSEDONE)
+				|| (msgType == MessageType.FIRSTENTERDONE) || (msgType == MessageType.INFORMCOMPANIONSDONE)
+				|| (msgType == MessageType.ORGORDERDONE) || (msgType == MessageType.DESCORDERDONE)
+				|| (msgType == MessageType.CHATDONE) || (msgType == MessageType.ENJOYMEALDONE)
+				|| (msgType == MessageType.LASTEATDONE) || (msgType == MessageType.CHATAGAINDONE)
+				|| (msgType == MessageType.EVERYONEFINISHDONE) || (msgType == MessageType.LASTENTERRESTAURANTDONE)
+				|| (msgType == MessageType.STWST) || (msgType == MessageType.REQENTER)
+				|| (msgType == MessageType.REQCALLWAITER) || (msgType == MessageType.REQSIGNALWAITER)
+				|| (msgType == MessageType.ARREARLIERDONE) || (msgType == MessageType.REQGOHOME)
+				|| (msgType == MessageType.REQTAKESEAT) || (msgType == MessageType.REQSELCOURSE)
+				|| (msgType == MessageType.REQINFORMCOMPANIONS) || (msgType == MessageType.REQORGORDER)
+				|| (msgType == MessageType.REQDESCORDER) || (msgType == MessageType.REQCHAT)
+				|| (msgType == MessageType.REQENJOYMEAL) || (msgType == MessageType.REQCHATAGAIN)
+				|| (msgType == MessageType.REQEVERYONEFINISH) || (msgType == MessageType.REQHONORBILL)
+				|| (msgType == MessageType.HONORBILLDONE)) {
 			studentState = state;
 			studentId = id;
 		} // chef
-		else if ((msgType == MessageType.ALWAITERDONE) 		||
-				(msgType == MessageType.WAFORDONE) 			||
-				(msgType == MessageType.PRPCSDONE) 			||
-				(msgType == MessageType.CONTPREDONE) 		||
-				(msgType == MessageType.PROPREDONE) 		||
-				(msgType == MessageType.DEPORTDONE) 		||
-				(msgType == MessageType.APORTDELIVEDDONE) 	||
-				(msgType == MessageType.HNPORTREADYDONE) 	||
-				(msgType == MessageType.ALERTWAITERDONE) 	||
-				(msgType == MessageType.STCST) 				||
-				(msgType == MessageType.REQALWAITER) 		||
-				(msgType == MessageType.REQWAFOR) 			||
-				(msgType == MessageType.REQPRPCS) 			||
-				(msgType == MessageType.REQCONTPRE) 		||
-				(msgType == MessageType.REQPROPRE) 			||
-				(msgType == MessageType.REQDEPORT) 			||
-				(msgType == MessageType.REQHNPORTREADY) 	||
-				(msgType == MessageType.REQALERTWAITER) 	||
-				(msgType == MessageType.REQCLEANUP) 		||
-				(msgType == MessageType.CLEANUPDONE)) {
+		else if ((msgType == MessageType.ALWAITERDONE) || (msgType == MessageType.WAFORDONE)
+				|| (msgType == MessageType.PRPCSDONE) || (msgType == MessageType.CONTPREDONE)
+				|| (msgType == MessageType.PROPREDONE) || (msgType == MessageType.DEPORTDONE)
+				|| (msgType == MessageType.APORTDELIVEDDONE) || (msgType == MessageType.HNPORTREADYDONE)
+				|| (msgType == MessageType.ALERTWAITERDONE) || (msgType == MessageType.STCST)
+				|| (msgType == MessageType.REQALWAITER) || (msgType == MessageType.REQWAFOR)
+				|| (msgType == MessageType.REQPRPCS) || (msgType == MessageType.REQCONTPRE)
+				|| (msgType == MessageType.REQPROPRE) || (msgType == MessageType.REQDEPORT)
+				|| (msgType == MessageType.REQHNPORTREADY) || (msgType == MessageType.REQALERTWAITER)
+				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE)) {
 			chefState = state;
 			chefId = id;
-		}else {
+		} else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -193,16 +159,15 @@ public class Message implements Serializable {
 		// waiter
 		if ((msgType == MessageType.ENDOPDONEWAITER)) {
 			waiterId = id;
-		} 
+		}
 		// student
 		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
 			studentId = id;
-		} 
+		}
 		// chef
 		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
 			chefId = id;
-		}
-		else {
+		} else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -219,14 +184,14 @@ public class Message implements Serializable {
 		msgType = type;
 		this.endOp = endOp;
 	}
-	
+
 	/**
 	 * Message instantiation (form 6).
 	 *
 	 * @param type  message type
-	 * @param id waiter identification
+	 * @param id    waiter identification
 	 * @param state waiter state
-	 * @param op operation char
+	 * @param op    operation char
 	 */
 
 	public Message(int type, int id, int state, char op) {
@@ -240,18 +205,15 @@ public class Message implements Serializable {
 			System.exit(1);
 		}
 	}
+
 	/*
-	public Message(int type, int state) {
-		msgType = type;
-		if ((msgType == MessageType.STWST) || (msgType == MessageType.CALLCHEF) || (msgType == MessageType.RPAYDONE)) {
-			waiterState = state;
-		} else if ((msgType == MessageType.STCST)) {
-			chefState = state;
-		} else {
-			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
-			System.exit(1);
-		}
-	}*/
+	 * public Message(int type, int state) { msgType = type; if ((msgType ==
+	 * MessageType.STWST) || (msgType == MessageType.CALLCHEF) || (msgType ==
+	 * MessageType.RPAYDONE)) { waiterState = state; } else if ((msgType ==
+	 * MessageType.STCST)) { chefState = state; } else {
+	 * GenericIO.writelnString("Message type = " + msgType +
+	 * ": non-implemented instantiation!"); System.exit(1); } }
+	 */
 	/**
 	 * Getting message type.
 	 *
@@ -340,7 +302,7 @@ public class Message implements Serializable {
 	public boolean getEndOp() {
 		return (endOp);
 	}
-	
+
 	/**
 	 * Getting next operation of waiter (waiter).
 	 *

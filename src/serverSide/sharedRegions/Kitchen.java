@@ -328,7 +328,7 @@ public class Kitchen {
 		nEntities += 1;
 		if (nEntities >= SimulPar.E)
 			ServerKitchen.waitConnection = false;
-		notifyAll(); // the barber may now terminate
+		notifyAll(); // the chef may now terminate
 	}
 
 }
