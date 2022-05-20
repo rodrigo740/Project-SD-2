@@ -192,6 +192,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			table.saluteTheClient();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.SALUTECLIENTDONE,
 					((TableClientProxy) Thread.currentThread()).getWaiterID(),
 					((TableClientProxy) Thread.currentThread()).getWaiterState());
@@ -200,13 +201,16 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			table.getThePad();
-			outMessage = new Message(MessageType.GETPADDONE, ((TableClientProxy) Thread.currentThread()).getWaiterID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.GETPADDONE, 
+					((TableClientProxy) Thread.currentThread()).getWaiterID(),
 					((TableClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.REQAPORTSERVED:
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			table.haveAllPortionsBeenServed();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.APORTSERVEDDONE,
 					((TableClientProxy) Thread.currentThread()).getWaiterID(),
 					((TableClientProxy) Thread.currentThread()).getWaiterState());
@@ -215,6 +219,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			table.deliverPortion();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.DELIVERPORTIONDONE,
 					((TableClientProxy) Thread.currentThread()).getWaiterID(),
 					((TableClientProxy) Thread.currentThread()).getWaiterState());
@@ -223,6 +228,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			table.presentBill();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.PRESENTBILLDONE,
 					((TableClientProxy) Thread.currentThread()).getWaiterID(),
 					((TableClientProxy) Thread.currentThread()).getWaiterState());
@@ -231,6 +237,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.deliverPortion();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.TAKESEATDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -239,6 +246,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.selectingCourse();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.SELCOURSEDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -247,6 +255,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.firstToEnter();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.FIRSTENTERDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -255,6 +264,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.informCompanions();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.INFORMCOMPANIONSDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -263,6 +273,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.organizeOrder();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.ORGORDERDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -271,6 +282,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.describeOrder();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.DESCORDERDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -279,7 +291,9 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.chat();
-			outMessage = new Message(MessageType.CHATDONE, ((TableClientProxy) Thread.currentThread()).getStudentID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.CHATDONE, 
+					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
 			break;
 
@@ -287,6 +301,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.enjoyMeal();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.ENJOYMEALDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -295,6 +310,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.lastToEat();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.LASTEATDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -303,6 +319,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.chatAgain();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.CHATAGAINDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -311,6 +328,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.waitForEveryoneToFinish();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.EVERYONEFINISHDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -319,6 +337,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.lastToEnterRestaurant();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.LASTENTERRESTAURANTDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -327,6 +346,7 @@ public class TableInterface {
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			table.honorTheBill();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.HONORBILLDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
 					((TableClientProxy) Thread.currentThread()).getStudentState());
@@ -334,7 +354,7 @@ public class TableInterface {
 
 		case MessageType.ENDOP:
 			table.endOperation(inMessage.getStudentId());
-			outMessage = new Message(MessageType.ENDOPDONE, inMessage.getStudentId());
+			outMessage = new Message(MessageType.ENDOPDONESTUDENT, inMessage.getStudentId());
 			break;
 		case MessageType.SHUT:
 			table.shutdown();

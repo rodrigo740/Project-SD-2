@@ -144,28 +144,36 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.watchTheNews();
-			outMessage = new Message(MessageType.WAFORDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.WAFORDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 		case MessageType.REQPRPCS:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.startPreparations();
-			outMessage = new Message(MessageType.PRPCSDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.PRPCSDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 		case MessageType.REQCONTPRE:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.continuePreparation();
-			outMessage = new Message(MessageType.CONTPREDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.CONTPREDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 		case MessageType.REQPROPRE:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.proceedToPresentation();
-			outMessage = new Message(MessageType.PROPREDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.PROPREDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 
@@ -173,13 +181,16 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.deliverPortion();
-			outMessage = new Message(MessageType.DEPORTDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.DEPORTDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 		case MessageType.REQAPORTDELIVED:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.allPortionsDelived();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.APORTDELIVEDDONE,
 					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
@@ -189,6 +200,7 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.haveNextPortionReady();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.HNPORTREADYDONE,
 					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
@@ -197,6 +209,7 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.alertWaiter();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.ALERTWAITERDONE,
 					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
@@ -205,13 +218,16 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			kitchen.cleanUp();
-			outMessage = new Message(MessageType.CLEANUPDONE, ((KitchenClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.CLEANUPDONE, 
+					((KitchenClientProxy) Thread.currentThread()).getChefID(),
 					((KitchenClientProxy) Thread.currentThread()).getChefState());
 			break;
 		case MessageType.REQNOTECHEF:
 			((KitchenClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((KitchenClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			kitchen.handTheNoteToTheChef();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.NOTECHEFDONE,
 					((KitchenClientProxy) Thread.currentThread()).getWaiterID(),
 					((KitchenClientProxy) Thread.currentThread()).getWaiterState());
@@ -220,13 +236,14 @@ public class KitchenInterface {
 			((KitchenClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((KitchenClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			kitchen.collectPortion();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.COLLECTPORTIONDONE,
 					((KitchenClientProxy) Thread.currentThread()).getWaiterID(),
 					((KitchenClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.ENDOP:
 			kitchen.endOperation(inMessage.getChefId());
-			outMessage = new Message(MessageType.ENDOPDONE, inMessage.getChefId());
+			outMessage = new Message(MessageType.ENDOPDONECHEF, inMessage.getChefId());
 			break;
 		case MessageType.SHUT:
 			kitchen.shutdown();

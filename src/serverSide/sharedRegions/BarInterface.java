@@ -153,6 +153,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			char op = bar.lookAround();
+			// form 6 (type, id , state, op)
 			outMessage = new Message(MessageType.LOOKAROUNDDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState(), op);
@@ -161,6 +162,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBarAfterSalute();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.RETURNBARSALUTEDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -169,6 +171,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBarAfterTakingTheOrder();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.RETURNBARSALUTEDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -177,6 +180,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBarAfterPortionsDelivered();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.RETURNBARPORTIONSDELIVEREDDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -185,6 +189,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.prepareBill();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.PREPAREBILLDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -193,7 +198,9 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBar();
-			outMessage = new Message(MessageType.RETURNBARDONE, ((BarClientProxy) Thread.currentThread()).getWaiterID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.RETURNBARDONE, 
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 
@@ -201,6 +208,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.sayGoodbye();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.SAYGOODBYEDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -209,7 +217,9 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((BarClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
 			bar.alertWaiter();
-			outMessage = new Message(MessageType.ALWAITERDONE, ((BarClientProxy) Thread.currentThread()).getChefID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.ALWAITERDONE, 
+					((BarClientProxy) Thread.currentThread()).getChefID(),
 					((BarClientProxy) Thread.currentThread()).getChefState());
 			break;
 
@@ -217,13 +227,16 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.enter();
-			outMessage = new Message(MessageType.ENTERDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.ENTERDONE, 
+					((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getStudentState());
 			break;
 		case MessageType.REQCALLWAITER:
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.callTheWaiter();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.CALLWAITERDONE,
 					((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getStudentState());
@@ -232,6 +245,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.signalWaiter();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.SIGNALWAITERDONE,
 					((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getStudentState());
@@ -240,6 +254,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.shouldHaveArrivedEarlier();
+			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.ARREARLIERDONE,
 					((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
@@ -248,12 +263,14 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 			bar.shouldHaveArrivedEarlier();
-			outMessage = new Message(MessageType.GOHOMEDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.GOHOMEDONE, 
+					((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
 		case MessageType.ENDOP:
 			bar.endOperation(inMessage.getWaiterId());
-			outMessage = new Message(MessageType.ENDOPDONE, inMessage.getWaiterId());
+			outMessage = new Message(MessageType.ENDOPDONEWAITER, inMessage.getWaiterId());
 			break;
 		case MessageType.SHUT:
 			bar.shutdown();

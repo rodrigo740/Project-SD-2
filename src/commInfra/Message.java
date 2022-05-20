@@ -62,7 +62,6 @@ public class Message implements Serializable {
 	 * @param type message type
 	 */
 	public Message(int type) {
-		// TODO Auto-generated constructor stub
 		msgType = type;
 	}
 
@@ -81,15 +80,63 @@ public class Message implements Serializable {
 	 * Message instantiation (form 3).
 	 *
 	 * @param type  message type
-	 * @param id    student identification
-	 * @param state student state
+	 * @param id    entity identification
+	 * @param state entity state
 	 */
-	public Message(int type, int id, int state) { /// falta mais condicoes no if-.......
+	public Message(int type, int id, int state) {
 		msgType = type;
-		if ((msgType == MessageType.STSST)) {
+		// Waiter
+		if ((msgType == MessageType.RETURNBARSALUTEDONE) 				|| 
+				(msgType == MessageType.RETURNBARPORTIONSDELIVEREDDONE) || 
+				(msgType == MessageType.PREPAREBILLDONE) 				|| 
+				(msgType == MessageType.RETURNBARDONE) 					|| 
+				(msgType == MessageType.SAYGOODBYEDONE) 				||
+				(msgType == MessageType.NOTECHEFDONE) 					|| 
+				(msgType == MessageType.COLLECTPORTIONDONE) 			|| 
+				(msgType == MessageType.SALUTECLIENTDONE)				||
+				(msgType == MessageType.GETPADDONE) 					|| 
+				(msgType == MessageType.APORTSERVEDDONE) 				|| 
+				(msgType == MessageType.DELIVERPORTIONDONE) 			|| 
+				(msgType == MessageType.PRESENTBILLDONE)) {
+			waiterState = state;
+			waiterId = id;
+		}
+		// student
+		else if ((msgType == MessageType.STSST) 					|| 
+				(msgType == MessageType.ENTERDONE) 					|| 
+				(msgType == MessageType.CALLWAITERDONE) 			||
+				(msgType == MessageType.ARREARLIERDONE) 			|| 
+				(msgType == MessageType.SIGNALWAITERDONE) 			||
+				(msgType == MessageType.GOHOMEDONE)					||
+				(msgType == MessageType.TAKESEATDONE) 				||
+				(msgType == MessageType.SELCOURSEDONE) 				||
+				(msgType == MessageType.FIRSTENTERDONE) 			||
+				(msgType == MessageType.INFORMCOMPANIONSDONE) 		||
+				(msgType == MessageType.ORGORDERDONE) 				||
+				(msgType == MessageType.DESCORDERDONE) 				||
+				(msgType == MessageType.CHATDONE) 					||
+				(msgType == MessageType.ENJOYMEALDONE) 				||
+				(msgType == MessageType.LASTEATDONE) 				||
+				(msgType == MessageType.CHATAGAINDONE) 				||
+				(msgType == MessageType.EVERYONEFINISHDONE) 		||
+				(msgType == MessageType.LASTENTERRESTAURANTDONE) 	||
+				(msgType == MessageType.HONORBILLDONE)) {
 			studentState = state;
 			studentId = id;
-		} else {
+		} // chef
+		else if ((msgType == MessageType.ALWAITERDONE) 		||
+				(msgType == MessageType.WAFORDONE) 			||
+				(msgType == MessageType.PRPCSDONE) 			||
+				(msgType == MessageType.CONTPREDONE) 		||
+				(msgType == MessageType.PROPREDONE) 		||
+				(msgType == MessageType.DEPORTDONE) 		||
+				(msgType == MessageType.APORTDELIVEDDONE) 	||
+				(msgType == MessageType.HNPORTREADYDONE) 	||
+				(msgType == MessageType.ALERTWAITERDONE) 	||
+				(msgType == MessageType.CLEANUPDONE)) {
+			chefState = state;
+			chefId = id;
+		}else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -99,15 +146,23 @@ public class Message implements Serializable {
 	 * Message instantiation (form 4).
 	 *
 	 * @param type message type
-	 * @param id   waiter/chef identification
+	 * @param id   entity identification
 	 */
-	public Message(int type, int state) { // falta mais cenas nos ifs.............
+	public Message(int type, int id) {
 		msgType = type;
-		if ((msgType == MessageType.STWST) || (msgType == MessageType.CALLCHEF) || (msgType == MessageType.RPAYDONE)) {
-			waiterState = state;
-		} else if ((msgType == MessageType.STCST)) {
-			chefState = state;
-		} else {
+		// waiter
+		if ((msgType == MessageType.ENDOPDONEWAITER)) {
+			waiterId = id;
+		} 
+		// student
+		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
+			studentId = id;
+		} 
+		// chef
+		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
+			chefId = id;
+		}
+		else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -129,6 +184,8 @@ public class Message implements Serializable {
 	 * Message instantiation (form 6).
 	 *
 	 * @param type  message type
+	 * @param id waiter identification
+	 * @param state waiter state
 	 * @param op operation char
 	 */
 
@@ -137,13 +194,13 @@ public class Message implements Serializable {
 		if ((msgType == MessageType.LOOKAROUNDDONE)) {
 			waiterState = state;
 			waiterId = id;
+			this.op = op;
 		} else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
-		this.op = op;
 	}
-
+	
 	/**
 	 * Getting message type.
 	 *

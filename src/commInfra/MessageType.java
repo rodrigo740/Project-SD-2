@@ -155,7 +155,7 @@ public class MessageType {
 	 * Chef clean up (reply).
 	 */
 
-	public static final int ENDOPDONE = 28;
+	public static final int ENDOPDONECHEF = 28;
 
 	/**
 	 * Order been completed (service request).
@@ -517,4 +517,16 @@ public class MessageType {
 	 * Look around done (reply).
 	 */
 	public static final int LOOKAROUNDDONE = 100;
+	
+	/**
+	 * Waiter end op (reply).
+	 */
+
+	public static final int ENDOPDONEWAITER = 101;
+	
+	/**
+	 * Student end op (reply).
+	 */
+
+	public static final int ENDOPDONESTUDENT = 102;
 }
