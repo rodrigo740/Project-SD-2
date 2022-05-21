@@ -17,17 +17,16 @@ import serverSide.main.SimulPar;
  */
 
 public class ClientTheRestaurantChef {
-	// ACHO QUE SAO ASSIM OS ARGUMENTOS por causa do construtor do chef
 	/**
 	 * Main method.
 	 *
-	 * @param args runtime arguments args[0] - name of the platform where is located
-	 *             the kitchen server args[1] - name of the platform where is
-	 *             located the bar server args[2] - port number for listening to
-	 *             service requests args[3] - port number for listening to service
-	 *             requests args[4] - name of the platform where is located the
-	 *             general repository server args[5] - port number for listening to
-	 *             service requests
+	 * @param args runtime arguments 
+	 *		args[0] - name of the platform where is located the kitchen server 
+	 *      args[1] - name of the platform where is located the bar server 
+	 *      args[2] - port number for listening to service requests 
+	 *      args[3] - port number for listening to service requests 
+	 *      args[4] - name of the platform where is located the general repository server 
+	 *      args[5] - port number for listening to service requests
 	 */
 	public static void main(String[] args) {
 
@@ -85,11 +84,11 @@ public class ClientTheRestaurantChef {
 
 		/* problem initialization */
 
-		kitchenStub = new KitchenStub(kitchenServerHostName, genReposServerPortNumb);
-		barStub = new BarStub(barServerHostName, genReposServerPortNumb);
+		kitchenStub = new KitchenStub(kitchenServerHostName, kitchenServerPortNumb);
+		barStub = new BarStub(barServerHostName, barServerPortNumb);
 		genReposStub = new GeneralReposStub(genReposServerHostName, genReposServerPortNumb);
 		for (int i = 0; i < SimulPar.C; i++)
-			chef[i] = new Chef("chef_" + (i + 1), i, chef[i].getChefState(), barStub, kitchenStub);
+			chef[i] = new Chef("chef_" + (i + 1), i, 0, barStub, kitchenStub);
 
 		/* start of the simulation */
 

@@ -96,9 +96,9 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 		int proxyId; // instantiation identifier
 
 		try {
-			cl = Class.forName("serverSide.entities.BarberShopClientProxy");
+			cl = Class.forName("serverSide.entities.BarClientProxy");
 		} catch (ClassNotFoundException e) {
-			GenericIO.writelnString("Data type BarberShopClientProxy was not found!");
+			GenericIO.writelnString("Data type BarClientProxy was not found!");
 			e.printStackTrace();
 			System.exit(1);
 		}

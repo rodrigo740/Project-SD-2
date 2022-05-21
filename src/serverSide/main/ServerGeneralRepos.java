@@ -26,8 +26,8 @@ public class ServerGeneralRepos {
 	/**
 	 * Main method.
 	 *
-	 * @param args runtime arguments args[0] - port nunber for listening to service
-	 *             requests
+	 * @param args runtime arguments 
+	 * 			args[0] - port number for listening to service requests
 	 */
 
 	public static void main(String[] args) {

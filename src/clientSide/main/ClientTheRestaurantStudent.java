@@ -15,17 +15,16 @@ import serverSide.main.SimulPar;
  * Communication is based on a communication channel under the TCP protocol.
  */
 public class ClientTheRestaurantStudent {
-	// ACHO QUE SAO ASSIM OS ARGUMENTOS por causa do construtor do student
 	/**
 	 * Main method.
 	 *
-	 * @param args runtime arguments args[0] - name of the platform where is located
-	 *             the table server args[1] - name of the platform where is located
-	 *             the bar server args[2] - port number for listening to service
-	 *             requests args[3] - port number for listening to service requests
-	 *             args[4] - name of the platform where is located the general
-	 *             repository server args[5] - port number for listening to service
-	 *             requests
+	 * @param args runtime arguments 
+	 *		args[0] - name of the platform where is located the table server 
+	 *      args[1] - name of the platform where is located the bar server 
+	 *      args[2] - port number for listening to service requests 
+	 *      args[3] - port number for listening to service requests
+	 *      args[4] - name of the platform where is located the general repository server 
+	 *      args[5] - port number for listening to service requests
 	 */
 	public static void main(String[] args) {
 
@@ -83,8 +82,8 @@ public class ClientTheRestaurantStudent {
 
 		/* problem initialization */
 
-		tableStub = new TableStub(tableServerHostName, genReposServerPortNumb);
-		barStub = new BarStub(barServerHostName, genReposServerPortNumb);
+		tableStub = new TableStub(tableServerHostName, tableServerPortNumb);
+		barStub = new BarStub(barServerHostName, barServerPortNumb);
 		genReposStub = new GeneralReposStub(genReposServerHostName, genReposServerPortNumb);
 		for (int i = 0; i < SimulPar.S; i++)
 			student[i] = new Student("student_" + (i + 1), i, barStub, tableStub);

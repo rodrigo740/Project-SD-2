@@ -16,18 +16,18 @@ import serverSide.main.SimulPar;
  * Communication is based on a communication channel under the TCP protocol.
  */
 public class ClientTheRestaurantWaiter {
-	// ACHO QUE SAO ASSIM OS ARGUMENTOS por causa do construtor do student
 	/**
 	 * Main method.
 	 *
-	 * @param args runtime arguments args[0] - name of the platform where is located
-	 *             the table server args[1] - name of the platform where is located
-	 *             the bar server args[2] - name of the platform where is located
-	 *             the kitchen server args[3] - port number for listening to service
-	 *             requests args[4] - port number for listening to service requests
-	 *             args[5] - port number for listening to service requests args[6] -
-	 *             name of the platform where is located the general repository
-	 *             server args [7] - port number for listening to service requests
+	 * @param args runtime arguments 
+	 * 			args[0] - name of the platform where is located the table server 
+	 *          args[1] - name of the platform where is located the bar server 
+	 *          args[2] - name of the platform where is located the kitchen server 
+	 *          args[3] - port number for listening to service requests 
+	 *          args[4] - port number for listening to service requests
+	 *          args[5] - port number for listening to service requests 
+	 *          args[6] - name of the platform where is located the general repository server 
+	 *          args[7] - port number for listening to service requests
 	 */
 	public static void main(String[] args) {
 
@@ -102,12 +102,12 @@ public class ClientTheRestaurantWaiter {
 
 		/* problem initialization */
 
-		tableStub = new TableStub(tableServerHostName, genReposServerPortNumb);
-		barStub = new BarStub(barServerHostName, genReposServerPortNumb);
-		kitchenStub = new KitchenStub(kitchenServerHostName, genReposServerPortNumb);
+		tableStub = new TableStub(tableServerHostName, tableServerPortNumb);
+		barStub = new BarStub(barServerHostName, barServerPortNumb);
+		kitchenStub = new KitchenStub(kitchenServerHostName, kitchenServerPortNumb);
 		genReposStub = new GeneralReposStub(genReposServerHostName, genReposServerPortNumb);
 		for (int i = 0; i < SimulPar.W; i++)
-			waiter[i] = new Waiter("waiter_" + (i + 1), i, waiter[i].getWaiterState(), barStub, kitchenStub, tableStub);
+			waiter[i] = new Waiter("waiter_" + (i + 1), i, 0, barStub, kitchenStub, tableStub);
 
 		/* start of the simulation */
 

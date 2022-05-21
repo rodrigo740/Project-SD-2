@@ -578,7 +578,7 @@ public class BarStub {
 			System.exit(1);
 		}
 		if (inMessage.getWaiterId() != waiterId) {
-			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter id!");
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter here id!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
