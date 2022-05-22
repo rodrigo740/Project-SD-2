@@ -86,8 +86,15 @@ public class BarInterface {
 			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
 					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
 				throw new MessageException("Invalid waiter state!", inMessage);
+			break;			
+		case MessageType.REQRETURNBAR:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
-
+			
 		case MessageType.REQSAYGOODBYE:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
 				throw new MessageException("Invalid waiter id!", inMessage);
@@ -184,7 +191,7 @@ public class BarInterface {
 			outMessage = new Message(MessageType.RETURNBARPORTIONSDELIVEREDDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
-			break;
+			break;	
 		case MessageType.REQPREPAREBILL:
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
@@ -194,6 +201,17 @@ public class BarInterface {
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
+			
+		case MessageType.REQRECEIVEDPAYMENT:
+			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
+			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
+			bar.receivedPayment();
+			// form 3 (type, id , state)
+			outMessage = new Message(MessageType.RECEIVEDPAYMENTDONE,
+					((BarClientProxy) Thread.currentThread()).getWaiterID(),
+					((BarClientProxy) Thread.currentThread()).getWaiterState());
+			break;
+			
 		case MessageType.REQRETURNBAR:
 			((BarClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
