@@ -340,8 +340,8 @@ public class Bar {
 	 */
 	public synchronized void returnToTheBar() {
 		// set state of waiter
-		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
-		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
+		((BarClientProxy) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
+		reposStub.setWaiterState(((BarClientProxy) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
 	}
 
 	/**
@@ -353,8 +353,8 @@ public class Bar {
 	public synchronized void returnToTheBarAfterSalute() {
 		nSaluted++;
 		// set state of waiter
-		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
-		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
+		((BarClientProxy) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
+		reposStub.setWaiterState(((BarClientProxy) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
 	}
 
 	/**
@@ -367,8 +367,8 @@ public class Bar {
 		// reset student called flag
 		studentCalled = false;
 		// set state of waiter
-		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
-		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
+		((BarClientProxy) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
+		reposStub.setWaiterState(((BarClientProxy) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
 	}
 
 	/**
@@ -382,8 +382,8 @@ public class Bar {
 	public synchronized void returnToTheBarAfterPortionsDelivered() {
 		waiterAlerted = false;
 		// set state of waiter
-		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
-		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
+		((BarClientProxy) Thread.currentThread()).setWaiterState(WaiterStates.APPST);
+		reposStub.setWaiterState(((BarClientProxy) Thread.currentThread()).getWaiterID(), WaiterStates.APPST);
 	}
 
 	/**
@@ -394,8 +394,8 @@ public class Bar {
 	 */
 	public synchronized void prepareBill() {
 		// set state of waiter
-		((Waiter) Thread.currentThread()).setWaiterState(WaiterStates.PRCBL);
-		reposStub.setWaiterState(((Waiter) Thread.currentThread()).getWaiterID(), WaiterStates.PRCBL);
+		((BarClientProxy) Thread.currentThread()).setWaiterState(WaiterStates.PRCBL);
+		reposStub.setWaiterState(((BarClientProxy) Thread.currentThread()).getWaiterID(), WaiterStates.PRCBL);
 	}
 
 	/**
@@ -500,8 +500,8 @@ public class Bar {
 	public synchronized void goHome() {
 		int studentID;
 		// set state of student
-		studentID = ((Student) Thread.currentThread()).getStudentID();
-		((Student) Thread.currentThread()).setStudentState(StudentStates.GGHOM);
+		studentID = ((BarClientProxy) Thread.currentThread()).getStudentID();
+		((BarClientProxy) Thread.currentThread()).setStudentState(StudentStates.GGHOM);
 		reposStub.setStudentState(studentID, StudentStates.GGHOM);
 		// increment number of students that have left the restaurant
 		nLeft++;

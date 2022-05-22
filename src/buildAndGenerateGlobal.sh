@@ -39,7 +39,7 @@ mkdir -p dirKitchen dirKitchen/serverSide dirKitchen/serverSide/main dirKitchen/
 cp serverSide/main/SimulPar.class serverSide/main/ServerKitchen.class dirKitchen/serverSide/main
 cp serverSide/entities/KitchenClientProxy.class dirKitchen/serverSide/entities
 cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/KitchenInterface.class serverSide/sharedRegions/Kitchen.class dirKitchen/serverSide/sharedRegions
-cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
+cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/Chef.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
    dirKitchen/clientSide/entities
 cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirKitchen/clientSide/stubs
 cp commInfra/*.class dirKitchen/commInfra
