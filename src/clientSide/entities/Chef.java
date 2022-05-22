@@ -2,6 +2,7 @@ package clientSide.entities;
 
 import clientSide.stubs.BarStub;
 import clientSide.stubs.KitchenStub;
+import genclass.GenericIO;
 
 //DONE
 
@@ -88,10 +89,14 @@ public class Chef extends Thread {
 	@Override
 	public void run() {
 		boolean firstCourse = true;
+
+		GenericIO.writelnString("Run started Chef!");
 		// Transition to 'WAFOR'
 		kitStub.watchTheNews();
+		GenericIO.writelnString("Watched news!");
 		// Transition to 'PRPCS'
 		kitStub.startPreparations();
+		GenericIO.writelnString("Started preparations!");
 		do {
 			if (!firstCourse) {
 				// Transition to 'PRPCS'
@@ -102,6 +107,8 @@ public class Chef extends Thread {
 			// Transition to 'DSHPT'
 			kitStub.proceedToPresentation();
 			barStub.alertWaiter();
+
+			GenericIO.writelnString("Waiter alerted!");
 			// Transition to 'DLVPT'
 			kitStub.deliverPortion();
 			while (!kitStub.allPortionsDelived()) {
@@ -114,6 +121,8 @@ public class Chef extends Thread {
 		} while (!kitStub.orderBeenCompleted());
 		// Transition to 'CLSSV'
 		kitStub.cleanUp();
+
+		GenericIO.writelnString("Cleanned up!");
 	}
 
 }

@@ -5,6 +5,7 @@ import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
+import genclass.GenericIO;
 import serverSide.entities.KitchenClientProxy;
 import serverSide.main.SimulPar;
 
@@ -122,7 +123,7 @@ public class KitchenInterface {
 				throw new MessageException("Invalid waiter state!", inMessage);
 			}
 			break;
-		case MessageType.ENDOP:
+		case MessageType.ENDOPCHEF:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
 			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
@@ -143,7 +144,10 @@ public class KitchenInterface {
 		case MessageType.REQWAFOR:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			GenericIO.writelnString("AQui!");
 			kitchen.watchTheNews();
+
+			GenericIO.writelnString("Depois");
 			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.WAFORDONE, 
 					((KitchenClientProxy) Thread.currentThread()).getChefID(),
@@ -189,11 +193,15 @@ public class KitchenInterface {
 		case MessageType.REQAPORTDELIVED:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
-			kitchen.allPortionsDelived();
-			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.APORTDELIVEDDONE,
-					((KitchenClientProxy) Thread.currentThread()).getChefID(),
-					((KitchenClientProxy) Thread.currentThread()).getChefState());
+			if (kitchen.allPortionsDelived()) {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.APORTDELIVEDDONE,
+						((KitchenClientProxy) Thread.currentThread()).getChefID(), true);
+			} else {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.APORTDELIVEDDONE,
+						((KitchenClientProxy) Thread.currentThread()).getChefID(), false);
+			}
 			break;
 
 		case MessageType.REQHNPORTREADY:
@@ -241,7 +249,7 @@ public class KitchenInterface {
 					((KitchenClientProxy) Thread.currentThread()).getWaiterID(),
 					((KitchenClientProxy) Thread.currentThread()).getWaiterState());
 			break;
-		case MessageType.ENDOP:
+		case MessageType.ENDOPCHEF:
 			kitchen.endOperation(inMessage.getChefId());
 			outMessage = new Message(MessageType.ENDOPDONECHEF, inMessage.getChefId());
 			break;

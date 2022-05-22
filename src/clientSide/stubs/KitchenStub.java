@@ -476,7 +476,7 @@ public class KitchenStub {
 			}
 		}
 		// form 4 (type, id)
-		outMessage = new Message(MessageType.ENDOP, chefId);
+		outMessage = new Message(MessageType.ENDOPCHEF, chefId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ENDOPDONECHEF) {

@@ -60,7 +60,31 @@ public class Message implements Serializable {
 	 * End of operations (chef).
 	 */
 
-	private boolean endOp = false;
+	private boolean endOpchef = false;
+	
+	/**
+	 * All portions been served flag.
+	 */
+
+	private boolean allServed = false;
+	
+	/**
+	 * First to enter flag.
+	 */
+
+	private boolean firstEnter = false;
+	
+	/**
+	 * Last to eat flag.
+	 */
+
+	private boolean lastEat = false;
+	
+	/**
+	 * Last to enter flag.
+	 */
+
+	private boolean lastEnter = false;
 
 	/**
 	 * Message instantiation (form 1).
@@ -90,6 +114,7 @@ public class Message implements Serializable {
 	 * @param state entity state
 	 */
 	public Message(int type, int id, int state) {
+		GenericIO.writelnString("AQUIIIIII: ");
 		msgType = type;
 		// Waiter
 		if ((msgType == MessageType.RETURNBARSALUTEDONE) || (msgType == MessageType.RETURNBARPORTIONSDELIVEREDDONE)
@@ -139,7 +164,7 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQPRPCS) || (msgType == MessageType.REQCONTPRE)
 				|| (msgType == MessageType.REQPROPRE) || (msgType == MessageType.REQDEPORT)
 				|| (msgType == MessageType.REQHNPORTREADY) || (msgType == MessageType.REQALERTWAITER)
-				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE)) {
+				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE) || (msgType == MessageType.REQWAFOR)) {
 			chefState = state;
 			chefId = id;
 		} else {
@@ -157,15 +182,15 @@ public class Message implements Serializable {
 	public Message(int type, int id) {
 		msgType = type;
 		// waiter
-		if ((msgType == MessageType.ENDOPDONEWAITER)) {
+		if ((msgType == MessageType.ENDOPDONEWAITER) || (msgType == MessageType.ENDOPWAITER)) {
 			waiterId = id;
 		}
 		// student
-		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
+		else if ((msgType == MessageType.ENDOPDONESTUDENT) || (msgType == MessageType.ENDOPSTUDENT)) {
 			studentId = id;
 		}
 		// chef
-		else if ((msgType == MessageType.ENDOPDONEWAITER)) {
+		else if ((msgType == MessageType.ENDOPDONECHEF) || (msgType == MessageType.ENDOPCHEF)) {
 			chefId = id;
 		} else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
@@ -182,7 +207,7 @@ public class Message implements Serializable {
 
 	public Message(int type, boolean endOp) {
 		msgType = type;
-		this.endOp = endOp;
+		this.endOpchef = endOp;
 	}
 
 	/**
@@ -201,6 +226,40 @@ public class Message implements Serializable {
 			waiterId = id;
 			this.op = op;
 		} else {
+			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
+			System.exit(1);
+		}
+	}
+	
+	/**
+	 * Message instantiation (form 7).
+	 *
+	 * @param type  message type
+	 * @param id    waiter identification
+	 * @param flag  boolean flag
+	 */
+
+	public Message(int type, int id, boolean f) {
+		msgType = type;
+		if ((msgType == MessageType.APORTSERVEDDONE)) {
+			waiterId = id;
+			allServed = f;
+		} else if ((msgType == MessageType.FIRSTENTERDONE)) {
+			studentId = id;
+			firstEnter = f;
+		}else if ((msgType == MessageType.LASTEATDONE)) {
+			studentId = id;
+			lastEat = f;
+		}else if ((msgType == MessageType.LASTENTERRESTAURANTDONE)) {
+			studentId = id;
+			lastEnter = f;
+		}
+		
+		
+		
+		
+		
+		else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -299,8 +358,48 @@ public class Message implements Serializable {
 	 * @return end of operations flag
 	 */
 
-	public boolean getEndOp() {
-		return (endOp);
+	public boolean getEndOpChef() {
+		return (endOpchef);
+	}
+	
+	/**
+	 * Getting all portions delivered flag.
+	 *
+	 * @return all portions delivered flag
+	 */
+	
+	public boolean getHaveAllPortionsBeenServed() {
+		return (allServed);
+	}
+	
+	/**
+	 * Getting first to enter flag.
+	 *
+	 * @return first to enter flag
+	 */
+	
+	public boolean getFirstToEnter() {
+		return (firstEnter);
+	}
+	
+	/**
+	 * Getting eat to eat flag.
+	 *
+	 * @return eat to eat flag
+	 */
+	
+	public boolean getLastToEat() {
+		return (lastEat);
+	}
+	
+	/**
+	 * Getting last to enter the restaurant flag.
+	 *
+	 * @return last to enter the restaurant flag
+	 */
+	
+	public boolean getlastToEnter() {
+		return (lastEnter);
 	}
 
 	/**

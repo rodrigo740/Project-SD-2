@@ -149,7 +149,7 @@ public class MessageType {
 	 * End of work - chef (service request).
 	 */
 
-	public static final int ENDOP = 27;
+	public static final int ENDOPCHEF = 27;
 
 	/**
 	 * Chef clean up (reply).
@@ -529,4 +529,16 @@ public class MessageType {
 	 */
 
 	public static final int ENDOPDONESTUDENT = 102;
+	
+	/**
+	 * End of work - waiter (service request).
+	 */
+
+	public static final int ENDOPWAITER = 103;
+	
+	/**
+	 * End of work - student (service request).
+	 */
+
+	public static final int ENDOPSTUDENT = 104;
 }

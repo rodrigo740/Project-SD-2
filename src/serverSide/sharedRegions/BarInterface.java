@@ -136,7 +136,7 @@ public class BarInterface {
 					|| (inMessage.getStudentState() > StudentStates.GGHOM))
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
-		case MessageType.ENDOP:
+		case MessageType.ENDOPWAITER:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.S))
 				throw new MessageException("Invalid waiter id!", inMessage);
 			break;
@@ -264,7 +264,7 @@ public class BarInterface {
 			outMessage = new Message(MessageType.GOHOMEDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;
-		case MessageType.ENDOP:
+		case MessageType.ENDOPWAITER:
 			bar.endOperation(inMessage.getWaiterId());
 			outMessage = new Message(MessageType.ENDOPDONEWAITER, inMessage.getWaiterId());
 			break;

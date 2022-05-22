@@ -569,7 +569,7 @@ public class BarStub {
 			}
 		}
 		// form 4 (type, id)
-		outMessage = new Message(MessageType.ENDOP, waiterId);
+		outMessage = new Message(MessageType.ENDOPWAITER, waiterId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ENDOPDONEWAITER) {

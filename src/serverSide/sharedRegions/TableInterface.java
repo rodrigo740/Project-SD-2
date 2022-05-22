@@ -175,7 +175,7 @@ public class TableInterface {
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
 
-		case MessageType.ENDOP:
+		case MessageType.ENDOPWAITER:
 			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
 			break;
@@ -209,11 +209,15 @@ public class TableInterface {
 		case MessageType.REQAPORTSERVED:
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
 			((TableClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
-			table.haveAllPortionsBeenServed();
-			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.APORTSERVEDDONE,
-					((TableClientProxy) Thread.currentThread()).getWaiterID(),
-					((TableClientProxy) Thread.currentThread()).getWaiterState());
+			if (table.haveAllPortionsBeenServed()) {
+				// form 7 (type, id , flag)
+				outMessage = new Message(MessageType.APORTSERVEDDONE,
+						((TableClientProxy) Thread.currentThread()).getWaiterID(), true);
+			}else {
+				outMessage = new Message(MessageType.APORTSERVEDDONE,
+						((TableClientProxy) Thread.currentThread()).getWaiterID(), false);
+			}
+			
 			break;
 		case MessageType.REQDELIVERPORTION:
 			((TableClientProxy) Thread.currentThread()).setWaiterID(inMessage.getWaiterId());
@@ -254,11 +258,16 @@ public class TableInterface {
 		case MessageType.REQFIRSTENTER:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
-			table.firstToEnter();
-			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.FIRSTENTERDONE,
-					((TableClientProxy) Thread.currentThread()).getStudentID(),
-					((TableClientProxy) Thread.currentThread()).getStudentState());
+			if (table.firstToEnter()) {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.FIRSTENTERDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), true);
+			} else {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.FIRSTENTERDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), false);
+			}
+			
 			break;
 		case MessageType.REQINFORMCOMPANIONS:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
@@ -309,11 +318,15 @@ public class TableInterface {
 		case MessageType.REQLASTEAT:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
-			table.lastToEat();
-			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.LASTEATDONE,
-					((TableClientProxy) Thread.currentThread()).getStudentID(),
-					((TableClientProxy) Thread.currentThread()).getStudentState());
+			if (table.lastToEat()) {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.LASTEATDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), true);
+			} else {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.LASTEATDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), false);
+			}			
 			break;
 		case MessageType.REQCHATAGAIN:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
@@ -336,11 +349,15 @@ public class TableInterface {
 		case MessageType.REQLASTENTERRESTAURANT:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
-			table.lastToEnterRestaurant();
-			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.LASTENTERRESTAURANTDONE,
-					((TableClientProxy) Thread.currentThread()).getStudentID(),
-					((TableClientProxy) Thread.currentThread()).getStudentState());
+			if (table.lastToEnterRestaurant()) {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.LASTENTERRESTAURANTDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), true);
+			} else {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.LASTENTERRESTAURANTDONE,
+						((TableClientProxy) Thread.currentThread()).getStudentID(), false);
+			}
 			break;
 		case MessageType.REQHONORBILL:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
@@ -352,7 +369,7 @@ public class TableInterface {
 					((TableClientProxy) Thread.currentThread()).getStudentState());
 			break;
 
-		case MessageType.ENDOP:
+		case MessageType.ENDOPSTUDENT:
 			table.endOperation(inMessage.getStudentId());
 			outMessage = new Message(MessageType.ENDOPDONESTUDENT, inMessage.getStudentId());
 			break;

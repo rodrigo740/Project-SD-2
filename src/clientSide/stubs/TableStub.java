@@ -134,7 +134,7 @@ public class TableStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getHaveAllPortionsBeenServed();
 	}
 
 	public void deliverPortion() {
@@ -313,7 +313,7 @@ public class TableStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getFirstToEnter();
 	}
 
 	public void informCompanions() {
@@ -534,7 +534,7 @@ public class TableStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getLastToEat();
 	}
 
 	public void chatAgain() {
@@ -636,7 +636,7 @@ public class TableStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getlastToEnter();
 	}
 
 	public void honorTheBill() {
