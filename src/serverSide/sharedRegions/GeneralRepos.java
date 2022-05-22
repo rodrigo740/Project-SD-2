@@ -105,7 +105,7 @@ public class GeneralRepos {
 
 	public synchronized void shutdown() {
 		nEntities += 1;
-		if (nEntities >= SimulPar.E)
+		if (nEntities >= SimulPar.EG)
 			ServerGeneralRepos.waitConnection = false;
 	}
 

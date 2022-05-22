@@ -3,6 +3,7 @@ package clientSide.entities;
 import clientSide.stubs.BarStub;
 import clientSide.stubs.KitchenStub;
 import clientSide.stubs.TableStub;
+import genclass.GenericIO;
 
 //DONE
 
@@ -130,8 +131,14 @@ public class Waiter extends Thread {
 				while (!tblStub.haveAllPortionsBeenServed()) {
 					// Transition to 'WTFPT'
 					kitStub.collectPortion();
+
+					GenericIO.writelnString("Portion collected");
 					tblStub.deliverPortion();
+
+					GenericIO.writelnString("Portion delivered waiter");
 				}
+
+				GenericIO.writelnString("all portions served");
 				// Transition to 'APPST'
 				barStub.returnToTheBarAfterPortionsDelivered();
 				break;

@@ -42,7 +42,7 @@ public class TableInterface {
 
 		/* validation of the incoming message */
 		
-		GenericIO.writelnInt(inMessage.getMsgType());
+		GenericIO.writelnString(inMessage.toString());
 		
 
 		switch (inMessage.getMsgType()) {
@@ -86,8 +86,6 @@ public class TableInterface {
 			break;
 
 		case MessageType.REQTAKESEAT:
-			GenericIO.writelnInt(inMessage.getStudentId());
-			GenericIO.writelnInt(inMessage.getStudentState());
 			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
 			else if ((inMessage.getStudentState() < StudentStates.GGTRT)

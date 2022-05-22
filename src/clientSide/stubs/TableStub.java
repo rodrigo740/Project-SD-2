@@ -50,17 +50,20 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		GenericIO.writelnString("Going to salute");
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQSALUTECLIENT, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
+
+		GenericIO.writelnString("Saluted");
 		if ((inMessage.getMsgType() != MessageType.SALUTECLIENTDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterState() < WaiterStates.WTFPT) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -97,7 +100,7 @@ public class TableStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterState() < WaiterStates.WTFPT) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -124,8 +127,9 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQAPORTSERVED);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQAPORTSERVED, ((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.APORTSERVEDDONE) {
@@ -160,7 +164,7 @@ public class TableStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterState() < WaiterStates.WTFPT) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -197,7 +201,7 @@ public class TableStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterState() < WaiterStates.WTFPT) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
@@ -226,11 +230,14 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
+		GenericIO.writelnString("Requesting taking a seat: " + ((Student) Thread.currentThread()).getStudentID());
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQTAKESEAT, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
+
+		GenericIO.writelnString("Took a seat: " + ((Student) Thread.currentThread()).getStudentID());
 		if ((inMessage.getMsgType() != MessageType.TAKESEATDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
@@ -303,8 +310,9 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQFIRSTENTER);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQFIRSTENTER, ((Student) Thread.currentThread()).getStudentID(),
+					((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.FIRSTENTERDONE) {
@@ -524,8 +532,9 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQLASTEAT);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQLASTEAT, ((Student) Thread.currentThread()).getStudentID(),
+				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.LASTEATDONE) {
@@ -626,8 +635,9 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQLASTENTERRESTAURANT);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQLASTENTERRESTAURANT, ((Student) Thread.currentThread()).getStudentID(),
+				((Student) Thread.currentThread()).getStudentState());	
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.LASTENTERRESTAURANTDONE) {

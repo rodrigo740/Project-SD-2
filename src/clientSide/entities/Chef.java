@@ -111,12 +111,17 @@ public class Chef extends Thread {
 			GenericIO.writelnString("Waiter alerted!");
 			// Transition to 'DLVPT'
 			kitStub.deliverPortion();
+			GenericIO.writelnString("Portion delivered");
 			while (!kitStub.allPortionsDelived()) {
+				GenericIO.writelnString("Going to have next portion ready!");
 				// Transition to 'DSHPT'
 				kitStub.haveNextPortionReady();
+				GenericIO.writelnString("Next portion ready!");
 				kitStub.alertWaiter();
+				GenericIO.writelnString("Waiter alerted!!!!");
 				// Transition to 'DLVPT'
 				kitStub.deliverPortion();
+				GenericIO.writelnString("Portion delivered");
 			}
 		} while (!kitStub.orderBeenCompleted());
 		// Transition to 'CLSSV'

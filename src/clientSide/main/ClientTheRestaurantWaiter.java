@@ -119,7 +119,7 @@ public class ClientTheRestaurantWaiter {
 		GenericIO.writelnString();
 		for (int i = 0; i < SimulPar.W; i++) {
 			while (waiter[i].isAlive()) {
-				tableStub.endOperation(i);
+				barStub.endOperation(i);
 				Thread.yield();
 			}
 			try {

@@ -209,8 +209,8 @@ public class Kitchen {
 		((KitchenClientProxy) Thread.currentThread()).setChefState(ChefStates.DLVPT);
 		reposStub.setChefState(((KitchenClientProxy) Thread.currentThread()).getChefID(), ChefStates.DLVPT);
 		// set portionReady flag
-		setPortionReady(true);
-		notifyAll();
+		//setPortionReady(true);
+		//notifyAll();
 		// Sleep while waiting for the portion to be collected
 		while (!portionCollected) {
 			try {
@@ -305,6 +305,8 @@ public class Kitchen {
 	 * Operation end of work.
 	 *
 	 * New operation.
+	 * 
+	 * @param chefID chef identification
 	 */
 
 	public synchronized void endOperation(int chefID) {
@@ -326,7 +328,7 @@ public class Kitchen {
 
 	public synchronized void shutdown() {
 		nEntities += 1;
-		if (nEntities >= SimulPar.E)
+		if (nEntities >= SimulPar.EK)
 			ServerKitchen.waitConnection = false;
 		notifyAll(); // the chef may now terminate
 	}

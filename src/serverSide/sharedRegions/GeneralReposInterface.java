@@ -6,6 +6,7 @@ import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
+import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
 /**
@@ -50,25 +51,25 @@ public class GeneralReposInterface {
 		Message outMessage = null; // mensagem de resposta
 
 		/* validation of the incoming message */
-
+		GenericIO.writelnString("General Repos:\n" + inMessage.toString());
 		switch (inMessage.getMsgType()) {
 		case MessageType.SETNFIC:
 			if (inMessage.getLogFName() == null)
 				throw new MessageException("Name of the logging file is not present!", inMessage);
 			break;
 		case MessageType.STSST: // estudante
-			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.M))
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
-			else if ((inMessage.getStudentState() != StudentStates.GGTRT)
-					&& (inMessage.getStudentState() != StudentStates.GGHOM))
+			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
+					|| (inMessage.getStudentState() > StudentStates.GGHOM))
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
 		case MessageType.STWST: // waiter
-			if ((inMessage.getWaiterState() != WaiterStates.APPST))
+			if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM))
 				throw new MessageException("Invalid waiter state!", inMessage);
 			break;
 		case MessageType.STCST: // chef
-			if ((inMessage.getChefState() < ChefStates.WAFOR) && (inMessage.getChefState() > ChefStates.CLSSV))
+			if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV))
 				throw new MessageException("Invalid chef state!", inMessage);
 			break;
 		case MessageType.SHUT: // check nothing

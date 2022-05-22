@@ -44,8 +44,7 @@ public class BarInterface {
 
 		/* validation of the incoming message */
 		
-		GenericIO.writelnInt(inMessage.getMsgType());
-		GenericIO.writelnInt(inMessage.getWaiterId());
+		GenericIO.writelnString(inMessage.toString());
 
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQLOOKAROUND:
@@ -133,7 +132,14 @@ public class BarInterface {
 					|| (inMessage.getStudentState() > StudentStates.GGHOM))
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
-		case MessageType.REQARREARLIER:
+		case MessageType.RETURNBARSALUTEDONE:
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
+				throw new MessageException("Invalid waiter id!", inMessage);
+			else if ((inMessage.getWaiterState() < WaiterStates.APPST)
+					|| (inMessage.getWaiterState() > WaiterStates.RECPM))
+				throw new MessageException("Invalid waiter state!", inMessage);
+			break;
+		case MessageType.REQARREARLIER: 
 			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
 			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
@@ -183,7 +189,7 @@ public class BarInterface {
 			((BarClientProxy) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 			bar.returnToTheBarAfterTakingTheOrder();
 			// form 3 (type, id , state)
-			outMessage = new Message(MessageType.RETURNBARSALUTEDONE,
+			outMessage = new Message(MessageType.RETURNBARTAKINGORDERDONE,
 					((BarClientProxy) Thread.currentThread()).getWaiterID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
 			break;

@@ -9,6 +9,7 @@ import commInfra.MemException;
 import commInfra.MemFIFO;
 import serverSide.entities.TableClientProxy;
 import serverSide.main.ServerBar;
+import serverSide.main.ServerTable;
 import serverSide.main.SimulPar;
 
 /**
@@ -683,7 +684,7 @@ public class Table {
 	 *
 	 * New operation.
 	 *
-	 * @param barbId student id
+	 * @param studentId student id
 	 */
 	public synchronized void endOperation(int studentId) {
 		while (nEntities == 0) { /* the waiter waits for the termination of the students */
@@ -704,8 +705,8 @@ public class Table {
 
 	public synchronized void shutdown() {
 		nEntities += 1;
-		if (nEntities >= SimulPar.E)
-			ServerBar.waitConnection = false;
+		if (nEntities >= SimulPar.ET)
+			ServerTable.waitConnection = false;
 		notifyAll(); // the student may now terminate
 	}
 }

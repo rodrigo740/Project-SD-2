@@ -186,17 +186,21 @@ public class Bar {
 
 		// Sleep while waiting for something to happen
 		while (!actionNeeded) {
+			waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = (BarClientProxy) Thread.currentThread();
 			try {
 				wait();
-			} catch (Exception e) {
+			} catch (InterruptedException e) {
+				waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = null;
 			}
 		}
 		if (oper == 'p') {
 			// Sleep while waiting for the student to signal it needs the next course
 			while (!bringNextCourse) {
+				waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = (BarClientProxy) Thread.currentThread();
 				try {
 					wait();
-				} catch (Exception e) {
+				} catch (InterruptedException e) {
+					waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = null;
 				}
 			}
 			// reset bringNextCourse flag
@@ -551,7 +555,7 @@ public class Bar {
 
 	public synchronized void shutdown() {
 		nEntities += 1;
-		if (nEntities >= SimulPar.E)
+		if (nEntities >= SimulPar.EB)
 			ServerBar.waitConnection = false;
 		notifyAll(); // the waiter may now terminate
 	}

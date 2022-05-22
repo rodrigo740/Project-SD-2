@@ -43,8 +43,7 @@ public class KitchenInterface {
 
 		/* validation of the incoming message */
 
-		GenericIO.writelnString("Process and reply: ");
-		GenericIO.writelnInt(inMessage.getMsgType());
+		GenericIO.writelnString(inMessage.toString());
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQWAFOR:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
@@ -152,10 +151,7 @@ public class KitchenInterface {
 		case MessageType.REQWAFOR:
 			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
 			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
-			GenericIO.writelnString("AQui!");
 			kitchen.watchTheNews();
-
-			GenericIO.writelnString("Depois");
 			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.WAFORDONE, 
 					((KitchenClientProxy) Thread.currentThread()).getChefID(),

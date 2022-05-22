@@ -9,4 +9,4 @@ sshpass -f password ssh sd201@l040101-ws01.ua.pt 'cd test/TheRestaurant/dirGener
 echo "Executing program at the server general repository."
 sshpass -f password ssh sd201@l040101-ws01.ua.pt 'cd test/TheRestaurant/dirGeneralRepos ; java serverSide.main.ServerGeneralRepos 22302'
 echo "Server shutdown."
-sshpass -f password ssh sd201@l040101-ws01.ua.pt 'cd test/TheRestaurant/dirGeneralRepos ; less stat'
+sshpass -f password ssh sd201@l040101-ws01.ua.pt 'cd test/TheRestaurant/dirGeneralRepos ; less logger'

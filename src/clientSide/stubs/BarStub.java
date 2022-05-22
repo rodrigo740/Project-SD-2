@@ -36,7 +36,7 @@ public class BarStub {
 		this.serverPortNumb = serverPortNumb;
 	}
 
-	public char lookAround() { //// ver esta funcao----------------------------
+	public char lookAround() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
 				inMessage; // incoming message
@@ -49,7 +49,7 @@ public class BarStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
+		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQLOOKAROUND, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);

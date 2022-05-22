@@ -1,6 +1,7 @@
 package commInfra;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import genclass.GenericIO;
 
@@ -133,7 +134,7 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.SAYGOODBYEDONE) || (msgType == MessageType.NOTECHEFDONE)
 				|| (msgType == MessageType.COLLECTPORTIONDONE) || (msgType == MessageType.SALUTECLIENTDONE)
 				|| (msgType == MessageType.GETPADDONE) || (msgType == MessageType.APORTSERVEDDONE)
-				|| (msgType == MessageType.DELIVERPORTIONDONE) || (msgType == MessageType.STSST)
+				|| (msgType == MessageType.DELIVERPORTIONDONE) || (msgType == MessageType.STWST)
 				|| (msgType == MessageType.REQRETURNBARSALUTE) || (msgType == MessageType.REQRETURNBARTAKINGORDER)
 				|| (msgType == MessageType.REQRETURNBARPORTIONSDELIVERED) || (msgType == MessageType.REQPREPAREBILL)
 				|| (msgType == MessageType.REQRECEIVEDPAYMENT) || (msgType == MessageType.REQRETURNBAR)
@@ -141,11 +142,12 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQCOLLECTPORTION) || (msgType == MessageType.REQSALUTECLIENT)
 				|| (msgType == MessageType.REQGETPAD) || (msgType == MessageType.REQDELIVERPORTION)
 				|| (msgType == MessageType.REQPRESENTBILL) || (msgType == MessageType.PRESENTBILLDONE)
-				|| (msgType == MessageType.REQLOOKAROUND)) {
+				|| (msgType == MessageType.REQLOOKAROUND) || (msgType == MessageType.RETURNBARTAKINGORDERDONE)
+				|| (msgType == MessageType.REQAPORTSERVED) || (msgType == MessageType.RECEIVEDPAYMENTDONE)) {
 			waiterState = state;
 			waiterId = id;
 		}
-		// student
+		// student 
 		else if ((msgType == MessageType.STSST) || (msgType == MessageType.ENTERDONE)
 				|| (msgType == MessageType.CALLWAITERDONE) || (msgType == MessageType.ARREARLIERDONE)
 				|| (msgType == MessageType.SIGNALWAITERDONE) || (msgType == MessageType.GOHOMEDONE)
@@ -155,15 +157,16 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.CHATDONE) || (msgType == MessageType.ENJOYMEALDONE)
 				|| (msgType == MessageType.LASTEATDONE) || (msgType == MessageType.CHATAGAINDONE)
 				|| (msgType == MessageType.EVERYONEFINISHDONE) || (msgType == MessageType.LASTENTERRESTAURANTDONE)
-				|| (msgType == MessageType.STWST) || (msgType == MessageType.REQENTER)
+				|| (msgType == MessageType.REQENTER) || (msgType == MessageType.REQSELCOURSE)
 				|| (msgType == MessageType.REQCALLWAITER) || (msgType == MessageType.REQSIGNALWAITER)
-				|| (msgType == MessageType.ARREARLIERDONE) || (msgType == MessageType.REQGOHOME)
-				|| (msgType == MessageType.REQTAKESEAT) || (msgType == MessageType.REQSELCOURSE)
+				|| (msgType == MessageType.REQGOHOME) || (msgType == MessageType.REQTAKESEAT) 
 				|| (msgType == MessageType.REQINFORMCOMPANIONS) || (msgType == MessageType.REQORGORDER)
 				|| (msgType == MessageType.REQDESCORDER) || (msgType == MessageType.REQCHAT)
 				|| (msgType == MessageType.REQENJOYMEAL) || (msgType == MessageType.REQCHATAGAIN)
 				|| (msgType == MessageType.REQEVERYONEFINISH) || (msgType == MessageType.REQHONORBILL)
-				|| (msgType == MessageType.HONORBILLDONE)) {
+				|| (msgType == MessageType.HONORBILLDONE) || (msgType == MessageType.REQFIRSTENTER)
+				|| (msgType == MessageType.REQLASTEAT) || (msgType == MessageType.REQLASTENTERRESTAURANT)
+				|| (msgType == MessageType.REQARREARLIER)) {
 			studentState = state;
 			studentId = id;
 		} // chef
@@ -177,7 +180,8 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQPROPRE) || (msgType == MessageType.REQDEPORT)
 				|| (msgType == MessageType.REQHNPORTREADY) || (msgType == MessageType.REQALERTWAITER)
 				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE) 
-				|| (msgType == MessageType.REQWAFOR)) {
+				|| (msgType == MessageType.REQWAFOR) || (msgType == MessageType.REQAPORTDELIVED)
+				|| (msgType == MessageType.REQORDERCOMPLET) || (msgType == MessageType.ORDERCOMPLETDONE)) {
 			chefState = state;
 			chefId = id;
 		} else {
@@ -445,5 +449,19 @@ public class Message implements Serializable {
 	public char getOp() {
 		return (op);
 	}
+
+	@Override
+	public String toString() {
+		return "Message [studentState=" + studentState + ", studentId=" + studentId + ", chefState=" + chefState
+				+ ", chefId=" + chefId + ", waiterState=" + waiterState + ", waiterId=" + waiterId + ", op=" + op
+				+ ", seat=" + Arrays.toString(seat) + ", msgType=" + msgType + ", fName=" + fName + ", endOpchef="
+				+ endOpchef + ", allServed=" + allServed + ", firstEnter=" + firstEnter + ", lastEat=" + lastEat
+				+ ", lastEnter=" + lastEnter + ", allPortionDelivered=" + allPortionDelivered + ", orderCompleted="
+				+ orderCompleted + "]";
+	}
+	
+	
+	
+	
 
 }

@@ -240,8 +240,9 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQAPORTDELIVED);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQAPORTDELIVED, ((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.APORTDELIVEDDONE) {
@@ -303,8 +304,9 @@ public class KitchenStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		// form 1 (type)
-		outMessage = new Message(MessageType.REQORDERCOMPLET);
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.REQORDERCOMPLET, ((Chef) Thread.currentThread()).getChefID(),
+				((Chef) Thread.currentThread()).getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ORDERCOMPLETDONE) {
@@ -445,7 +447,7 @@ public class KitchenStub {
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);
 		}
-		if ((inMessage.getWaiterState() < WaiterStates.RECPM) || (inMessage.getWaiterState() > WaiterStates.PRCBL)) {
+		if ((inMessage.getWaiterState() < WaiterStates.APPST) || (inMessage.getWaiterState() > WaiterStates.RECPM)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid waiter state!");
 			GenericIO.writelnString(inMessage.toString());
 			System.exit(1);

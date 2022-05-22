@@ -33,10 +33,28 @@ public class SimulPar {
 	public static final int N = S;
 
 	/**
-	 * Number of entities requesting shutdown.
+	 * Number of entities requesting Table shutdown.
 	 */
 
-	public static final int E = 2;
+	public static final int ET = 8;
+	
+	/**
+	 * Number of entities requesting Kitchen shutdown.
+	 */
+
+	public static final int EK = 2;
+	
+	/**
+	 * Number of entities requesting Bar shutdown.
+	 */
+
+	public static final int EB = 9;
+	
+	/**
+	 * Number of entities requesting general repos shutdown.
+	 */
+
+	public static final int EG = 10;
 
 	/**
 	 * It can't be instantiated
