@@ -259,7 +259,7 @@ public class BarInterface {
 		case MessageType.REQGOHOME:
 			((BarClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((BarClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
-			bar.shouldHaveArrivedEarlier();
+			bar.goHome();
 			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.GOHOMEDONE, ((BarClientProxy) Thread.currentThread()).getStudentID(),
 					((BarClientProxy) Thread.currentThread()).getWaiterState());
