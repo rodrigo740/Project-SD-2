@@ -54,8 +54,11 @@ public class KitchenStub {
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQWAFOR, ((Chef) Thread.currentThread()).getChefID(),
 				((Chef) Thread.currentThread()).getChefState());
+
+		GenericIO.writelnInt(outMessage.getChefState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
+		GenericIO.writelnInt(inMessage.getMsgType());
 		if ((inMessage.getMsgType() != MessageType.WAFORDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());

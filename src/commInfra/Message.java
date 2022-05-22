@@ -126,7 +126,6 @@ public class Message implements Serializable {
 	 * @param state entity state
 	 */
 	public Message(int type, int id, int state) {
-		GenericIO.writelnString("AQUIIIIII: ");
 		msgType = type;
 		// Waiter
 		if ((msgType == MessageType.RETURNBARSALUTEDONE) || (msgType == MessageType.RETURNBARPORTIONSDELIVEREDDONE)
@@ -141,7 +140,8 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQSAYGOODBYE) || (msgType == MessageType.REQNOTECHEF)
 				|| (msgType == MessageType.REQCOLLECTPORTION) || (msgType == MessageType.REQSALUTECLIENT)
 				|| (msgType == MessageType.REQGETPAD) || (msgType == MessageType.REQDELIVERPORTION)
-				|| (msgType == MessageType.REQPRESENTBILL) || (msgType == MessageType.PRESENTBILLDONE)) {
+				|| (msgType == MessageType.REQPRESENTBILL) || (msgType == MessageType.PRESENTBILLDONE)
+				|| (msgType == MessageType.REQLOOKAROUND)) {
 			waiterState = state;
 			waiterId = id;
 		}
@@ -176,7 +176,8 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQPRPCS) || (msgType == MessageType.REQCONTPRE)
 				|| (msgType == MessageType.REQPROPRE) || (msgType == MessageType.REQDEPORT)
 				|| (msgType == MessageType.REQHNPORTREADY) || (msgType == MessageType.REQALERTWAITER)
-				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE) || (msgType == MessageType.REQWAFOR)) {
+				|| (msgType == MessageType.REQCLEANUP) || (msgType == MessageType.CLEANUPDONE) 
+				|| (msgType == MessageType.REQWAFOR)) {
 			chefState = state;
 			chefId = id;
 		} else {

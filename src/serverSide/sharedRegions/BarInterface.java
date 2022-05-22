@@ -6,6 +6,7 @@ import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
+import genclass.GenericIO;
 import serverSide.entities.BarClientProxy;
 import serverSide.main.SimulPar;
 
@@ -42,6 +43,9 @@ public class BarInterface {
 		Message outMessage = null; // outgoing message
 
 		/* validation of the incoming message */
+		
+		GenericIO.writelnInt(inMessage.getMsgType());
+		GenericIO.writelnInt(inMessage.getWaiterId());
 
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQLOOKAROUND:
@@ -144,7 +148,7 @@ public class BarInterface {
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
 		case MessageType.ENDOPWAITER:
-			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.S))
+			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))
 				throw new MessageException("Invalid waiter id!", inMessage);
 			break;
 		case MessageType.SHUT: // check nothing

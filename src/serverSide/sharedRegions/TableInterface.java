@@ -5,6 +5,7 @@ import clientSide.entities.WaiterStates;
 import commInfra.Message;
 import commInfra.MessageException;
 import commInfra.MessageType;
+import genclass.GenericIO;
 import serverSide.entities.TableClientProxy;
 import serverSide.main.SimulPar;
 
@@ -40,6 +41,9 @@ public class TableInterface {
 		Message outMessage = null; // outgoing message
 
 		/* validation of the incoming message */
+		
+		GenericIO.writelnInt(inMessage.getMsgType());
+		
 
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQSALUTECLIENT:
@@ -82,6 +86,8 @@ public class TableInterface {
 			break;
 
 		case MessageType.REQTAKESEAT:
+			GenericIO.writelnInt(inMessage.getStudentId());
+			GenericIO.writelnInt(inMessage.getStudentState());
 			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
 			else if ((inMessage.getStudentState() < StudentStates.GGTRT)
@@ -175,7 +181,7 @@ public class TableInterface {
 				throw new MessageException("Invalid student state!", inMessage);
 			break;
 
-		case MessageType.ENDOPWAITER:
+		case MessageType.ENDOPSTUDENT:
 			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
 				throw new MessageException("Invalid student id!", inMessage);
 			break;

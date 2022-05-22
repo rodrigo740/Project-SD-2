@@ -43,6 +43,8 @@ public class KitchenInterface {
 
 		/* validation of the incoming message */
 
+		GenericIO.writelnString("Process and reply: ");
+		GenericIO.writelnInt(inMessage.getMsgType());
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQWAFOR:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
@@ -134,8 +136,6 @@ public class KitchenInterface {
 		case MessageType.ENDOPCHEF:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
-			} else if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV)) {
-				throw new MessageException("Invalid chef state!", inMessage);
 			}
 			break;
 		case MessageType.SHUT: // check nothing

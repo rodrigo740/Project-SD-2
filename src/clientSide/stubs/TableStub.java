@@ -697,7 +697,7 @@ public class TableStub {
 			}
 		}
 		// form 4 (type, id)
-		outMessage = new Message(MessageType.ENDOP, studentId);
+		outMessage = new Message(MessageType.ENDOPSTUDENT, studentId);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ENDOPDONESTUDENT) {

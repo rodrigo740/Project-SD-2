@@ -50,7 +50,8 @@ public class BarStub {
 			}
 		}
 		// form 1 (type)
-		outMessage = new Message(MessageType.REQLOOKAROUND);
+		outMessage = new Message(MessageType.REQLOOKAROUND, ((Waiter) Thread.currentThread()).getWaiterID(),
+				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.LOOKAROUNDDONE) {
