@@ -123,6 +123,14 @@ public class KitchenInterface {
 				throw new MessageException("Invalid waiter state!", inMessage);
 			}
 			break;
+		case MessageType.REQORDERCOMPLET:
+			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
+				throw new MessageException("Invalid chef id!", inMessage);
+			} else if ((inMessage.getChefState() < ChefStates.WAFOR)
+					|| (inMessage.getChefState() > ChefStates.CLSSV)) {
+				throw new MessageException("Invalid chef state!", inMessage);
+			}
+			break;
 		case MessageType.ENDOPCHEF:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
 				throw new MessageException("Invalid chef id!", inMessage);
@@ -200,6 +208,19 @@ public class KitchenInterface {
 			} else {
 				// form 7 (type, id , f)
 				outMessage = new Message(MessageType.APORTDELIVEDDONE,
+						((KitchenClientProxy) Thread.currentThread()).getChefID(), false);
+			}
+			break;
+		case MessageType.REQORDERCOMPLET:
+			((KitchenClientProxy) Thread.currentThread()).setChefID(inMessage.getChefId());
+			((KitchenClientProxy) Thread.currentThread()).setChefState(inMessage.getChefState());
+			if (kitchen.orderBeenCompleted()) {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.ORDERCOMPLETDONE,
+						((KitchenClientProxy) Thread.currentThread()).getChefID(), true);
+			} else {
+				// form 7 (type, id , f)
+				outMessage = new Message(MessageType.ORDERCOMPLETDONE,
 						((KitchenClientProxy) Thread.currentThread()).getChefID(), false);
 			}
 			break;

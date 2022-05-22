@@ -161,7 +161,7 @@ public class MessageType {
 	 * Order been completed (service request).
 	 */
 
-	public static final int ORDERCOMPLET = 29;
+	public static final int REQORDERCOMPLET = 29;
 
 	/**
 	 * Order been completed (reply).

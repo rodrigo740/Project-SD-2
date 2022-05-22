@@ -247,7 +247,7 @@ public class KitchenStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getAllPortionDelivered();
 	}
 
 	public void haveNextPortionReady() {
@@ -301,7 +301,7 @@ public class KitchenStub {
 			}
 		}
 		// form 1 (type)
-		outMessage = new Message(MessageType.ORDERCOMPLET);
+		outMessage = new Message(MessageType.REQORDERCOMPLET);
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 		if (inMessage.getMsgType() != MessageType.ORDERCOMPLETDONE) {
@@ -310,7 +310,7 @@ public class KitchenStub {
 			System.exit(1);
 		}
 		com.close();
-		return inMessage.getEndOp();
+		return inMessage.getOrderCompleted();
 	}
 
 	public void alertWaiter() {

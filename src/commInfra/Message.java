@@ -85,6 +85,18 @@ public class Message implements Serializable {
 	 */
 
 	private boolean lastEnter = false;
+	
+	/**
+	 * Portion delivered flag.
+	 */
+
+	private boolean allPortionDelivered = false;
+	
+	/**
+	 * Order completed flag.
+	 */
+
+	private boolean orderCompleted = false;
 
 	/**
 	 * Message instantiation (form 1).
@@ -253,12 +265,13 @@ public class Message implements Serializable {
 		}else if ((msgType == MessageType.LASTENTERRESTAURANTDONE)) {
 			studentId = id;
 			lastEnter = f;
+		}else if ((msgType == MessageType.APORTDELIVEDDONE)) {
+			chefId = id;
+			allPortionDelivered = f;
+		}else if ((msgType == MessageType.ORDERCOMPLETDONE)) {
+			chefId = id;
+			orderCompleted = f;
 		}
-		
-		
-		
-		
-		
 		else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
@@ -400,6 +413,26 @@ public class Message implements Serializable {
 	
 	public boolean getlastToEnter() {
 		return (lastEnter);
+	}
+	
+	/**
+	 * Getting all portions delivered flag.
+	 *
+	 * @return all portion delivered  flag
+	 */
+	
+	public boolean getAllPortionDelivered() {
+		return (allPortionDelivered);
+	}
+	
+	/**
+	 * Getting order completed flag.
+	 *
+	 * @return order completed flag
+	 */
+	
+	public boolean getOrderCompleted() {
+		return (orderCompleted);
 	}
 
 	/**
