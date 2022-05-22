@@ -236,7 +236,7 @@ public class TableInterface {
 		case MessageType.REQTAKESEAT:
 			((TableClientProxy) Thread.currentThread()).setStudentID(inMessage.getStudentId());
 			((TableClientProxy) Thread.currentThread()).setStudentState(inMessage.getStudentState());
-			table.deliverPortion();
+			table.takeASeat();
 			// form 3 (type, id , state)
 			outMessage = new Message(MessageType.TAKESEATDONE,
 					((TableClientProxy) Thread.currentThread()).getStudentID(),
