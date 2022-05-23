@@ -9,13 +9,12 @@ import serverSide.entities.KitchenClientProxy;
 import serverSide.sharedRegions.Kitchen;
 import serverSide.sharedRegions.KitchenInterface;
 
-//DONE
 
 /**
- * Server side of the General Repository of Information.
+ *  Service provider agent for access to the Kitchen.
  *
- * Implementation of a client-server model of type 2 (server replication).
- * Communication is based on a communication channel under the TCP protocol.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
  */
 public class ServerKitchen {
 	/**

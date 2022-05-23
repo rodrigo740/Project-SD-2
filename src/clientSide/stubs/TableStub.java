@@ -10,10 +10,17 @@ import commInfra.MessageType;
 import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
+/**
+ *  Stub to the table stub
+ *
+ *    It instantiates a remote reference to the table stub.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
+ */
 public class TableStub {
 
 	/**
-	 * Name of the platform where is located the kitchen server.
+	 * Name of the platform where is located the table server.
 	 */
 
 	private String serverHostName;
@@ -25,9 +32,9 @@ public class TableStub {
 	private int serverPortNumb;
 
 	/**
-	 * Instantiation of a stub to the kitchen.
+	 * Instantiation of a stub to the table.
 	 *
-	 * @param serverHostName name of the platform where is located the kitchen
+	 * @param serverHostName name of the platform where is located the table
 	 *                       server
 	 * @param serverPortNumb port number for listening to service requests
 	 */
@@ -37,6 +44,13 @@ public class TableStub {
 		this.serverPortNumb = serverPortNumb;
 	}
 
+
+	/**
+	 * Operation salute the client.
+	 *
+	 * It is called by a waiter to salute the client
+	 * 
+	 */
 	public void saluteTheClient() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -77,6 +91,12 @@ public class TableStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation get the pad
+	 *
+	 * It is called by a waiter to get the pad
+	 * 
+	 */
 	public void getThePad() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -114,6 +134,14 @@ public class TableStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation have all portions been served
+	 *
+	 * It is called by a waiter to know if all the portions have been served
+	 * 
+	 * @return  true if have all portions been served - 
+	 * 		   false, otherwise 
+	 */
 	public boolean haveAllPortionsBeenServed() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -141,6 +169,12 @@ public class TableStub {
 		return inMessage.getHaveAllPortionsBeenServed();
 	}
 
+	/**
+	 * Operation deliver portion.
+	 *
+	 * It is called by a waiter to deliver a portion to a student
+	 * 
+	 */
 	public void deliverPortion() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -178,6 +212,12 @@ public class TableStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation present the bill.
+	 *
+	 * It is called by a waiter to present the bill to the student
+	 * 
+	 */
 	public void presentBill() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -215,7 +255,12 @@ public class TableStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
-	// estudante
+	/**
+	 * Operation take a seat
+	 *
+	 * It is called by a student when it wants to take a seat at the table
+	 * 
+	 */
 	public void takeASeat() {
 
 		ClientCom com; // communication channel
@@ -258,6 +303,12 @@ public class TableStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation selecting the course
+	 *
+	 * It is called by a student to know if all the portions have been served
+	 * 
+	 */
 	public void selectingCourse() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -297,6 +348,15 @@ public class TableStub {
 
 	}
 
+	/**
+	 * Operation first to enter
+	 *
+	 * It is called by a student to know if it was the first to enter in the
+	 * restaurant
+	 * 
+	 * @return  true if the student was the first to enter - 
+	 * 		   false, otherwise 
+	 */
 	public boolean firstToEnter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -324,6 +384,11 @@ public class TableStub {
 		return inMessage.getFirstToEnter();
 	}
 
+	/**
+	 * Operation inform companions
+	 *
+	 * It is called by a student to inform the companion about its order
+	 */
 	public void informCompanions() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -363,6 +428,12 @@ public class TableStub {
 
 	}
 
+	/**
+	 * Operation organize order
+	 *
+	 * It is called by a student to start organizing the order
+	 * 
+	 */
 	public void organizeOrder() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -402,6 +473,12 @@ public class TableStub {
 
 	}
 
+	/**
+	 * Operation describe order
+	 *
+	 * It is called by a student to describe the order to the waiter
+	 * 
+	 */
 	public void describeOrder() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -440,7 +517,13 @@ public class TableStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 
 	}
-
+	
+	/**
+	 * Operation chat
+	 *
+	 * It is called by a student to start chatting with the companions
+	 * 
+	 */
 	public void chat() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -480,6 +563,13 @@ public class TableStub {
 
 	}
 
+
+	/**
+	 * Operation enjoy the meal
+	 *
+	 * It is called by a student to start eating the portion
+	 * 
+	 */
 	public void enjoyMeal() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -519,6 +609,14 @@ public class TableStub {
 
 	}
 
+	/**
+	 * Operation last to eat
+	 *
+	 * It is called by a student to know if it was the last to eat the portion
+	 * 
+	 * @return true if the student was the last to eat - 
+	 * 		   false, otherwise 
+	 */
 	public boolean lastToEat() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -546,6 +644,12 @@ public class TableStub {
 		return inMessage.getLastToEat();
 	}
 
+	/**
+	 * Operation chatAgain
+	 *
+	 * It is called by the last student to eat to wake up the other students
+	 * 
+	 */
 	public void chatAgain() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -584,6 +688,13 @@ public class TableStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation wait for everyone to finish
+	 *
+	 * It is called by a student to wait of everyone to finish eating the current
+	 * course
+	 * 
+	 */
 	public void waitForEveryoneToFinish() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -622,6 +733,15 @@ public class TableStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation last to enter restaurant
+	 *
+	 * It is called by a student to know if it was the last to enter in the
+	 * restaurant
+	 * 
+	 * @return true if the student was the last to enter in the restaurant - 
+	 * 		   false, otherwise 
+	 */
 	public boolean lastToEnterRestaurant() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -649,6 +769,12 @@ public class TableStub {
 		return inMessage.getlastToEnter();
 	}
 
+	/**
+	 * Operation honor the bill
+	 *
+	 * It is called by a student to honor the bill
+	 * 
+	 */
 	public void honorTheBill() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -692,6 +818,7 @@ public class TableStub {
 	 *
 	 * New operation.
 	 * 
+	 * @param studentId student id
 	 */
 
 	public void endOperation(int studentId) {

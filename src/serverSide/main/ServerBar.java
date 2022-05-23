@@ -9,13 +9,11 @@ import serverSide.entities.BarClientProxy;
 import serverSide.sharedRegions.Bar;
 import serverSide.sharedRegions.BarInterface;
 
-//DONE
-
 /**
- * Server side of the General Repository of Information.
+ *  Service provider agent for access to the Bar.
  *
- * Implementation of a client-server model of type 2 (server replication).
- * Communication is based on a communication channel under the TCP protocol.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
  */
 public class ServerBar {
 	/**

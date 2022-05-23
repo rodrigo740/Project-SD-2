@@ -131,6 +131,7 @@ public class Bar {
 	 *
 	 * It is called by a waiter to look around
 	 * 
+	 * @return oper operation to be performed
 	 */
 
 	public synchronized char lookAround() {
@@ -215,7 +216,7 @@ public class Bar {
 	/**
 	 * Set actionNeeded flag
 	 *
-	 * @param action
+	 * @param action actionNeeded
 	 */
 
 	public synchronized void setActionNeeded(boolean action) {
@@ -225,7 +226,7 @@ public class Bar {
 	/**
 	 * Set oper flag
 	 *
-	 * @param op
+	 * @param op oper
 	 */
 	public synchronized void setOper(char op) {
 		oper = op;
@@ -236,6 +237,7 @@ public class Bar {
 	 *
 	 * Method that returns hasCalledWaiter flag
 	 * 
+	 * @return hasCalledWaiter 
 	 */
 	public synchronized boolean getHasCalledWaiter() {
 		return hasCalledWaiter;
@@ -255,6 +257,7 @@ public class Bar {
 	 *
 	 * Method that returns wantsToPay flag
 	 * 
+	 * @return wantsToPay
 	 */
 	public synchronized boolean getWantsToPay() {
 		return wantsToPay;
@@ -274,6 +277,7 @@ public class Bar {
 	 *
 	 * Method that returns describedOrder flag
 	 * 
+	 * @return describedOrder
 	 */
 	public synchronized boolean getDescribedOrder() {
 		return describedOrder;
@@ -293,6 +297,7 @@ public class Bar {
 	 *
 	 * Method that returns signalWaiter flag
 	 * 
+	 * @return signalWaiter
 	 */
 	public synchronized boolean getSignalWaiter() {
 		return signalWaiter;
@@ -312,6 +317,7 @@ public class Bar {
 	 *
 	 * Method that returns billHonored flag
 	 * 
+	 * @return billHonored
 	 */
 	public synchronized boolean getBillHonored() {
 		return billHonored;
@@ -533,7 +539,7 @@ public class Bar {
 	 *
 	 * New operation.
 	 *
-	 * @param barbId student id
+	 * @param waiterID waiter id
 	 */
 
 	public synchronized void endOperation(int waiterID) {

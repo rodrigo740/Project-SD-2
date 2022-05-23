@@ -9,7 +9,6 @@ import commInfra.ServerCom;
 import genclass.GenericIO;
 import serverSide.sharedRegions.BarInterface;
 
-//DONE
 /**
  * Service provider agent for access to the Bar.
  *
@@ -18,13 +17,13 @@ import serverSide.sharedRegions.BarInterface;
  */
 public class BarClientProxy extends Thread implements WaiterCloning, StudentCloning, ChefCloning {
 	/**
-	 * Waiter identification.
+	 * Chef identification.
 	 */
 
 	private int chefID;
 
 	/**
-	 * Waiter state.
+	 * Chef state.
 	 */
 
 	private int chefState;
@@ -88,7 +87,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Generation of the instantiation identifier.
 	 *
-	 * @return instantiation identifier
+	 * @return proxyId instantiation identifier
 	 */
 
 	private static int getProxyId() {
@@ -112,7 +111,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get Chef ID
 	 * 
-	 * @return chefID
+	 * @return chefID chef identifier
 	 */
 	public int getChefID() {
 		return chefID;
@@ -121,7 +120,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set Chef ID
 	 * 
-	 * @param chefID
+	 * @param chefID chef identifier
 	 */
 
 	public void setChefID(int chefID) {
@@ -131,7 +130,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get Chef state
 	 * 
-	 * @return chefState
+	 * @return chefState chef state
 	 */
 	public int getChefState() {
 		return chefState;
@@ -140,7 +139,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set Chef state
 	 * 
-	 * @param chefState
+	 * @param chefState chef state
 	 */
 	public void setChefState(int chefState) {
 		this.chefState = chefState;
@@ -149,7 +148,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get waiter id
 	 * 
-	 * @return waiterID
+	 * @return waiterID waiter identifier
 	 */
 	public int getWaiterID() {
 		return waiterID;
@@ -158,6 +157,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set waiter id
 	 * 
+	 * @param waiterID waiter identifier
 	 */
 
 	public void setWaiterID(int waiterID) {
@@ -167,7 +167,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get waiter state
 	 * 
-	 * @return waiterState
+	 * @return waiterState waiter state
 	 */
 
 	public int getWaiterState() {
@@ -177,6 +177,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set waiter state
 	 * 
+	 * @param waiterState waiter state
 	 */
 
 	public void setWaiterState(int waiterState) {
@@ -186,7 +187,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get Student ID
 	 * 
-	 * @return studentID
+	 * @return studentID student identifier
 	 */
 	public int getStudentID() {
 		return studentID;
@@ -195,7 +196,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID
+	 * @param studentID student identifier
 	 */
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
@@ -204,7 +205,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get number of the seat at the table
 	 * 
-	 * @return seat
+	 * @return seat number of the seat at the table
 	 */
 	public int getSeat() {
 		return seat;
@@ -213,7 +214,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set number of the seat at the table
 	 * 
-	 * @param seat
+	 * @param seat number of the seat at the table
 	 */
 	public void setSeat(int seat) {
 		this.seat = seat;
@@ -222,7 +223,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Get Student state
 	 * 
-	 * @return studentState
+	 * @return studentState student state
 	 */
 	public int getStudentState() {
 		return studentState;
@@ -231,7 +232,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	/**
 	 * Set Student state
 	 * 
-	 * @param studentState
+	 * @param studentState student state
 	 */
 	public void setStudentState(int studentState) {
 		this.studentState = studentState;

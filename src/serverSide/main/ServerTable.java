@@ -9,13 +9,11 @@ import serverSide.entities.TableClientProxy;
 import serverSide.sharedRegions.Table;
 import serverSide.sharedRegions.TableInterface;
 
-//DONE
-
 /**
- * Server side of the General Repository of Information.
+ *  Service provider agent for access to the Table.
  *
- * Implementation of a client-server model of type 2 (server replication).
- * Communication is based on a communication channel under the TCP protocol.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
  */
 public class ServerTable {
 

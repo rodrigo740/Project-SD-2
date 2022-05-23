@@ -10,6 +10,14 @@ import genclass.GenericIO;
 import serverSide.entities.BarClientProxy;
 import serverSide.main.SimulPar;
 
+/**
+ *  Interface to the Bar.
+ *
+ *    It is responsible to validate and process the incoming message, execute the corresponding method on the
+ *    bar and generate the outgoing message.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
+ */
 public class BarInterface {
 
 	/**
@@ -35,7 +43,7 @@ public class BarInterface {
 	 * outgoing message.
 	 *
 	 * @param inMessage service request
-	 * @return service reply
+	 * @return outMessage service reply
 	 * @throws MessageException if the incoming message is not valid
 	 */
 

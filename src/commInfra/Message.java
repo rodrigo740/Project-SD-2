@@ -5,8 +5,12 @@ import java.util.Arrays;
 
 import genclass.GenericIO;
 
-//FAZER
-// ver construtores daqui ------------------- por causa dos ids 
+/**
+ *   Internal structure of the exchanged messages.
+ *
+ *   Implementation of a client-server model of type 2 (server replication).
+ *   Communication is based on a communication channel under the TCP protocol.
+ */
 public class Message implements Serializable {
 	/**
 	 * Serialization key.
@@ -291,6 +295,7 @@ public class Message implements Serializable {
 	 * GenericIO.writelnString("Message type = " + msgType +
 	 * ": non-implemented instantiation!"); System.exit(1); } }
 	 */
+	
 	/**
 	 * Getting message type.
 	 *
@@ -443,7 +448,7 @@ public class Message implements Serializable {
 	/**
 	 * Getting next operation of waiter (waiter).
 	 *
-	 * @return op char
+	 * @return op operation to be performed
 	 */
 
 	public char getOp() {

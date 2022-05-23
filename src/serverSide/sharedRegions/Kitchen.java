@@ -28,7 +28,7 @@ public class Kitchen {
 	 */
 	private final GeneralReposStub reposStub;
 	/**
-	 * Reference to student threads.
+	 * Reference to chef threads.
 	 */
 
 	private final KitchenClientProxy[] chef;
@@ -107,8 +107,6 @@ public class Kitchen {
 	 *
 	 * It is called by a waiter to deliver the order to the chef
 	 * 
-	 * @param nCourses  number of courses
-	 * @param nPortions number of portions
 	 */
 
 	public synchronized void handTheNoteToTheChef() {
@@ -191,6 +189,8 @@ public class Kitchen {
 	 *
 	 * It is called by a chef to know if all portion have been delivered
 	 *
+	 * @return true, if all portion have been delivered -
+     *            false, otherwise
 	 */
 
 	public synchronized boolean allPortionsDelived() {
@@ -267,7 +267,10 @@ public class Kitchen {
 	 *
 	 * It is called by a chef in order to know if the order has been completed
 	 *
+	 * @return @return true, if the order has been completed -
+     *            false, otherwise
 	 */
+	
 
 	public synchronized boolean orderBeenCompleted() {
 		// increment delivered courses

@@ -1,7 +1,10 @@
 package commInfra;
 
-//Fazer - acho que existe mensagens repetidas pelos metodos
-//no shutdown nao se faz distincao se é chamada pelo bar, kitchen ou table
+/**
+ *   Type of the exchanged messages.
+ *   Implementation of a client-server model of type 2 (server replication).
+ *   Communication is based on a communication channel under the TCP protocol.
+ */
 public class MessageType {
 
 	/**

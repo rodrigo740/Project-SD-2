@@ -10,6 +10,13 @@ import commInfra.MessageType;
 import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
+/**
+ *  Stub to the kitchen stub
+ *
+ *    It instantiates a remote reference to the kitchen stub.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
+ */
 public class KitchenStub {
 
 	/**
@@ -37,6 +44,13 @@ public class KitchenStub {
 		this.serverPortNumb = serverPortNumb;
 	}
 
+	/**
+	 * Operation watch the news.
+	 *
+	 * It is called by a chef while waiting for and order to be delivered by the
+	 * waiter.
+	 *
+	 */
 	public void watchTheNews() {
 
 		ClientCom com; // communication channel
@@ -79,6 +93,12 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+	/**
+	 * Operation start preparations.
+	 *
+	 * It is called by a chef after receiving and order
+	 *
+	 */
 	public void startPreparations() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -115,6 +135,13 @@ public class KitchenStub {
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
+
+	/**
+	 * Operation continue preparations.
+	 *
+	 * It is called by a chef after the chef delivered a portion
+	 *
+	 */
 
 	public void continuePreparation() {
 		ClientCom com; // communication channel
@@ -153,6 +180,12 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+	/**
+	 * Operation proceed to presentation.
+	 *
+	 * It is called by a chef after preparing a portion
+	 *
+	 */
 	public void proceedToPresentation() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -189,7 +222,13 @@ public class KitchenStub {
 		com.close();
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
-
+	
+	/**
+	 * Operation deliver portion.
+	 *
+	 * It is called by a chef to deliver a portion to the waiter
+	 *
+	 */
 	public void deliverPortion() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -227,6 +266,14 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+	/**
+	 * Operation all portions delivered.
+	 *
+	 * It is called by a chef to know if all portion have been delivered
+	 *
+	 * @return true if have all portions delivered - 
+	 * 		   false, otherwise 
+	 */
 	public boolean allPortionsDelived() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -253,6 +300,13 @@ public class KitchenStub {
 		com.close();
 		return inMessage.getAllPortionDelivered();
 	}
+
+	/**
+	 * Operation have next portion ready.
+	 *
+	 * It is called by a chef in order to start dishing another portion
+	 *
+	 */
 
 	public void haveNextPortionReady() {
 		ClientCom com; // communication channel
@@ -291,6 +345,14 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+	/**
+	 * Operation order been completed.
+	 *
+	 * It is called by a chef in order to know if the order has been completed
+	 *
+	 * @return true if  order has been completed - 
+	 * 		   false, otherwise  
+	 */
 	public boolean orderBeenCompleted() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -318,6 +380,13 @@ public class KitchenStub {
 		return inMessage.getOrderCompleted();
 	}
 
+	/**
+	 * Operation alert waiter
+	 *
+	 * It is called by a chef to warn the waiter that a portion is ready to be
+	 * collected
+	 *
+	 */
 	public void alertWaiter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -350,6 +419,12 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+	/**
+	 * Operation clean up.
+	 *
+	 * It is called by a chef to finish its service
+	 *
+	 */
 	public void cleanUp() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -387,6 +462,13 @@ public class KitchenStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
+
+	/**
+	 * Operation hand the note to the Chef.
+	 *
+	 * It is called by a waiter to deliver the order to the chef
+	 * 
+	 */
 	public void handTheNoteToTheChef() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -424,6 +506,12 @@ public class KitchenStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation collect portion.
+	 *
+	 * It is called by a waiter to collect a portion
+	 *
+	 */
 	public void collectPortion() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -466,6 +554,7 @@ public class KitchenStub {
 	 *
 	 * New operation.
 	 * 
+	 * @param chefId chef id
 	 */
 
 	public void endOperation(int chefId) {

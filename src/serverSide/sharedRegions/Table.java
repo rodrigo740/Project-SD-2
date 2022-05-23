@@ -262,6 +262,8 @@ public class Table {
 	 *
 	 * It is called by a waiter to know if all the portions have been served
 	 * 
+	 * @return true, if all the portions have been served -
+     *         false, otherwise
 	 */
 
 	public synchronized boolean haveAllPortionsBeenServed() {
@@ -298,7 +300,7 @@ public class Table {
 	 *
 	 * This function sets the value of portionDelivered flag
 	 *
-	 * @param b
+	 * @param b portionDelivered flag
 	 */
 
 	private synchronized void setPortionDelivered(boolean b) {
@@ -310,7 +312,7 @@ public class Table {
 	 *
 	 * This function sets the value of allFinishedEating flag
 	 *
-	 * @param b
+	 * @param b allFinishedEating flag
 	 */
 	private synchronized void setAllFinishedEating(boolean b) {
 		allFinishedEating = b;
@@ -321,7 +323,7 @@ public class Table {
 	 *
 	 * This function sets the value of gotThePad flag
 	 *
-	 * @param b
+	 * @param b gotThePad flag
 	 */
 	private synchronized void setGotThePad(boolean b) {
 		gotThePad = b;
@@ -332,7 +334,7 @@ public class Table {
 	 *
 	 * This function sets the value of orderDescribed flag
 	 *
-	 * @param b
+	 * @param described orderDescribed flag
 	 */
 	public synchronized void setOrderDescribed(boolean described) {
 		orderDescribed = described;
@@ -343,7 +345,7 @@ public class Table {
 	 *
 	 * This function sets the value of billHonored flag
 	 *
-	 * @param b
+	 * @param honored billHonored flag
 	 */
 	public synchronized void setBillHonored(boolean honored) {
 		billHonored = honored;
@@ -354,7 +356,7 @@ public class Table {
 	 *
 	 * This function sets the value of clientSaluted flag
 	 *
-	 * @param b
+	 * @param saluted clientSaluted flag
 	 */
 
 	public synchronized void setClientSaluted(boolean saluted) {
@@ -366,7 +368,7 @@ public class Table {
 	 *
 	 * This function sets the value of informed flag
 	 *
-	 * @param b
+	 * @param b informed flag
 	 */
 	public synchronized void setInformed(boolean b) {
 		informed = b;
@@ -433,6 +435,8 @@ public class Table {
 	 * It is called by a student to know if it was the first to enter in the
 	 * restaurant
 	 * 
+	 * @return true, if was the first to enter in the restaurant -
+     *         false, otherwise
 	 */
 	public synchronized boolean firstToEnter() {
 		int studentID = ((TableClientProxy) Thread.currentThread()).getStudentID();
@@ -575,6 +579,8 @@ public class Table {
 	 *
 	 * It is called by a student to know if it was the last to eat the portion
 	 * 
+	 * @return true, if was the last to eat the portion -
+     *         false, otherwise
 	 */
 
 	public synchronized boolean lastToEat() {
@@ -609,6 +615,8 @@ public class Table {
 	 * It is called by a student to know if it was the last to enter in the
 	 * restaurant
 	 * 
+	 * @return true, if was the last to enter in the restaurant-
+     *         false, otherwise
 	 */
 
 	public synchronized boolean lastToEnterRestaurant() {
