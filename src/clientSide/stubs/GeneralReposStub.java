@@ -187,16 +187,92 @@ public class GeneralReposStub {
 		com.close();
 	}
 
+	/*
+	 * Set student seat.
+	 *
+	 * @param studentID student id
+	 * @param n student seat at the table
+	 */
 	public synchronized void setStudentSeat(int studentID, int n) {
-		// seat[n] = studentID;
+		ClientCom com; // communication channel
+		Message outMessage; // outgoing message
+		Message inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) {
+			try {
+				Thread.sleep((long) (1000));
+			} catch (InterruptedException e) {
+			}
+		}
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.STSSEAT, studentID, n);
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if (inMessage.getMsgType() != MessageType.SACK) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
 	}
 
+	/*
+	 * Set number of portions delivered.
+	 *
+	 * @param n number of portions delivered
+	 */
 	public void setPortionsDelivered(int n) {
-		// portionsDelivered = n;
+		ClientCom com; // communication channel
+		Message outMessage; // outgoing message
+		Message inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) {
+			try {
+				Thread.sleep((long) (1000));
+			} catch (InterruptedException e) {
+			}
+		}
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.STSPD, n);
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if (inMessage.getMsgType() != MessageType.SACK) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
 	}
 
+	/*
+	 * Set number of courses delivered.
+	 *
+	 * @param n number of courses delivered
+	 */
 	public void setCoursesDelivered(int n) {
-		// coursesDelivered = n;
+		ClientCom com; // communication channel
+		Message outMessage; // outgoing message
+		Message inMessage; // incoming message
+
+		com = new ClientCom(serverHostName, serverPortNumb);
+		while (!com.open()) {
+			try {
+				Thread.sleep((long) (1000));
+			} catch (InterruptedException e) {
+			}
+		}
+		// form 3 (type, id, state)
+		outMessage = new Message(MessageType.STSCD, n);
+		com.writeObject(outMessage);
+		inMessage = (Message) com.readObject();
+		if (inMessage.getMsgType() != MessageType.SACK) {
+			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
+			GenericIO.writelnString(inMessage.toString());
+			System.exit(1);
+		}
+		com.close();
 	}
 
 }

@@ -89,7 +89,6 @@ public class Chef extends Thread {
 	@Override
 	public void run() {
 		boolean firstCourse = true;
-
 		// Transition to 'WAFOR'
 		kitStub.watchTheNews();
 		// Transition to 'PRPCS'
@@ -104,7 +103,6 @@ public class Chef extends Thread {
 			// Transition to 'DSHPT'
 			kitStub.proceedToPresentation();
 			barStub.alertWaiter();
-
 			// Transition to 'DLVPT'
 			kitStub.deliverPortion();
 			while (!kitStub.allPortionsDelived()) {

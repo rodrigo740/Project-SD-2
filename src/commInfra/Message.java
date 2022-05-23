@@ -49,10 +49,6 @@ public class Message implements Serializable {
 	 * waiter operation.
 	 */
 	private char op = ' ';
-	/**
-	 * ids of the students in each seat
-	 */
-	private int seat[];
 
 	/**
 	 * Message type.
@@ -103,6 +99,25 @@ public class Message implements Serializable {
 	 */
 
 	private boolean orderCompleted = false;
+	
+	/**
+	 * Student seat at the table.
+	 */
+
+	private int seat = -1;
+	
+	/**
+	 * Number of portions delivered.
+	 */
+
+	private int portionsDelivered = -1;
+	
+	/**
+	 * Number of courses delivered.
+	 */
+
+	private int coursesDelivered = -1;
+
 
 	/**
 	 * Message instantiation (form 1).
@@ -189,7 +204,11 @@ public class Message implements Serializable {
 				|| (msgType == MessageType.REQORDERCOMPLET) || (msgType == MessageType.ORDERCOMPLETDONE)) {
 			chefState = state;
 			chefId = id;
-		} else {
+		} else if (msgType == MessageType.STSSEAT) {
+			studentId = id;
+			seat = state;
+		}
+		else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -214,7 +233,13 @@ public class Message implements Serializable {
 		// chef
 		else if ((msgType == MessageType.ENDOPDONECHEF) || (msgType == MessageType.ENDOPCHEF)) {
 			chefId = id;
-		} else {
+		} // student
+		else if ((msgType == MessageType.STSPD)) {
+			portionsDelivered = id;
+		}else if ((msgType == MessageType.STSCD)) {
+			coursesDelivered = id;
+		}
+		else {
 			GenericIO.writelnString("Message type = " + msgType + ": non-implemented instantiation!");
 			System.exit(1);
 		}
@@ -446,12 +471,42 @@ public class Message implements Serializable {
 	public char getOp() {
 		return (op);
 	}
+	
+	/**
+	 * Getting student seat at the table (student).
+	 *
+	 * @return seat seat number
+	 */
+
+	public int getSeat() {
+		return (seat);
+	}
+
+	/**
+	 * Getting the number of portions delivered (student).
+	 *
+	 * @return portionsDelivered number of portions delivered
+	 */
+
+	public int getPortionsDelivered() {
+		return (portionsDelivered);
+	}
+	
+	/**
+	 * Getting the number of courses delivered (student).
+	 *
+	 * @return coursesDelivered number of courses delivered
+	 */
+
+	public int getCoursesDelivered() {
+		return (coursesDelivered);
+	}
 
 	@Override
 	public String toString() {
 		return "Message [studentState=" + studentState + ", studentId=" + studentId + ", chefState=" + chefState
 				+ ", chefId=" + chefId + ", waiterState=" + waiterState + ", waiterId=" + waiterId + ", op=" + op
-				+ ", seat=" + Arrays.toString(seat) + ", msgType=" + msgType + ", fName=" + fName + ", endOpchef="
+				+ ", seat=" + seat + ", msgType=" + msgType + ", fName=" + fName + ", endOpchef="
 				+ endOpchef + ", allServed=" + allServed + ", firstEnter=" + firstEnter + ", lastEat=" + lastEat
 				+ ", lastEnter=" + lastEnter + ", allPortionDelivered=" + allPortionDelivered + ", orderCompleted="
 				+ orderCompleted + "]";

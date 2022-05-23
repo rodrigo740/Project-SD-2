@@ -545,4 +545,22 @@ public class MessageType {
 	 */
 
 	public static final int ENDOPSTUDENT = 104;
+	
+	/**
+	 * Set student seat at the table - repos (service request).
+	 */
+
+	public static final int STSSEAT = 105;
+	
+	/**
+	 * Set number of portions delivered - repos (service request).
+	 */
+
+	public static final int STSPD = 106;
+	
+	/**
+	 * Set number of courses delivered - repos (service request).
+	 */
+
+	public static final int STSCD = 107;
 }

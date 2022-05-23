@@ -71,6 +71,21 @@ public class GeneralReposInterface {
 			if ((inMessage.getChefState() < ChefStates.WAFOR) || (inMessage.getChefState() > ChefStates.CLSSV))
 				throw new MessageException("Invalid chef state!", inMessage);
 			break;
+		case MessageType.STSSEAT: // estudante
+			if ((inMessage.getStudentId() < 0) || (inMessage.getStudentId() >= SimulPar.S))
+				throw new MessageException("Invalid student id!", inMessage);
+			else if ((inMessage.getSeat() < 0)
+					|| (inMessage.getSeat() >= SimulPar.S))
+				throw new MessageException("Invalid student seat!", inMessage);
+			break;
+		case MessageType.STSPD: // estudante
+			if ((inMessage.getPortionsDelivered() < 0) || (inMessage.getPortionsDelivered() > SimulPar.N))
+				throw new MessageException("Invalid number of portions delivered!", inMessage);
+			break;
+		case MessageType.STSCD: // estudante
+			if ((inMessage.getCoursesDelivered() < 0) || (inMessage.getCoursesDelivered() > SimulPar.M))
+				throw new MessageException("Invalid number of courses delivered!", inMessage);
+			break;
 		case MessageType.SHUT: // check nothing
 			break;
 		default:
@@ -96,6 +111,18 @@ public class GeneralReposInterface {
 			break;
 		case MessageType.STCST:
 			repos.setChefState(inMessage.getChefState());
+			outMessage = new Message(MessageType.SACK);
+			break;
+		case MessageType.STSSEAT: // student
+			repos.setStudentSeat(inMessage.getStudentId(), inMessage.getSeat());
+			outMessage = new Message(MessageType.SACK);
+			break;
+		case MessageType.STSPD: // estudante
+			repos.setPortionsDelivered(inMessage.getPortionsDelivered());
+			outMessage = new Message(MessageType.SACK);
+			break;
+		case MessageType.STSCD: // estudante
+			repos.setCoursesDelivered(inMessage.getCoursesDelivered());
 			outMessage = new Message(MessageType.SACK);
 			break;
 		case MessageType.SHUT:
