@@ -1,5 +1,4 @@
 package clientSide.entities;
-//DONE
 
 /**
  * Waiter cloning.
@@ -12,13 +11,14 @@ public interface WaiterCloning {
 	/**
 	 * Get waiter id
 	 * 
-	 * @return waiterID
+	 * @return waiterID waiter identifier
 	 */
 	public int getWaiterID();
 
 	/**
 	 * Set waiter id
 	 * 
+	 * @param waiterID waiter identifier
 	 */
 
 	public void setWaiterID(int waiterID);
@@ -26,7 +26,7 @@ public interface WaiterCloning {
 	/**
 	 * Get waiter state
 	 * 
-	 * @return waiterState
+	 * @return waiterState waiter state
 	 */
 
 	public int getWaiterState();
@@ -34,6 +34,7 @@ public interface WaiterCloning {
 	/**
 	 * Set waiter state
 	 * 
+	 * @param waiterState waiter state
 	 */
 
 	public void setWaiterState(int waiterState);

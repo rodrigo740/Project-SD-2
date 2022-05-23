@@ -154,16 +154,16 @@ public class GeneralRepos {
 	/**
 	 * Set the number of portions delivered
 	 * 
-	 * @param n
+	 * @param n  number of portions delivered
 	 */
 	public synchronized void setPortionsDelivered(int n) {
 		portionsDelivered = n;
 	}
 
 	/**
-	 * Set the courses delivered
+	 * Set the number courses delivered
 	 * 
-	 * @param n
+	 * @param n number courses delivered
 	 */
 	public synchronized void setCoursesDelivered(int n) {
 		coursesDelivered = n;

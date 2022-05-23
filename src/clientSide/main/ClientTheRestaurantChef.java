@@ -7,10 +7,8 @@ import clientSide.stubs.KitchenStub;
 import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
-//DONE
-
 /**
- * Client side of the Restaurante (chef).
+ * Client side of the Restaurant (chef).
  *
  * Implementation of a client-server model of type 2 (server replication).
  * Communication is based on a communication channel under the TCP protocol.

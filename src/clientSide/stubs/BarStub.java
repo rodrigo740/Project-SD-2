@@ -1,6 +1,7 @@
 package clientSide.stubs;
 
 import clientSide.entities.Chef;
+
 import clientSide.entities.ChefStates;
 import clientSide.entities.Student;
 import clientSide.entities.StudentStates;
@@ -12,6 +13,13 @@ import commInfra.MessageType;
 import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
+/**
+ *  Stub to the bar stub
+ *
+ *    It instantiates a remote reference to the bar stub.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
+ */
 public class BarStub {
 	/**
 	 * Name of the platform where is located the bar server.
@@ -36,6 +44,13 @@ public class BarStub {
 		this.serverPortNumb = serverPortNumb;
 	}
 
+	/**
+	 * Operation look around
+	 *
+	 * It is called by a waiter to look around
+	 * 
+	 * @return oper operation to be performed
+	 */
 	public char lookAround() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -63,6 +78,13 @@ public class BarStub {
 		return inMessage.getOp();
 	}
 
+	
+	/**
+	 * Operation return to the bar after salute
+	 *
+	 * It is called by a waiter to return to the bar after saluting the student
+	 * 
+	 */
 	public void returnToTheBarAfterSalute() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -99,7 +121,13 @@ public class BarStub {
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
-
+	
+	/**
+	 * Operation return to the bar after taking the order
+	 *
+	 * It is called by a waiter to return to the bar after taking the order
+	 * 
+	 */
 	public void returnToTheBarAfterTakingTheOrder() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -137,6 +165,13 @@ public class BarStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation return to the bar after portions delivered
+	 *
+	 * It is called by a waiter to the bar after all portions of a course have been
+	 * delivered
+	 * 
+	 */
 	public void returnToTheBarAfterPortionsDelivered() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -173,7 +208,12 @@ public class BarStub {
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
-
+	/**
+	 * Operation prepare the bill
+	 *
+	 * It is called by a waiter to prepare the bill
+	 * 
+	 */
 	public void prepareBill() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -211,6 +251,12 @@ public class BarStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation received payment
+	 *
+	 * It is called by a waiter after the payment has been received
+	 * 
+	 */
 	public void receivedPayment() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -247,7 +293,12 @@ public class BarStub {
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
-
+	/**
+	 * Operation return to the bar
+	 *
+	 * It is called by a waiter to return to the bar
+	 * 
+	 */
 	public void returnToTheBar() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -284,7 +335,13 @@ public class BarStub {
 		com.close();
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
-
+	
+	/**
+	 * Operation say goodbye
+	 *
+	 * It is called by a waiter to say goodbye to the student
+	 * 
+	 */
 	public void sayGoodbye() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -322,6 +379,13 @@ public class BarStub {
 		((Waiter) Thread.currentThread()).setWaiterState(inMessage.getWaiterState());
 	}
 
+	/**
+	 * Operation alert waiter
+	 *
+	 * It is called by a chef to warn the waiter that a portions is ready to be
+	 * delivered
+	 * 
+	 */
 	public void alertWaiter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -359,7 +423,12 @@ public class BarStub {
 		((Chef) Thread.currentThread()).setChefState(inMessage.getChefState());
 	}
 
-	// estudantes
+	/**
+	 * Operation enter
+	 *
+	 * It is called by a student to enter the restaurant
+	 * 
+	 */
 	public void enter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -398,6 +467,12 @@ public class BarStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation call the waiter
+	 *
+	 * It is called by a student to call the waiter to describe the order
+	 * 
+	 */
 	public void callTheWaiter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -436,6 +511,13 @@ public class BarStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation signal waiter
+	 *
+	 * It is called by a student to warn the waiter that it can start delivering the
+	 * portions of the next course
+	 * 
+	 */
 	public void signalWaiter() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -473,7 +555,13 @@ public class BarStub {
 		com.close();
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
-
+	
+	/**
+	 * Operation should have arrived earlier
+	 *
+	 * It is called by a student to warn the waiter that it is ready to pay the bill
+	 * 
+	 */
 	public void shouldHaveArrivedEarlier() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -512,6 +600,12 @@ public class BarStub {
 		((Student) Thread.currentThread()).setStudentState(inMessage.getStudentState());
 	}
 
+	/**
+	 * Operation go home
+	 *
+	 * It is called by a student to warn the waiter that its going home
+	 * 
+	 */
 	public void goHome() {
 		ClientCom com; // communication channel
 		Message outMessage, // outgoing message
@@ -555,6 +649,7 @@ public class BarStub {
 	 *
 	 * New operation.
 	 * 
+	 * @param waiterId waiter id
 	 */
 
 	public void endOperation(int waiterId) {

@@ -5,12 +5,12 @@ import clientSide.stubs.KitchenStub;
 import clientSide.stubs.TableStub;
 import genclass.GenericIO;
 
-//DONE
-
 /**
  * Waiter thread.
  *
  * Used to simulate the Waiter life cycle.
+ * Implementation of a client-server model of type 2 (server replication).
+ * Communication is based on a communication channel under the TCP protocol.
  */
 
 public class Waiter extends Thread {
@@ -76,6 +76,7 @@ public class Waiter extends Thread {
 	/**
 	 * Set waiter id
 	 * 
+	 * @param waiterID
 	 */
 
 	public void setWaiterID(int waiterID) {
@@ -95,6 +96,7 @@ public class Waiter extends Thread {
 	/**
 	 * Set waiter state
 	 * 
+	 * @param waiterState
 	 */
 
 	public void setWaiterState(int waiterState) {

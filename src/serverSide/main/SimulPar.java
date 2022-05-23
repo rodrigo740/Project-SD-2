@@ -1,5 +1,8 @@
 package serverSide.main;
 
+/**
+ *  Definition of the simulation parameters.
+ */
 public class SimulPar {
 
 	/**

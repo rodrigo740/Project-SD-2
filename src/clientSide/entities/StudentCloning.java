@@ -1,6 +1,4 @@
 package clientSide.entities;
-//DONE
-
 /**
  * Student cloning.
  *
@@ -13,42 +11,42 @@ public interface StudentCloning {
 	/**
 	 * Get Student ID
 	 * 
-	 * @return studentID
+	 * @return studentID student identifier
 	 */
 	public int getStudentID();
 
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID
+	 * @return studentID student identifier
 	 */
 	public void setStudentID(int studentID);
 
 	/**
 	 * Get number of the seat at the table
 	 * 
-	 * @return seat
+	 * @return seat number of the seat at the table
 	 */
 	public int getSeat();
 
 	/**
 	 * Set number of the seat at the table
 	 * 
-	 * @param seat
+	 * @param seat number of the seat at the table
 	 */
 	public void setSeat(int seat);
 
 	/**
 	 * Get Student state
 	 * 
-	 * @return studentState
+	 * @return studentState student state
 	 */
 	public int getStudentState();
 
 	/**
 	 * Set Student state
 	 * 
-	 * @param studentState
+	 * @param studentState student state
 	 */
 	public void setStudentState(int studentState);
 

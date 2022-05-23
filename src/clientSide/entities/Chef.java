@@ -4,12 +4,12 @@ import clientSide.stubs.BarStub;
 import clientSide.stubs.KitchenStub;
 import genclass.GenericIO;
 
-//DONE
-
 /**
  * Chef thread.
  *
  * Used to simulate the Chef life cycle.
+ * Implementation of a client-server model of type 2 (server replication).
+ * Communication is based on a communication channel under the TCP protocol.
  */
 public class Chef extends Thread {
 	/**

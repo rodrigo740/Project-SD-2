@@ -43,7 +43,7 @@ public class GeneralReposInterface {
 	 * outgoing message.
 	 *
 	 * @param inMessage service request
-	 * @return service reply
+	 * @return outMessage service reply
 	 * @throws MessageException if the incoming message is not valid
 	 */
 

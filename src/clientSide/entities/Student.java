@@ -4,11 +4,12 @@ import clientSide.stubs.BarStub;
 import clientSide.stubs.TableStub;
 import serverSide.main.SimulPar;
 
-//DONE
 /**
  * Student thread.
  *
  * Used to simulate the Student life cycle.
+ * Implementation of a client-server model of type 2 (server replication).
+ * Communication is based on a communication channel under the TCP protocol.
  */
 public class Student extends Thread {
 
@@ -16,6 +17,7 @@ public class Student extends Thread {
 	 * Student identification
 	 */
 	private int studentID;
+	
 	/**
 	 * Student state
 	 */
@@ -65,7 +67,7 @@ public class Student extends Thread {
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID
+	 * @param studentID
 	 */
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
@@ -156,6 +158,7 @@ public class Student extends Thread {
 	 *
 	 * It is called by a student to wander before entering the restaurant
 	 * 
+	 * Internal operation.
 	 */
 
 	public void walk() {

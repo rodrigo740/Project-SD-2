@@ -1,10 +1,17 @@
 package clientSide.stubs;
 
+//FALTA VER COMENTARIOS NESTE NAS ULTIMAS FUNCCOES---------------
 import commInfra.ClientCom;
 import commInfra.Message;
 import commInfra.MessageType;
 import genclass.GenericIO;
-
+/**
+ *  Stub to the general repository.
+ *
+ *    It instantiates a remote reference to the general repository.
+ *    Implementation of a client-server model of type 2 (server replication).
+ *    Communication is based on a communication channel under the TCP protocol.
+ */
 public class GeneralReposStub {
 
 	/**
@@ -22,8 +29,8 @@ public class GeneralReposStub {
 	/**
 	 * Instantiation of a stub to the general repository.
 	 *
-	 * @param serverHostName name of the platform where is located the barber shop
-	 *                       server
+	 * @param serverHostName name of the platform where is located the bar, kitchen and table
+	 *                       servers
 	 * @param serverPortNumb port number for listening to service requests
 	 */
 
@@ -93,6 +100,7 @@ public class GeneralReposStub {
 	/*
 	 * Set chef state.
 	 *
+	 * @param id chef id
 	 * @param state chef state
 	 */
 	public void setChefState(int id, int state) {
@@ -122,6 +130,7 @@ public class GeneralReposStub {
 	/*
 	 * Set waiter state.
 	 *
+	 * @param id waiter id
 	 * @param state waiter state
 	 */
 	public void setWaiterState(int id, int state) {
@@ -152,7 +161,6 @@ public class GeneralReposStub {
 	 * Set student state.
 	 *
 	 * @param id student id
-	 * 
 	 * @param state student state
 	 */
 	public void setStudentState(int id, int state) {

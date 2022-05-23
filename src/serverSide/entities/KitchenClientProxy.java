@@ -8,8 +8,6 @@ import commInfra.ServerCom;
 import genclass.GenericIO;
 import serverSide.sharedRegions.KitchenInterface;
 
-//DONE
-
 /**
  * Service provider agent for access to the Kitchen.
  *
@@ -97,7 +95,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Get waiter id
 	 * 
-	 * @return waiterID
+	 * @return waiterID waiter identifier
 	 */
 	public int getWaiterID() {
 		return waiterID;
@@ -106,6 +104,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Set waiter id
 	 * 
+	 * @param waiterID waiter identifier
 	 */
 
 	public void setWaiterID(int waiterID) {
@@ -115,7 +114,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Get waiter state
 	 * 
-	 * @return waiterState
+	 * @return waiterState waiter state
 	 */
 
 	public int getWaiterState() {
@@ -125,6 +124,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Set waiter state
 	 * 
+	 * @param waiterState waiter state
 	 */
 
 	public void setWaiterState(int waiterState) {
@@ -134,7 +134,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Get Chef ID
 	 * 
-	 * @return chefID
+	 * @return chefID chef identifier
 	 */
 	public int getChefID() {
 		return chefID;
@@ -143,7 +143,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Set Chef ID
 	 * 
-	 * @param chefID
+	 * @param chefID chef identifier
 	 */
 	public void setChefID(int chefID) {
 		this.chefID = chefID;
@@ -152,7 +152,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Get Chef state
 	 * 
-	 * @return chefState
+	 * @return chefState chef state
 	 */
 	public int getChefState() {
 		return chefState;
@@ -161,7 +161,7 @@ public class KitchenClientProxy extends Thread implements ChefCloning, WaiterClo
 	/**
 	 * Set Chef state
 	 * 
-	 * @param chefState
+	 * @param chefState chef state
 	 */
 	public void setChefState(int chefState) {
 		this.chefState = chefState;

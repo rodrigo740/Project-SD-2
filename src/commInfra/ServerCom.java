@@ -136,7 +136,7 @@ public class ServerCom {
 	 * of the communication socket and its binding to the client address. The socket
 	 * input and output streams are opened.
 	 *
-	 * @return reference to the commmunication channel
+	 * @return reference to the communication channel
 	 * @throws SocketTimeoutException when a timeout is reached on the listening
 	 *                                process
 	 */

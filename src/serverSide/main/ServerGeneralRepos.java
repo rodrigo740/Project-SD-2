@@ -7,7 +7,6 @@ import genclass.GenericIO;
 import serverSide.entities.GeneralReposClientProxy;
 import serverSide.sharedRegions.GeneralRepos;
 import serverSide.sharedRegions.GeneralReposInterface;
-//DONE
 
 /**
  * Server side of the General Repository of Information.

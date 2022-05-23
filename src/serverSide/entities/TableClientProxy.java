@@ -8,7 +8,6 @@ import commInfra.ServerCom;
 import genclass.GenericIO;
 import serverSide.sharedRegions.TableInterface;
 
-//DONE
 /**
  * Service provider agent for access to the Table.
  *
@@ -99,7 +98,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Get Student ID
 	 * 
-	 * @return studentID
+	 * @return studentID student identifier
 	 */
 	public int getStudentID() {
 		return studentID;
@@ -108,7 +107,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID
+	 * @return studentID student identifier
 	 */
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
@@ -117,7 +116,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Get number of the seat at the table
 	 * 
-	 * @return seat
+	 * @return seat number of the seat at the table
 	 */
 	public int getSeat() {
 		return seat;
@@ -126,7 +125,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set number of the seat at the table
 	 * 
-	 * @param seat
+	 * @param seat number of the seat at the table
 	 */
 	public void setSeat(int seat) {
 		this.seat = seat;
@@ -135,7 +134,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Get Student state
 	 * 
-	 * @return studentState
+	 * @return studentState student state
 	 */
 	public int getStudentState() {
 		return studentState;
@@ -144,7 +143,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set Student state
 	 * 
-	 * @param studentState
+	 * @param studentState student state
 	 */
 	public void setStudentState(int studentState) {
 		this.studentState = studentState;
@@ -153,7 +152,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Get waiter id
 	 * 
-	 * @return waiterID
+	 * @return waiterID waiter identifier
 	 */
 	public int getWaiterID() {
 		return waiterID;
@@ -162,6 +161,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set waiter id
 	 * 
+	 * @param waiterID waiter identifier
 	 */
 
 	public void setWaiterID(int waiterID) {
@@ -171,7 +171,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Get waiter state
 	 * 
-	 * @return waiterState
+	 * @return waiterState waiter state
 	 */
 
 	public int getWaiterState() {
@@ -181,6 +181,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set waiter state
 	 * 
+	 * @param waiterState waiter state
 	 */
 
 	public void setWaiterState(int waiterState) {

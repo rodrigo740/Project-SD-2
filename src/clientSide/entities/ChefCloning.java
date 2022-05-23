@@ -1,7 +1,5 @@
 package clientSide.entities;
 
-//DONE
-
 /**
  * Chef cloning.
  *
@@ -15,28 +13,28 @@ public interface ChefCloning {
 	/**
 	 * Get Chef ID
 	 * 
-	 * @return chefID
+	 * @return chefID chef identifier
 	 */
 	public int getChefID();
 
 	/**
 	 * Set Chef ID
 	 * 
-	 * @param chefID
+	 * @param chefID chef identifier
 	 */
 	public void setChefID(int chefID);
 
 	/**
 	 * Get Chef state
 	 * 
-	 * @return chefState
+	 * @return chefState chef state
 	 */
 	public int getChefState();
 
 	/**
 	 * Set Chef state
 	 * 
-	 * @param chefState
+	 * @param chefState chef state
 	 */
 	public void setChefState(int chefState);
 }
