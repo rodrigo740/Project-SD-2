@@ -51,7 +51,6 @@ public class GeneralReposInterface {
 		Message outMessage = null; // mensagem de resposta
 
 		/* validation of the incoming message */
-		GenericIO.writelnString("General Repos:\n" + inMessage.toString());
 		switch (inMessage.getMsgType()) {
 		case MessageType.SETNFIC:
 			if (inMessage.getLogFName() == null)

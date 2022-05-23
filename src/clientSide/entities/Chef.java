@@ -90,13 +90,10 @@ public class Chef extends Thread {
 	public void run() {
 		boolean firstCourse = true;
 
-		GenericIO.writelnString("Run started Chef!");
 		// Transition to 'WAFOR'
 		kitStub.watchTheNews();
-		GenericIO.writelnString("Watched news!");
 		// Transition to 'PRPCS'
 		kitStub.startPreparations();
-		GenericIO.writelnString("Started preparations!");
 		do {
 			if (!firstCourse) {
 				// Transition to 'PRPCS'
@@ -108,26 +105,18 @@ public class Chef extends Thread {
 			kitStub.proceedToPresentation();
 			barStub.alertWaiter();
 
-			GenericIO.writelnString("Waiter alerted!");
 			// Transition to 'DLVPT'
 			kitStub.deliverPortion();
-			GenericIO.writelnString("Portion delivered");
 			while (!kitStub.allPortionsDelived()) {
-				GenericIO.writelnString("Going to have next portion ready!");
 				// Transition to 'DSHPT'
 				kitStub.haveNextPortionReady();
-				GenericIO.writelnString("Next portion ready!");
 				kitStub.alertWaiter();
-				GenericIO.writelnString("Waiter alerted!!!!");
 				// Transition to 'DLVPT'
 				kitStub.deliverPortion();
-				GenericIO.writelnString("Portion delivered");
 			}
 		} while (!kitStub.orderBeenCompleted());
 		// Transition to 'CLSSV'
 		kitStub.cleanUp();
-
-		GenericIO.writelnString("Cleanned up!");
 	}
 
 }

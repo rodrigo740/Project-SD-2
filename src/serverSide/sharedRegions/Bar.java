@@ -5,6 +5,7 @@ import clientSide.entities.StudentStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
+import genclass.GenericIO;
 import serverSide.entities.BarClientProxy;
 import serverSide.main.ServerBar;
 import serverSide.main.SimulPar;

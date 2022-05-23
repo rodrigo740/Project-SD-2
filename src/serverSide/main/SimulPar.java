@@ -39,7 +39,7 @@ public class SimulPar {
 	 * Number of entities requesting Table shutdown.
 	 */
 
-	public static final int ET = 8;
+	public static final int ET = 2;
 	
 	/**
 	 * Number of entities requesting Kitchen shutdown.
@@ -51,13 +51,13 @@ public class SimulPar {
 	 * Number of entities requesting Bar shutdown.
 	 */
 
-	public static final int EB = 9;
+	public static final int EB = 3;
 	
 	/**
 	 * Number of entities requesting general repos shutdown.
 	 */
 
-	public static final int EG = 10;
+	public static final int EG = 3;
 
 	/**
 	 * It can't be instantiated

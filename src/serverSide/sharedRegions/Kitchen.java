@@ -5,6 +5,7 @@ import clientSide.entities.ChefStates;
 import clientSide.entities.Waiter;
 import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
+import genclass.GenericIO;
 import serverSide.entities.KitchenClientProxy;
 import serverSide.main.ServerKitchen;
 import serverSide.main.SimulPar;

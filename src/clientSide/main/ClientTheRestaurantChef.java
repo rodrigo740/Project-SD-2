@@ -97,10 +97,13 @@ public class ClientTheRestaurantChef {
 
 		GenericIO.writelnString();
 		for (int i = 0; i < SimulPar.C; i++) {
+			/*
 			while (chef[i].isAlive()) {
+				GenericIO.writelnString("Chef is alive");
 				kitchenStub.endOperation(i);
 				Thread.yield();
 			}
+			GenericIO.writelnString("Chef put of while");*/
 			try {
 				chef[i].join();
 			} catch (InterruptedException e) {

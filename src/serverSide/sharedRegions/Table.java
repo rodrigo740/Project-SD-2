@@ -7,6 +7,7 @@ import clientSide.entities.WaiterStates;
 import clientSide.stubs.GeneralReposStub;
 import commInfra.MemException;
 import commInfra.MemFIFO;
+import genclass.GenericIO;
 import serverSide.entities.TableClientProxy;
 import serverSide.main.ServerBar;
 import serverSide.main.ServerTable;

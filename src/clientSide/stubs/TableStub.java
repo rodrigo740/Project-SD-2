@@ -64,14 +64,12 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		GenericIO.writelnString("Going to salute");
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQSALUTECLIENT, ((Waiter) Thread.currentThread()).getWaiterID(),
 				((Waiter) Thread.currentThread()).getWaiterState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
-
-		GenericIO.writelnString("Saluted");
+		
 		if ((inMessage.getMsgType() != MessageType.SALUTECLIENTDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());
@@ -275,14 +273,12 @@ public class TableStub {
 			} catch (InterruptedException e) {
 			}
 		}
-		GenericIO.writelnString("Requesting taking a seat: " + ((Student) Thread.currentThread()).getStudentID());
 		// form 3 (type, id, state)
 		outMessage = new Message(MessageType.REQTAKESEAT, ((Student) Thread.currentThread()).getStudentID(),
 				((Student) Thread.currentThread()).getStudentState());
 		com.writeObject(outMessage);
 		inMessage = (Message) com.readObject();
 
-		GenericIO.writelnString("Took a seat: " + ((Student) Thread.currentThread()).getStudentID());
 		if ((inMessage.getMsgType() != MessageType.TAKESEATDONE)) {
 			GenericIO.writelnString("Thread " + Thread.currentThread().getName() + ": Invalid message type!");
 			GenericIO.writelnString(inMessage.toString());

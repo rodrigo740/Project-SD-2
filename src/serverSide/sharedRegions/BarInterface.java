@@ -51,8 +51,6 @@ public class BarInterface {
 		Message outMessage = null; // outgoing message
 
 		/* validation of the incoming message */
-		
-		GenericIO.writelnString(inMessage.toString());
 
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQLOOKAROUND:

@@ -50,7 +50,6 @@ public class KitchenInterface {
 
 		/* validation of the incoming message */
 
-		GenericIO.writelnString(inMessage.toString());
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQWAFOR:
 			if ((inMessage.getChefId() < 0) || (inMessage.getChefId() >= SimulPar.C)) {
