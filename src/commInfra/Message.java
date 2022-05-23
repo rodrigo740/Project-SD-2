@@ -5,8 +5,6 @@ import java.util.Arrays;
 
 import genclass.GenericIO;
 
-//FAZER
-// ver construtores daqui ------------------- por causa dos ids 
 public class Message implements Serializable {
 	/**
 	 * Serialization key.
@@ -283,14 +281,6 @@ public class Message implements Serializable {
 		}
 	}
 
-	/*
-	 * public Message(int type, int state) { msgType = type; if ((msgType ==
-	 * MessageType.STWST) || (msgType == MessageType.CALLCHEF) || (msgType ==
-	 * MessageType.RPAYDONE)) { waiterState = state; } else if ((msgType ==
-	 * MessageType.STCST)) { chefState = state; } else {
-	 * GenericIO.writelnString("Message type = " + msgType +
-	 * ": non-implemented instantiation!"); System.exit(1); } }
-	 */
 	/**
 	 * Getting message type.
 	 *
@@ -459,9 +449,4 @@ public class Message implements Serializable {
 				+ ", lastEnter=" + lastEnter + ", allPortionDelivered=" + allPortionDelivered + ", orderCompleted="
 				+ orderCompleted + "]";
 	}
-	
-	
-	
-	
-
 }

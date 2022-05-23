@@ -1,7 +1,5 @@
 package commInfra;
 
-//Fazer - acho que existe mensagens repetidas pelos metodos
-//no shutdown nao se faz distincao se é chamada pelo bar, kitchen ou table
 public class MessageType {
 
 	/**
