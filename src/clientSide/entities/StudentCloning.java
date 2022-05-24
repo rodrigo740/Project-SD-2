@@ -18,7 +18,7 @@ public interface StudentCloning {
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID student identifier
+	 * @param studentID student identifier
 	 */
 	public void setStudentID(int studentID);
 

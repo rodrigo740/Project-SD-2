@@ -75,7 +75,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	 * Instantiation of a client proxy.
 	 *
 	 * @param sconi      communication channel
-	 * @param bShopInter interface to the barber shop
+	 * @param barInter interface to the bar
 	 */
 
 	public BarClientProxy(ServerCom sconi, BarInterface barInter) {

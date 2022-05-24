@@ -62,7 +62,7 @@ public class Kitchen {
 	/**
 	 * Kitchen instantiation
 	 * 
-	 * @param repos reference to the General Information Repository
+	 * @param reposStub reference to the General Information Repository
 	 */
 	public Kitchen(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
@@ -86,7 +86,7 @@ public class Kitchen {
 	/**
 	 * Set Portion Ready Flag.
 	 *
-	 * @param collected portion ready
+	 * @param ready collected portion ready
 	 */
 
 	public synchronized void setPortionReady(boolean ready) {

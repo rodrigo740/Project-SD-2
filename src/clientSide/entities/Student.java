@@ -43,8 +43,8 @@ public class Student extends Thread {
 	 * 
 	 * @param name      thread main
 	 * @param studentID ID of the student
-	 * @param bar       reference to the BarStub
-	 * @param tbl       reference to the TableStub
+	 * @param barStub       reference to the BarStub
+	 * @param tblStub       reference to the TableStub
 	 */
 	public Student(String name, int studentID, BarStub barStub, TableStub tblStub) {
 		super(name);
