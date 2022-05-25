@@ -177,7 +177,7 @@ public class Table {
 	/**
 	 * Table instantiation.
 	 *
-	 * @param repos reference to the general repository
+	 * @param reposStub reference to the general repository
 	 */
 	public Table(GeneralReposStub reposStub) {
 		// first starts at -1 and only the first student to enter will change it to its

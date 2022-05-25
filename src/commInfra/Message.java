@@ -249,7 +249,7 @@ public class Message implements Serializable {
 	 * Message instantiation (form 5).
 	 *
 	 * @param type  message type
-	 * @param endOP end of operations flag
+	 * @param endOp end of operations flag
 	 */
 
 	public Message(int type, boolean endOp) {
@@ -283,7 +283,7 @@ public class Message implements Serializable {
 	 *
 	 * @param type  message type
 	 * @param id    waiter identification
-	 * @param flag  boolean flag
+	 * @param f boolean flag
 	 */
 
 	public Message(int type, int id, boolean f) {

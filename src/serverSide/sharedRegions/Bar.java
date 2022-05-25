@@ -114,7 +114,7 @@ public class Bar {
 	/**
 	 * Bar instantiation
 	 * 
-	 * @param repos reference to the General Information Repository
+	 * @param reposStub reference to the General Information Repository
 	 */
 	public Bar(GeneralReposStub reposStub) {
 		this.reposStub = reposStub;
@@ -249,7 +249,7 @@ public class Bar {
 	/**
 	 * Set hasCalledWaiter flag
 	 *
-	 * @param hasCalledWaiter
+	 * @param hasCalledWaiter has called waiter
 	 */
 	public synchronized void setHasCalledWaiter(boolean hasCalledWaiter) {
 		this.hasCalledWaiter = hasCalledWaiter;
@@ -269,7 +269,7 @@ public class Bar {
 	/**
 	 * Set wantsToPay flag
 	 *
-	 * @param wantsToPay
+	 * @param wantsToPay wants to pay
 	 */
 	public synchronized void setWantsToPay(boolean wantsToPay) {
 		this.wantsToPay = wantsToPay;
@@ -289,7 +289,7 @@ public class Bar {
 	/**
 	 * Set describedOrder flag
 	 *
-	 * @param describedOrder
+	 * @param describedOrder described order
 	 */
 	public synchronized void setDescribedOrder(boolean describedOrder) {
 		this.describedOrder = describedOrder;
@@ -309,7 +309,7 @@ public class Bar {
 	/**
 	 * Set signalWaiter flag
 	 *
-	 * @param signalWaiter
+	 * @param signalWaiter signal waiter
 	 */
 	public synchronized void setSignalWaiter(boolean signalWaiter) {
 		this.signalWaiter = signalWaiter;
@@ -329,7 +329,7 @@ public class Bar {
 	/**
 	 * Set billHonored flag
 	 *
-	 * @param billHonored
+	 * @param billHonored bill honored
 	 */
 	public synchronized void setBillHonored(boolean billHonored) {
 		this.billHonored = billHonored;

@@ -51,9 +51,9 @@ public class Waiter extends Thread {
 	 * @param name        thread name
 	 * @param waiterID    id of the waiter
 	 * @param waiterState state of the waiter
-	 * @param bar         reference to the bar
-	 * @param kit         reference to the kitchen
-	 * @param tbl         reference to the table
+	 * @param barStub         reference to the bar
+	 * @param kitStub         reference to the kitchen
+	 * @param tblStub         reference to the table
 	 */
 	public Waiter(String name, int waiterID, int waiterState, BarStub barStub, KitchenStub kitStub, TableStub tblStub) {
 		super(name);

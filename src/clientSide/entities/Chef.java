@@ -35,8 +35,8 @@ public class Chef extends Thread {
 	 * @param name      thread name
 	 * @param chefID    ID of the chef
 	 * @param chefState state of the chef
-	 * @param bar       reference of the BarStub
-	 * @param kit       reference of the KitchenStub
+	 * @param barStub       reference of the BarStub
+	 * @param kitStub       reference of the KitchenStub
 	 */
 	public Chef(String name, int chefID, int chefState, BarStub barStub, KitchenStub kitStub) {
 		super(name);

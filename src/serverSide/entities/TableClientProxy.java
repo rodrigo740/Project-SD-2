@@ -62,7 +62,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	 * Instantiation of a client proxy.
 	 *
 	 * @param sconi        communication channel
-	 * @param KitchenInter interface to the table
+	 * @param TableInter interface to the table
 	 */
 
 	public TableClientProxy(ServerCom sconi, TableInterface TableInter) {
@@ -107,7 +107,7 @@ public class TableClientProxy extends Thread implements StudentCloning, WaiterCl
 	/**
 	 * Set Student ID
 	 * 
-	 * @return studentID student identifier
+	 * @param studentID student identifier
 	 */
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
