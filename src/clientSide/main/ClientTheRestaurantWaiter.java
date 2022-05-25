@@ -116,11 +116,11 @@ public class ClientTheRestaurantWaiter {
 		/* waiting for the end of the simulation */
 
 		GenericIO.writelnString();
-		for (int i = 0; i < SimulPar.W; i++) {/*
+		for (int i = 0; i < SimulPar.W; i++) {
 			while (waiter[i].isAlive()) {
 				barStub.endOperation(i);
 				Thread.yield();
-			}*/
+			}
 			try {
 				waiter[i].join();
 			} catch (InterruptedException e) {

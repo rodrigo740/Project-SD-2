@@ -138,7 +138,7 @@ public class Student extends Thread {
 				if (i != 2) {
 					barStub.signalWaiter();
 				}
-				tblStub.chatAgain();
+				//tblStub.chatAgain();
 			} else {
 				// Transition to 'CHTWC'
 				tblStub.waitForEveryoneToFinish();

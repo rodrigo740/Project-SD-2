@@ -193,6 +193,7 @@ public class Bar {
 				wait();
 			} catch (InterruptedException e) {
 				waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = null;
+				return 'e';
 			}
 		}
 		if (oper == 'p') {
@@ -203,6 +204,7 @@ public class Bar {
 					wait();
 				} catch (InterruptedException e) {
 					waiter[((BarClientProxy) Thread.currentThread()).getWaiterID()] = null;
+					return 'e';
 				}
 			}
 			// reset bringNextCourse flag
@@ -544,7 +546,7 @@ public class Bar {
 	 */
 
 	public synchronized void endOperation(int waiterID) {
-		while (nEntities == 0) { /* the waiter waits for the termination of the students */
+		while (nEntities < 2) { /* the waiter waits for the termination of the students */
 			try {
 				wait();
 			} catch (InterruptedException e) {

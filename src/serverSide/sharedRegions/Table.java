@@ -167,6 +167,12 @@ public class Table {
 	 */
 
 	private final GeneralReposStub reposStub;
+	
+	/**
+	 * number of students that have left chatting.
+	 */
+
+	private int chatLeft;
 
 	/**
 	 * Table instantiation.
@@ -176,6 +182,7 @@ public class Table {
 	public Table(GeneralReposStub reposStub) {
 		// first starts at -1 and only the first student to enter will change it to its
 		// ID
+		chatLeft = 0;
 		first = -1;
 		lastToEatID = -1;
 		student = new TableClientProxy[SimulPar.S];
@@ -533,15 +540,19 @@ public class Table {
 		if (lastToEatID == studentID) {
 			lastToEatID = -1;
 		}
-		if (nChatting < SimulPar.S) {
+		while (nChatting < SimulPar.S) {
 			try {
-				wait(); // while aqui
+				wait();
 			} catch (Exception e) {
 			}
-		} else {
+		} 
+		chatLeft--;
+		if (chatLeft == 0) {
 			allFinishedEating = false;
+			chatLeft = nChatting;
 			nChatting = 0;
 		}
+		
 		while (!portionDelivered && !noMoreCourses) {
 			try {
 				wait();
@@ -564,6 +575,7 @@ public class Table {
 	 */
 
 	public synchronized void enjoyMeal() {
+		notifyAll();
 		int studentID;
 		// set state of student
 		studentID = ((TableClientProxy) Thread.currentThread()).getStudentID();

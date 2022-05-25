@@ -1,6 +1,5 @@
 package clientSide.stubs;
 
-//FALTA VER COMENTARIOS NESTE NAS ULTIMAS FUNCCOES---------------
 import commInfra.ClientCom;
 import commInfra.Message;
 import commInfra.MessageType;
