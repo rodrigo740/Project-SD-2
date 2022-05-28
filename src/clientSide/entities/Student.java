@@ -130,7 +130,12 @@ public class Student extends Thread {
 			barStub.callTheWaiter();
 			tblStub.describeOrder();
 		}
-
+		/*
+		long v = (long) (1 + 40 * Math.random());
+		try {
+			Thread.sleep(v);
+		} catch (InterruptedException e) {
+		}*/
 		//GenericIO.writelnString("Going chat");
 		for (int i = 0; i < SimulPar.M; i++) {
 			// Transition to 'CHTWC'
@@ -141,6 +146,12 @@ public class Student extends Thread {
 			if (tblStub.lastToEat()) {
 				if (i != 2) {
 					barStub.signalWaiter();
+					/*
+					v = (long) (1 + 40 * Math.random());
+					try {
+						Thread.sleep(v);
+					} catch (InterruptedException e) {
+					}*/
 				}
 				//tblStub.chatAgain();
 			} else {

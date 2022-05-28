@@ -8,5 +8,7 @@ do
     sleep 1
     xterm  -T "Students" -e "./StudentsDeployAndRun.sh" &
     xterm  -T "Waiter" -e "./WaiterDeployAndRun.sh" &
-    xterm  -T "Chef" -e "./ChefDeployAndRun.sh"
+    xterm  -T "Chef" -e "./ChefDeployAndRun.sh" 
+
+    sleep 2
 done

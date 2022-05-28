@@ -103,12 +103,25 @@ public class Chef extends Thread {
 			// Transition to 'DSHPT'
 			kitStub.proceedToPresentation();
 			barStub.alertWaiter();
+			/*
+			long v = (long) (1 + 40 * Math.random());
+			try {
+				Thread.sleep(v);
+			} catch (InterruptedException e) {
+			}*/
 			// Transition to 'DLVPT'
 			kitStub.deliverPortion();
 			while (!kitStub.allPortionsDelived()) {
 				// Transition to 'DSHPT'
 				kitStub.haveNextPortionReady();
 				kitStub.alertWaiter();
+				/*
+				v = (long) (1 + 40 * Math.random());
+				try {
+					Thread.sleep(v);
+				} catch (InterruptedException e) {
+				}
+				*/
 				// Transition to 'DLVPT'
 				kitStub.deliverPortion();
 			}

@@ -314,7 +314,7 @@ public class Kitchen {
 	 */
 
 	public synchronized void endOperation(int chefID) {
-		while (nEntities == 0) { /* the barber waits for the termination of the customers */
+		while (nEntities == 0) { /* the chef waits for the termination of the customers */
 			try {
 				wait();
 			} catch (InterruptedException e) {

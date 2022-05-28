@@ -122,6 +122,12 @@ public class Waiter extends Thread {
 				barStub.returnToTheBarAfterSalute();
 				break;
 			case 'o':
+				/*
+				long v = (long) (1 + 40 * Math.random());
+				try {
+					Thread.sleep(v);
+				} catch (InterruptedException e) {
+				}*/
 				// Transition to 'TKODR'
 				tblStub.getThePad();
 				// Transition to 'PCODR'
@@ -134,6 +140,12 @@ public class Waiter extends Thread {
 					// Transition to 'WTFPT'
 					kitStub.collectPortion();
 					tblStub.deliverPortion();
+					/*
+					v = (long) (1 + 40 * Math.random());
+					try {
+						Thread.sleep(v);
+					} catch (InterruptedException e) {
+					}*/
 				}
 				// Transition to 'APPST'
 				barStub.returnToTheBarAfterPortionsDelivered();

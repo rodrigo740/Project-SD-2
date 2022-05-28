@@ -33,8 +33,8 @@ public class ServerKitchen {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Kitchen kitchen; // barber shop (service to be rendered)
-		KitchenInterface kitchenInter; // interface to the barber shop
+		Kitchen kitchen; // kitchen (service to be rendered)
+		KitchenInterface kitchenInter; // interface to the kitchen
 		GeneralReposStub reposStub; // stub to the general repository
 		ServerCom scon, sconi; // communication channels
 		int portNumb = -1; // port number for listening to service requests

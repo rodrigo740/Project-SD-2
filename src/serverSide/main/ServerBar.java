@@ -34,8 +34,8 @@ public class ServerBar {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Bar bar; // barber shop (service to be rendered)
-		BarInterface barInter; // interface to the barber shop
+		Bar bar; // bar (service to be rendered)
+		BarInterface barInter; // interface to the bar
 		GeneralReposStub reposStub; // stub to the general repository
 		ServerCom scon, sconi; // communication channels
 		int portNumb = -1; // port number for listening to service requests

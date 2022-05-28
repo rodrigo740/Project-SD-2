@@ -17,31 +17,31 @@ mkdir -p dirTable dirTable/serverSide dirTable/serverSide/main dirTable/serverSi
 cp serverSide/main/SimulPar.class serverSide/main/ServerTable.class dirTable/serverSide/main
 cp serverSide/entities/TableClientProxy.class dirTable/serverSide/entities
 cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/TableInterface.class serverSide/sharedRegions/Table.class dirTable/serverSide/sharedRegions
-cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
+cp clientSide/entities/StudentStates.class clientSide/entities/Student.class clientSide/entities/WaiterStates.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
    dirTable/clientSide/entities
-cp clientSide/stubs/GeneralReposStub.class dirTable/clientSide/stubs
+cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirTable/clientSide/stubs
 cp commInfra/*.class dirTable/commInfra
 echo "  Bar"
 rm -rf dirBar
 mkdir -p dirBar dirBar/serverSide dirBar/serverSide/main dirBar/serverSide/entities dirBar/serverSide/sharedRegions \
          dirBar/clientSide dirBar/clientSide/entities dirBar/clientSide/stubs dirBar/commInfra
-cp serverSide/main/SimulPar.class serverSide/main/ServerTable.class dirBar/serverSide/main
-cp serverSide/entities/TableClientProxy.class dirBar/serverSide/entities
-cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/TableInterface.class serverSide/sharedRegions/Table.class dirBar/serverSide/sharedRegions
+cp serverSide/main/SimulPar.class serverSide/main/ServerBar.class dirBar/serverSide/main
+cp serverSide/entities/BarClientProxy.class dirBar/serverSide/entities
+cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/BarInterface.class serverSide/sharedRegions/Bar.class dirBar/serverSide/sharedRegions
 cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
    dirBar/clientSide/entities
-cp clientSide/stubs/GeneralReposStub.class dirBar/clientSide/stubs
+cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirBar/clientSide/stubs
 cp commInfra/*.class dirBar/commInfra
 echo "  Kitchen"
 rm -rf dirKitchen
 mkdir -p dirKitchen dirKitchen/serverSide dirKitchen/serverSide/main dirKitchen/serverSide/entities dirKitchen/serverSide/sharedRegions \
          dirKitchen/clientSide dirKitchen/clientSide/entities dirKitchen/clientSide/stubs dirKitchen/commInfra
-cp serverSide/main/SimulPar.class serverSide/main/ServerTable.class dirKitchen/serverSide/main
-cp serverSide/entities/TableClientProxy.class dirKitchen/serverSide/entities
-cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/TableInterface.class serverSide/sharedRegions/Table.class dirKitchen/serverSide/sharedRegions
-cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
+cp serverSide/main/SimulPar.class serverSide/main/ServerKitchen.class dirKitchen/serverSide/main
+cp serverSide/entities/KitchenClientProxy.class dirKitchen/serverSide/entities
+cp serverSide/sharedRegions/GeneralReposInterface.class serverSide/sharedRegions/KitchenInterface.class serverSide/sharedRegions/Kitchen.class dirKitchen/serverSide/sharedRegions
+cp clientSide/entities/StudentStates.class clientSide/entities/WaiterStates.class clientSide/entities/Chef.class clientSide/entities/ChefStates.class clientSide/entities/StudentCloning.class clientSide/entities/WaiterCloning.class clientSide/entities/ChefCloning.class \
    dirKitchen/clientSide/entities
-cp clientSide/stubs/GeneralReposStub.class dirKitchen/clientSide/stubs
+cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirKitchen/clientSide/stubs
 cp commInfra/*.class dirKitchen/commInfra
 echo "  Students"
 rm -rf dirStudents
@@ -58,8 +58,8 @@ mkdir -p dirWaiter dirWaiter/serverSide dirWaiter/serverSide/main dirWaiter/clie
          dirWaiter/clientSide/stubs dirWaiter/commInfra
 cp serverSide/main/SimulPar.class dirWaiter/serverSide/main
 cp clientSide/main/ClientTheRestaurantWaiter.class dirWaiter/clientSide/main
-cp clientSide/entities/Student.class clientSide/entities/WaiterStates.class dirStudents/clientSide/entities
-cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirStudents/clientSide/stubs
+cp clientSide/entities/Waiter.class clientSide/entities/WaiterStates.class dirWaiter/clientSide/entities
+cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirWaiter/clientSide/stubs
 cp commInfra/Message.class commInfra/MessageType.class commInfra/MessageException.class commInfra/ClientCom.class dirWaiter/commInfra
 echo "  Chef"
 rm -rf dirChef
@@ -67,8 +67,8 @@ mkdir -p dirChef dirChef/serverSide dirChef/serverSide/main dirChef/clientSide d
          dirChef/clientSide/stubs dirChef/commInfra
 cp serverSide/main/SimulPar.class dirChef/serverSide/main
 cp clientSide/main/ClientTheRestaurantChef.class dirChef/clientSide/main
-cp clientSide/entities/Student.class clientSide/entities/ChefStates.class dirStudents/clientSide/entities
-cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirStudents/clientSide/stubs
+cp clientSide/entities/Chef.class clientSide/entities/ChefStates.class dirChef/clientSide/entities
+cp clientSide/stubs/GeneralReposStub.class clientSide/stubs/TableStub.class clientSide/stubs/KitchenStub.class clientSide/stubs/BarStub.class dirChef/clientSide/stubs
 cp commInfra/Message.class commInfra/MessageType.class commInfra/MessageException.class commInfra/ClientCom.class dirChef/commInfra
 echo "Compressing execution environments."
 echo "  General Repository of Information"

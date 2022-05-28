@@ -66,7 +66,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	private ServerCom sconi;
 
 	/**
-	 * Interface to the Barber Shop.
+	 * Interface to the Bar.
 	 */
 
 	private BarInterface barInter;
@@ -91,7 +91,7 @@ public class BarClientProxy extends Thread implements WaiterCloning, StudentClon
 	 */
 
 	private static int getProxyId() {
-		Class<?> cl = null; // representation of the BarberShopClientProxy object in JVM
+		Class<?> cl = null; // representation of the BarClientProxy object in JVM
 		int proxyId; // instantiation identifier
 
 		try {

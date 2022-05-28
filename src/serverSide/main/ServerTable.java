@@ -35,8 +35,8 @@ public class ServerTable {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Table table; // barber shop (service to be rendered)
-		TableInterface tableInter; // interface to the barber shop
+		Table table; // table (service to be rendered)
+		TableInterface tableInter; // interface to the table
 		GeneralReposStub reposStub; // stub to the general repository
 		ServerCom scon, sconi; // communication channels
 		int portNumb = -1; // port number for listening to service requests

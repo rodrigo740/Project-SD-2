@@ -537,6 +537,7 @@ public class Table {
 		((TableClientProxy) Thread.currentThread()).setStudentState(StudentStates.CHTWC);
 		reposStub.setStudentState(studentID, StudentStates.CHTWC);
 		nChatting++;
+		
 		if (lastToEatID == studentID) {
 			lastToEatID = -1;
 		}
@@ -545,14 +546,14 @@ public class Table {
 				wait();
 			} catch (Exception e) {
 			}
-		} 
+		}
+		// reset allFinishedEating flag
+		allFinishedEating = false;
 		chatLeft--;
 		if (chatLeft == 0) {
-			allFinishedEating = false;
 			chatLeft = nChatting;
 			nChatting = 0;
 		}
-		
 		while (!portionDelivered && !noMoreCourses) {
 			try {
 				wait();
