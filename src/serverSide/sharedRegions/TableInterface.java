@@ -50,6 +50,7 @@ public class TableInterface {
 
 		/* validation of the incoming message */
 
+		//GenericIO.writelnString("Process and reply table");
 		switch (inMessage.getMsgType()) {
 		case MessageType.REQSALUTECLIENT:
 			if ((inMessage.getWaiterId() < 0) || (inMessage.getWaiterId() >= SimulPar.W))

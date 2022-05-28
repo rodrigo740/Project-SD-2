@@ -2,6 +2,7 @@ package clientSide.entities;
 
 import clientSide.stubs.BarStub;
 import clientSide.stubs.TableStub;
+import genclass.GenericIO;
 import serverSide.main.SimulPar;
 
 /**
@@ -129,9 +130,12 @@ public class Student extends Thread {
 			barStub.callTheWaiter();
 			tblStub.describeOrder();
 		}
+
+		//GenericIO.writelnString("Going chat");
 		for (int i = 0; i < SimulPar.M; i++) {
 			// Transition to 'CHTWC'
 			tblStub.chat();
+			//GenericIO.writelnString("Going to eat");
 			// Transition to 'EJYML'
 			tblStub.enjoyMeal();
 			if (tblStub.lastToEat()) {
