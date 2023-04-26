@@ -1,6 +1,6 @@
 # Projeto-SD-2
 Assignment 2 de SD
-
+Grade: 16/16
 
 Student
 *      args[0] - name of the platform where is located the table server 
